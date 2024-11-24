@@ -1,0 +1,773 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #111;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease;
+}
+section {
+    margin-bottom: 20px; /* Adjust this value to control the space between sections */
+}
+a {
+    text-decoration: none;
+    color: #00bcd4;
+}
+
+h1, h2 {
+    color: #ff4081;
+}
+h3 {
+    color: #00bcd4;
+}
+
+/* Header */
+.header {
+    background-color: #222;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+.heading {
+    font-size: 36px;
+    margin: 0;
+}
+
+.tagline {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #aaa;
+}
+
+.contact-links a {
+    margin: 10px;
+    font-size: 18px;
+    display: inline-block;
+    color: #00bcd4;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: #ff4081;
+}
+.contact-links img{
+    height: 30px;
+    width: 30px;
+}
+
+.contact-links img :hover{
+    height: 30px;
+    width: 30px;
+    transform: scale(1.2);
+}
+/* About Section */
+.about {
+    padding: 40px;
+    background: linear-gradient(to bottom, #222222, #f9f9f9); /* Dark to light gray fade */
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.about h2 {
+    font-size: 28px;
+}
+
+.about p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .heading {
+        font-size: 28px; /* Adjust font size for smaller screens */
+    }
+
+    .tagline {
+        font-size: 16px; /* Slightly smaller tagline for mobile */
+    }
+
+    .profile-img {
+        width: 100px; /* Smaller profile image for mobile */
+        height: 100px; /* Smaller profile image for mobile */
+    }
+
+    .contact-links a {
+        font-size: 16px; /* Smaller font for links */
+        margin: 8px; /* Less margin on mobile */
+    }
+
+    .contact-links img {
+        height: 25px;
+        width: 25px;
+    }
+}
+
+
+/* Education Section */
+.education {
+    padding: 40px;
+    background: linear-gradient(to bottom, #333333, #444444); /* Dark gray to lighter gray fade */
+}
+
+.education h2 {
+    font-size: 28px;
+}
+
+.edu-entry {
+    background-color: #444;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.edu-entry p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Experience Section */
+.experience {
+    padding: 40px;
+    background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
+}
+
+.exp-entry {
+    background-color: #555;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Skills Section */
+.skills {
+    background: linear-gradient(to bottom, #333333, #444444); /* Dark gray to lighter gray fade */
+    padding: 40px 20px;
+}
+
+.skills-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.skill img {
+    width: 60px;
+    height: 60px;
+    background-color: #ebe4e4;
+    border-radius: 5px;
+}
+
+.skill p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Projects Section */
+.projects {
+    background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
+    padding: 40px 20px;
+}
+
+.project {
+    background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.project h3 {
+    color: #ff4081;
+    font-size: 22px;
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #00bcd4;
+    font-size: 16px;
+}
+
+.project a:hover {
+    color: #ff4081;
+}
+
+.project:hover {
+    background-color: #f0f8ff; /* Change background color on hover */
+    transform: scale(1.02); /* Slight zoom-in effect */
+    transition: color 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+/* Hover Effect on Project Links */
+.project a {
+    text-decoration: none;
+    color: #007bff; /* Link color */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+/* Certifications Section */
+.certifications {
+    background: linear-gradient(to bottom, #333333, #444444); /* Dark to lighter gray fade */
+    padding: 40px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.certifications h2 {
+    font-size: 28px;
+    color: #ff4081;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.certifications-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.certification-card {
+    background-color: #555;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 80%;
+}
+
+.certification-card h3 {
+    font-size: 18px;
+    color: #fff;
+}
+
+.certification-card a {
+    text-decoration: none;
+    color: #00bcd4;
+    transition: color 0.3s ease;
+}
+
+.certification-card a:hover {
+    color: #ff4081;
+}
+
+.certification-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .certifications h2 {
+        font-size: 1.5rem;
+    }
+
+    .certifications-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .certification-card {
+        width: 80%;
+    }
+}
+
+
+/* Hidden Sections for Animations */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #ff4081;
+}
+footer img{
+    border-radius: 5px;
+    gap: 5px;
+}
+
+#portfolio-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+
+.heading {
+    font-size: 2.5rem;
+    margin-top: 10px;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.contact-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+/* Dark Mode Button */
+.dark-mode-toggle {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Coding Profiles Section */
+.coding-profiles .links a {
+    margin-right: 20px;
+    align-items: center;
+    display: inline-block;
+    width: 60px; /* Set the width of each icon */
+    height: 60px; /* Set the height of each icon */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for transform and box-shadow */
+}
+
+.coding-profiles .links img {
+    width: 90px;
+    height: 60px;
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Add transition for image scale */
+}
+
+/* Center the coding-profiles section */
+.coding-profiles {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.coding-profiles .links {
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    gap: 40px; /* Space between the icons */
+    flex-wrap: wrap; /* Allows the icons to wrap on smaller screens */
+}
+
+/* Hover effect for links */
+.coding-profiles .links a:hover {
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add a shadow effect when hovering */
+}
+
+/* Hover effect for images inside the links */
+.coding-profiles .links a:hover img {
+    transform: scale(1.1); /* Slightly enlarge the image inside the link */
+}
+
+/* Skills Section */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.skill {
+    text-align: center;
+}
+
+.skill img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Style for the entire section */
+.skills {
+    padding: 30px;
+    background-color: #1b1a1a;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #333333, #444444); /* Dark to light fade */
+}
+
+/* Center the heading */
+h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ff4081;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin: 20px 0;
+    color: #00bcd4;
+}
+
+/* Styling for the skills list */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Style for each individual skill card */
+.skill {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    width: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect for skill cards */
+.skill:hover {
+    transform: translateY(-10px); /* Lift effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+/* Add a subtle color change on hover */
+.skill:hover img {
+    filter: brightness(1.3); /* Make the image slightly brighter on hover */
+}
+
+/* Image styling for each logo */
+.skill img {
+    max-width: 50px;
+    max-height: 50px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect on images (slightly enlarge them) */
+.skill:hover img {
+    transform: scale(1.1); /* Slight zoom-in effect on hover */
+}
+
+/* Style the skill text */
+.skill p {
+    font-size: 1em;
+    color: #555;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+/* Change text color on hover */
+.skill:hover p {
+    color: #0073e6; /* Change text color to blue */
+}
+
+/* Add a subtle fade-in effect when the page loads */
+.skills-list .skill {
+    opacity: 0;
+    animation: fadeIn 0.8s forwards;
+}
+
+/* Keyframes for the fade-in effect */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply animation with slight delay for each skill */
+.skills-list .skill:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.skills-list .skill:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.skills-list .skill:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.skills-list .skill:nth-child(4) {
+    animation-delay: 0.4s;
+}
+.skills-list .skill:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* Education Section */
+.highlight {
+    color: #ff6347; /* Tomato color */
+    font-weight: bold;
+}
+
+/* Footer Section */
+.footer {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footer .social-links a {
+    margin-right: 15px;
+}
+
+.footer .social-links img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Contact Form Section */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-size: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.contact-form button:hover {
+    background-color: #555;
+}
+
+/* Add spacing and responsive behavior for smaller screens */
+@media (max-width: 768px) {
+    .skills-list {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .skill {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Summary Section */
+.summary {
+    padding: 40px;
+    background: linear-gradient(to bottom, #222222, #444444); /* Dark to lighter gray fade */
+    margin-bottom: 20px;
+}
+
+.summary h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.summary p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Coding Profiles Section */
+.coding-profiles {
+    padding: 40px;
+    background: linear-gradient(to bottom, #333333, #444444); /* Dark to lighter gray fade */
+    text-align: center;
+    margin: 50px 0;
+    margin-bottom: 20px;
+}
+
+.coding-profiles .links {
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    gap: 40px; /* Space between the icons */
+    flex-wrap: wrap; /* Allows the icons to wrap on smaller screens */
+}
+
+.coding-profiles .links a {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coding-profiles .links img {
+    width: 90px;
+    height: 60px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Awards and Achievements Section *//* General Styles for Awards Section */
+.awards {
+    padding: 40px;
+    background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.awards h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.awards ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Award List Items */
+.awards ul li {
+    font-size: 16px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.awards ul li:hover {
+    transform: translateX(10px); /* Slightly shift to the right on hover */
+    color: #f39c12; /* Change text color to gold on hover */
+}
+
+/* Icon Styling */
+.awards ul li .icon {
+    font-size: 20px;
+    margin-right: 15px;
+    color: #f39c12; /* Gold color for icons */
+}
+
+/* Adding animation for list items */
+.awards ul li {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+.awards ul li:nth-child(odd) {
+    animation-delay: 0.3s;
+}
+
+.awards ul li:nth-child(even) {
+    animation-delay: 0.6s;
+}
+
+/* Animation for fading in */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Contact Me Section */
+.contact-form {
+    padding: 40px;
+    background: linear-gradient(to bottom, #333333, #444444); /* Dark to lighter gray fade */
+}
+
+.contact-form h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-size: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.contact-form button:hover {
+    background-color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skills-list {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .skill {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem; /* Adjust for smaller screens */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+/* Visitor Count Section */
+.visitor-count-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.visitor-count {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00bcd4;
+}
