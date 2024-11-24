@@ -445,16 +445,41 @@
         <!-- Contact Form Section -->
         <section class="contact-form">
             <h2>Contact Me</h2>
-            <form>
+            <form id="contactForm" action="https://formsubmit.co/omimucet@gmail.com" method="POST">
+                <!-- Form Fields -->
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
+                
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+                
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
+                
+                <!-- Hidden input to redirect after form submission -->
+                <input type="hidden" name="_next" value="https://121omprakash.github.io/Portfolio/">
+                
+                <!-- Hidden input for form submission confirmation -->
+                <input type="hidden" name="_subject" value="New Contact Form Submission">
+                
+                <!-- Anti-spam feature: add a field that bots might fill out (useful to block spam submissions) -->
+                <input type="text" name="_honey" style="display:none">
+                
+                <!-- Submit Button -->
                 <button type="submit">Submit</button>
             </form>
         </section>
+        
+        <!-- Thank You Modal -->
+        <div id="thankYouModal" class="modal">
+            <div class="modal-content">
+                <p>Thank you for reaching out!</p>
+                <button id="closeModalBtn">OK</button>
+            </div>
+        </div>
+        
+        
+        
     </div>
 
 

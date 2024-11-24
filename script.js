@@ -24,3 +24,37 @@ function displayVisitorNumber() {
         visitorNumberElement.textContent = `Visitor #${visitorCount}`;
     }
 }
+
+<script>
+// Handle form submission and display the modal
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form from submitting normally
+
+    // Use FormSubmit API to submit form data
+    const form = this;
+    fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+    })
+    .then(response => {
+        if (response.ok) {
+            // Display modal if submission is successful
+            document.getElementById("thankYouModal").style.display = "flex";
+            document.body.classList.add("modal-active"); // Add blur effect to the background
+        } else {
+            alert("There was an error submitting the form. Please try again later.");
+        }
+    })
+    .catch(error => {
+        alert("There was an error submitting the form. Please try again later.");
+    });
+});
+
+// Close the modal when the "OK" button is clicked
+document.getElementById("closeModalBtn").addEventListener("click", function() {
+    document.getElementById("thankYouModal").style.display = "none";
+    document.body.classList.remove("modal-active"); // Remove blur effect
+    // Optionally, reset the form fields after closing the modal
+    document.getElementById("contactForm").reset();
+});
+</script>

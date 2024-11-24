@@ -779,14 +779,50 @@ h3 {
         font-size: 1.5rem;
     }
 }
-/* Visitor Count Section */
-.visitor-count-section {
-    text-align: center;
-    margin-top: 30px;
+/* Modal styling */
+.modal {
+    display: none; /* Hide modal initially */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Make sure modal is above other elements */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.visitor-count {
-    font-size: 20px;
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#thankYouModal p {
+    font-size: 18px;
     font-weight: bold;
-    color: #00bcd4;
+    margin-bottom: 20px;
+}
+
+#thankYouModal button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#thankYouModal button:hover {
+    background-color: #0056b3;
+}
+
+/* Blur effect for background */
+body.modal-active {
+    filter: blur(5px);
 }
