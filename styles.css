@@ -1,8 +1,8 @@
 /* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #111;
-    color: #f1f1f1;
+    background: linear-gradient(to bottom, #222222, #f9f9f9); /* Dark to light gray fade */
+    color: #E5E5E5;
     margin: 0;
     padding: 0;
     transition: background-color 0.3s ease;
@@ -12,23 +12,24 @@ section {
 }
 a {
     text-decoration: none;
-    color: #00bcd4;
+    color: #00BFFF;
 }
 
 h1, h2 {
-    color: #ff4081;
+    color: #FF4F79;
 }
 h3 {
-    color: #00bcd4;
+    color: #00BFFF;
 }
 
 /* Header */
 /* Header */
 .header {
-    background-color: #222;
+    background-color: #2E2E2E;
     padding: 40px 20px;
     text-align: center;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 .heading {
@@ -39,7 +40,7 @@ h3 {
 .tagline {
     font-size: 70px;
     margin-top: 10px;
-    color: #aaa;
+    color: #B0B0B0;
 }
 
 .contact-links a {
@@ -51,7 +52,7 @@ h3 {
 }
 
 .contact-links a:hover {
-    color: #ff4081;
+    color: #FF4F79;
 }
 
 .contact-links img {
@@ -113,6 +114,7 @@ h3 {
 .education {
     padding: 40px;
     background: linear-gradient(to bottom, #333333, #444444); /* Dark gray to lighter gray fade */
+    border-radius: 10px;
 }
 
 .education h2 {
@@ -120,7 +122,7 @@ h3 {
 }
 
 .edu-entry {
-    background-color: #444;
+    background-color: #1D1D1D;
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 10px;
@@ -136,10 +138,11 @@ h3 {
 .experience {
     padding: 40px;
     background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
+    border-radius: 10px;
 }
 
 .exp-entry {
-    background-color: #555;
+    background-color: #2C2C2C;
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 10px;
@@ -162,7 +165,7 @@ h3 {
 .skill img {
     width: 60px;
     height: 60px;
-    background-color: #ebe4e4;
+    background-color: #F0F0F0;
     border-radius: 5px;
 }
 
@@ -177,30 +180,32 @@ h3 {
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
 }
 
 .project {
     background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
-    padding: 15px;
+    padding: 20px;
+    margin-top: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
 }
 
 .project h3 {
-    color: #ff4081;
+    color: #FF4F79;
     font-size: 22px;
 }
 
 .project a {
     display: inline-block;
     margin-top: 10px;
-    color: #00bcd4;
+    color: #00BFFF;
     font-size: 16px;
 }
 
 .project a:hover {
-    color: #ff4081;
+    color: #FF4F79;
 }
 
 .project:hover {
@@ -213,7 +218,7 @@ h3 {
 /* Hover Effect on Project Links */
 .project a {
     text-decoration: none;
-    color: #007bff; /* Link color */
+    color: #1E90FF; /* Link color */
     font-weight: bold;
     transition: color 0.3s ease;
 }
@@ -240,7 +245,7 @@ h3 {
 
 .certifications h2 {
     font-size: 28px;
-    color: #ff4081;
+    color: #FF4F79;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -253,7 +258,7 @@ h3 {
 }
 
 .certification-card {
-    background-color: #555;
+    background-color: #2C2C2C;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -268,12 +273,12 @@ h3 {
 
 .certification-card a {
     text-decoration: none;
-    color: #00bcd4;
+    color: #00BFFF;
     transition: color 0.3s ease;
 }
 
 .certification-card a:hover {
-    color: #ff4081;
+    color: #FF4F79;
 }
 
 .certification-card:hover {
@@ -311,19 +316,18 @@ h3 {
 
 footer {
     text-align: center;
-    margin-top: 40px;
     font-size: 14px;
-    color: #ff4081;
+    color: #FF4F79;
 }
 footer img{
     border-radius: 5px;
-    gap: 5px;
+    gap: 15%;
 }
 
 #portfolio-container {
     max-width: 1200px;
     margin: auto;
-    padding: 20px;
+    padding: 5px;
 }
 
 /* Header Section */
@@ -350,7 +354,7 @@ footer img{
 .contact-links a {
     margin: 0 10px;
     text-decoration: none;
-    color: #333;
+    color: white
 }
 
 .contact-links a:hover {
@@ -359,7 +363,7 @@ footer img{
 
 /* Dark Mode Button */
 .dark-mode-toggle {
-    background-color: #333;
+    background-color: #181818;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -388,6 +392,7 @@ footer img{
 .coding-profiles {
     text-align: center;
     margin: 50px 0;
+    border-radius: 10px;
 }
 
 .coding-profiles .links {
@@ -438,13 +443,13 @@ h2 {
     text-align: center;
     font-size: 2em;
     margin-bottom: 20px;
-    color: #ff4081;
+    color: #FF4F79;
 }
 
 h3 {
     font-size: 1.5em;
     margin: 20px 0;
-    color: #00bcd4;
+    color: #00BFFF;
 }
 
 /* Styling for the skills list */
@@ -495,7 +500,7 @@ h3 {
 /* Style the skill text */
 .skill p {
     font-size: 1em;
-    color: #555;
+    color: #2C2C2C;
     margin-top: 10px;
     transition: color 0.3s ease;
 }
@@ -537,7 +542,7 @@ h3 {
 
 /* Education Section */
 .highlight {
-    color: #ff6347; /* Tomato color */
+    color: #FF4500; /* Tomato color */
     font-weight: bold;
 }
 
@@ -554,6 +559,7 @@ h3 {
 .footer .social-links img {
     width: 40px;
     height: 40px;
+    margin-top: -100px;
 }
 
 /* Contact Form Section */
@@ -561,6 +567,9 @@ h3 {
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+.contact-form{
+    border-radius: 10px;
 }
 
 .contact-form label {
@@ -577,15 +586,17 @@ h3 {
 
 .contact-form button {
     padding: 12px;
-    background-color: #333;
+    background-color: #b22e2e;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 1.2rem;
+    border-radius: 10px;
 }
 
 .contact-form button:hover {
-    background-color: #555;
+    background-color: #f70505;
+    border-radius: 10px;
 }
 
 /* Add spacing and responsive behavior for smaller screens */
@@ -604,8 +615,9 @@ h3 {
 /* Summary Section */
 .summary {
     padding: 40px;
-    background: linear-gradient(to bottom, #222222, #444444); /* Dark to lighter gray fade */
+     background: linear-gradient(to bottom, #222222, #444444);
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 .summary h2 {
@@ -682,14 +694,14 @@ h3 {
 
 .awards ul li:hover {
     transform: translateX(10px); /* Slightly shift to the right on hover */
-    color: #f39c12; /* Change text color to gold on hover */
+    color: #FFB732; /* Change text color to gold on hover */
 }
 
 /* Icon Styling */
 .awards ul li .icon {
     font-size: 20px;
     margin-right: 15px;
-    color: #f39c12; /* Gold color for icons */
+    color: #FFB732; /* Gold color for icons */
 }
 
 /* Adding animation for list items */
@@ -747,16 +759,13 @@ h3 {
 
 .contact-form button {
     padding: 12px;
-    background-color: #333;
+    background-color: #181818;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 1.2rem;
 }
 
-.contact-form button:hover {
-    background-color: #555;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -810,7 +819,7 @@ h3 {
 }
 
 #thankYouModal button {
-    background-color: #007BFF;
+    background-color: #1E90FF;
     color: white;
     border: none;
     padding: 10px 20px;
