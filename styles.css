@@ -23,12 +23,12 @@ h3 {
 }
 
 /* Header */
+/* Header */
 .header {
     background-color: #222;
     padding: 40px 20px;
     text-align: center;
     margin-bottom: 20px;
-    
 }
 
 .heading {
@@ -37,32 +37,32 @@ h3 {
 }
 
 .tagline {
-    font-size: 20px;
+    font-size: 70px;
     margin-top: 10px;
     color: #aaa;
 }
 
 .contact-links a {
     margin: 10px;
-    font-size: 18px;
+    font-size: 28px;
     display: inline-block;
-    color: #00bcd4;
+    color: white;
     transition: color 0.3s ease;
 }
 
 .contact-links a:hover {
     color: #ff4081;
 }
-.contact-links img{
+
+.contact-links img {
     height: 30px;
     width: 30px;
 }
 
-.contact-links img :hover{
-    height: 30px;
-    width: 30px;
+.contact-links img:hover { /* Removed space here */
     transform: scale(1.2);
 }
+
 /* About Section */
 .about {
     padding: 40px;
@@ -81,7 +81,6 @@ h3 {
     line-height: 1.6;
 }
 
-
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .heading {
@@ -98,8 +97,9 @@ h3 {
     }
 
     .contact-links a {
-        font-size: 16px; /* Smaller font for links */
+        font-size: 25px; /* Smaller font for links */
         margin: 8px; /* Less margin on mobile */
+        color: white;
     }
 
     .contact-links img {
@@ -124,6 +124,7 @@ h3 {
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 10px;
+    border: 1px solid #ddd;
 }
 
 .edu-entry p {
@@ -142,6 +143,7 @@ h3 {
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 10px;
+    border: 1px solid #ddd;
 }
 
 /* Skills Section */
@@ -173,12 +175,16 @@ h3 {
 .projects {
     background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
     padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .project {
     background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
     padding: 15px;
     border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
 }
 
 .project h3 {
@@ -210,6 +216,19 @@ h3 {
     color: #007bff; /* Link color */
     font-weight: bold;
     transition: color 0.3s ease;
+}
+
+.category-button {
+    background-color: #f0f0f0;
+    padding: 8px 15px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: background-color 0.3s ease;
+}
+.project-content {
+    width: 75%;
 }
 /* Certifications Section */
 .certifications {
