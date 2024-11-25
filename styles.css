@@ -1,7 +1,7 @@
 /* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #222222, #f9f9f9); /* Dark to light gray fade */
+    background: linear-gradient(to bottom, #0b0b0b, #7d7979); /* Dark to light gray fade */
     color: #E5E5E5;
     margin: 0;
     padding: 0;
@@ -236,20 +236,71 @@ h3 {
     width: 75%;
 }
 /* Certifications Section */
+
 .certifications {
-    background: linear-gradient(to bottom, #333333, #444444); /* Dark to lighter gray fade */
+    background: linear-gradient(to bottom, #333333, #444444); /* Dark to medium blue-gray gradient */
     padding: 40px 20px;
     margin-top: 20px;
     border-radius: 10px;
 }
 
 .certifications h2 {
-    font-size: 28px;
-    color: #FF4F79;
+    color: #FF4F79; /* Light Blue for heading */
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Category Buttons Styles */
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.category-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #444444; /* Dark blue-gray for default background */
+    color: #ecf0f1; /* Light gray for text */
+    border: 2px solid #34495e; /* Lighter border for buttons */
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect for Category Buttons */
+#all:hover {
+    background-color: #f5210a; /* Red for All button */
+    color: #ecf0f1; /* Light text on hover */
+}
+
+#cs:hover {
+    background-color: #2980b9; /* Bright Blue for Computer Science */
+    color: #ecf0f1; /* Light text on hover */
+}
+
+#ds:hover {
+    background-color: #8e44ad; /* Purple for Data Science */
+    color: #ecf0f1; /* Light text on hover */
+}
+
+#da:hover {
+    background-color: #27ae60; /* Green for Data Analytics */
+    color: #ecf0f1; /* Light text on hover */
+}
+
+#se:hover {
+    background-color: #f39c12; /* Yellow for Software Engineering */
+    color: #ecf0f1; /* Light text on hover */
+}
+
+/* Active State for Category Buttons */
+.category-btn.active {
+    color: #fff;
+}
+
+/* Certifications List */
 .certifications-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -258,32 +309,85 @@ h3 {
 }
 
 .certification-card {
-    background-color: #2C2C2C;
+    background-color: #444444; /* Dark Blue-Gray for cards */
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 80%;
+    display: none; /* Default hide */
+}
+
+/* Certification Card Background Colors */
+.certification-card.show {
+    display: block; /* Show only relevant certification cards */
 }
 
 .certification-card h3 {
     font-size: 18px;
-    color: #fff;
+    color: #ecf0f1; /* Light gray for card text */
 }
 
 .certification-card a {
     text-decoration: none;
-    color: #00BFFF;
+    color: #3498db; /* Light Blue for links */
     transition: color 0.3s ease;
 }
 
 .certification-card a:hover {
-    color: #FF4F79;
+    color: #2980b9; /* Darker Blue for link hover */
 }
 
 .certification-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Text and Hover Colors for Each Category (Dynamic based on button color) */
+
+/* Default All Button (Red) */
+#all.active ~ .certifications-list .certification-card.show h3 {
+    color: #e74c3c; /* Red text for relevant cards */
+}
+
+#all.active ~ .certifications-list .certification-card.show a {
+    color: #e74c3c; /* Red hover text */
+}
+
+/* Computer Science (Bright Blue) */
+#cs.active ~ .certifications-list .certification-card.show h3 {
+    color: #2980b9; /* Bright Blue text */
+}
+
+#cs.active ~ .certifications-list .certification-card.show a {
+    color: #2980b9; /* Bright Blue hover text */
+}
+
+/* Data Science (Purple) */
+#ds.active ~ .certifications-list .certification-card.show h3 {
+    color: #8e44ad; /* Purple text */
+}
+
+#ds.active ~ .certifications-list .certification-card.show a {
+    color: #8e44ad; /* Purple hover text */
+}
+
+/* Data Analytics (Green) */
+#da.active ~ .certifications-list .certification-card.show h3 {
+    color: #27ae60; /* Green text */
+}
+
+#da.active ~ .certifications-list .certification-card.show a {
+    color: #27ae60; /* Green hover text */
+}
+
+/* Software Engineering (Yellow) */
+#se.active ~ .certifications-list .certification-card.show h3 {
+    color: #f39c12; /* Yellow text */
+}
+
+#se.active ~ .certifications-list .certification-card.show a {
+    color: #f39c12; /* Yellow hover text */
 }
 
 /* Responsive Design */
@@ -300,7 +404,6 @@ h3 {
         width: 80%;
     }
 }
-
 
 /* Hidden Sections for Animations */
 .hidden {
@@ -405,7 +508,7 @@ footer img{
 /* Hover effect for links */
 .coding-profiles .links a:hover {
     transform: scale(1.1); /* Slightly enlarge the icon on hover */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add a shadow effect when hovering */
+    
 }
 
 /* Hover effect for images inside the links */
@@ -570,6 +673,9 @@ h3 {
 }
 .contact-form{
     border-radius: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form label {
@@ -599,6 +705,48 @@ h3 {
     border-radius: 10px;
 }
 
+.confirmation-box {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.confirmation-content {
+    background-color: #28a745;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+    font-size: 50px;
+    color: white;
+}
+
+.close-btn {
+    background-color: white;
+    color: #28a745;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+/* Animation for confirmation box */
+.confirmation-content p {
+    font-size: 18px;
+    margin-top: 10px;
+}
 /* Add spacing and responsive behavior for smaller screens */
 @media (max-width: 768px) {
     .skills-list {
@@ -834,4 +982,16 @@ h3 {
 /* Blur effect for background */
 body.modal-active {
     filter: blur(5px);
+}
+.visitor-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+#visitor-count {
+    font-size: 20px;
+    color: #4CAF50;
+    font-weight: bold;
 }
