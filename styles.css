@@ -253,6 +253,7 @@ h3 {
 /* Category Buttons Styles */
 .category-buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
     margin-bottom: 20px;
@@ -315,6 +316,7 @@ h3 {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 80%;
+    border: rgb(189, 176, 176) solid 2px;
     display: none; /* Default hide */
 }
 
@@ -559,7 +561,7 @@ h3 {
 .skills-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: left;
     gap: 20px;
     padding: 20px 0;
 }
