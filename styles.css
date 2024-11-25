@@ -405,6 +405,11 @@ h3 {
     .certification-card {
         width: 80%;
     }
+    .category-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 /* Hidden Sections for Animations */
@@ -562,6 +567,7 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
+    margin-left: 50px;
     gap: 20px;
     padding: 20px 0;
 }
@@ -936,6 +942,11 @@ h3 {
 
     h2 {
         font-size: 1.5rem;
+    }
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 /* Modal styling */
