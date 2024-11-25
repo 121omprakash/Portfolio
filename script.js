@@ -20,11 +20,10 @@ function showConfirmationMessage() {
     document.getElementById('confirmationBox').style.display = 'flex';
 }
 
-// Check if the URL contains `success=true` to show the confirmation message
+// Check if the URL contains `#confirmationBox` to show the confirmation message
 window.onload = function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true') {
-        // Show success message when the form is submitted successfully
+    // If the URL has the hash "#confirmationBox", show the confirmation box
+    if (window.location.hash === '#confirmationBox') {
         showConfirmationMessage();
     }
 }
