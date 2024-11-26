@@ -232,11 +232,12 @@ h3 {
     margin-left: 20px;
     transition: background-color 0.3s ease;
 }
+
 .project-content {
     width: 75%;
 }
-/* Certifications Section */
 
+/* Certifications Section */
 .certifications {
     background: linear-gradient(to bottom, #333333, #444444); /* Dark to medium blue-gray gradient */
     padding: 40px 20px;
@@ -272,27 +273,27 @@ h3 {
 
 /* Hover Effect for Category Buttons */
 #all:hover {
-    background-color: #f5210a; /* Red for All button */
+    background-color: #FF4F79; /* Red for All button */
     color: #ecf0f1; /* Light text on hover */
 }
 
 #cs:hover {
-    background-color: #2980b9; /* Bright Blue for Computer Science */
-    color: #ecf0f1; /* Light text on hover */
+    background-color: #FF5733; /* Bright Red-Orange for Computer Science */
+    color: #ffffff; /* White text on hover */
 }
 
 #ds:hover {
-    background-color: #8e44ad; /* Purple for Data Science */
+    background-color: #6a4c93; /* Muted Purple for Data Science */
     color: #ecf0f1; /* Light text on hover */
 }
 
 #da:hover {
-    background-color: #27ae60; /* Green for Data Analytics */
-    color: #ecf0f1; /* Light text on hover */
+    background-color: #16a085; /* Green for Data Analytics */
+    color: #ffffff; /* White text on hover */
 }
 
 #se:hover {
-    background-color: #f39c12; /* Yellow for Software Engineering */
+    background-color: #2980b9; /* Bright Blue for Software Engineering */
     color: #ecf0f1; /* Light text on hover */
 }
 
@@ -332,12 +333,17 @@ h3 {
 
 .certification-card a {
     text-decoration: none;
-    color: #3498db; /* Light Blue for links */
+    color: #2980b9; /* Light Blue for links */
     transition: color 0.3s ease;
 }
 
 .certification-card a:hover {
-    color: #2980b9; /* Darker Blue for link hover */
+    color: #FF4F79;
+     /* Darker Blue for link 
+    hover */
+    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2), /* Strong shadow for depth */
+                   0px 25px 10px rgba(0, 0, 0, 0.1);
+    
 }
 
 .certification-card:hover {
@@ -356,40 +362,40 @@ h3 {
     color: #e74c3c; /* Red hover text */
 }
 
-/* Computer Science (Bright Blue) */
+/* Computer Science (Bright Red-Orange) */
 #cs.active ~ .certifications-list .certification-card.show h3 {
-    color: #2980b9; /* Bright Blue text */
+    color: #FF5733; /* Bright Red-Orange text */
 }
 
 #cs.active ~ .certifications-list .certification-card.show a {
-    color: #2980b9; /* Bright Blue hover text */
+    color: #FF5733; /* Bright Red-Orange hover text */
 }
 
-/* Data Science (Purple) */
+/* Data Science (Muted Purple) */
 #ds.active ~ .certifications-list .certification-card.show h3 {
-    color: #8e44ad; /* Purple text */
+    color: #6a4c93; /* Muted Purple text */
 }
 
 #ds.active ~ .certifications-list .certification-card.show a {
-    color: #8e44ad; /* Purple hover text */
+    color: #6a4c93; /* Muted Purple hover text */
 }
 
 /* Data Analytics (Green) */
 #da.active ~ .certifications-list .certification-card.show h3 {
-    color: #27ae60; /* Green text */
+    color: #16a085; /* Green text */
 }
 
 #da.active ~ .certifications-list .certification-card.show a {
-    color: #27ae60; /* Green hover text */
+    color: #16a085; /* Green hover text */
 }
 
-/* Software Engineering (Yellow) */
+/* Software Engineering (Bright Blue) */
 #se.active ~ .certifications-list .certification-card.show h3 {
-    color: #f39c12; /* Yellow text */
+    color: #2980b9; /* Bright Blue text */
 }
 
 #se.active ~ .certifications-list .certification-card.show a {
-    color: #f39c12; /* Yellow hover text */
+    color: #2980b9; /* Bright Blue hover text */
 }
 
 /* Responsive Design */
@@ -469,16 +475,6 @@ footer img{
 
 .contact-links a:hover {
     text-decoration: underline;
-}
-
-/* Dark Mode Button */
-.dark-mode-toggle {
-    background-color: #181818;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
 }
 
 /* Coding Profiles Section */
@@ -949,48 +945,7 @@ h3 {
         justify-content: center;
     }
 }
-/* Modal styling */
-.modal {
-    display: none; /* Hide modal initially */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    z-index: 1000; /* Make sure modal is above other elements */
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
 
-.modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-#thankYouModal p {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-#thankYouModal button {
-    background-color: #1E90FF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#thankYouModal button:hover {
-    background-color: #0056b3;
-}
 
 /* Blur effect for background */
 body.modal-active {
@@ -1005,6 +960,7 @@ body.modal-active {
 }
 #visitor-count {
     font-size: 20px;
-    color: #4CAF50;
+    color: #93C5FD;
     font-weight: bold;
+    color:#83f988;
 }

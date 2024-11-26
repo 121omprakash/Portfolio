@@ -40,11 +40,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttons = document.querySelectorAll('.category-btn');
     const certificationCards = document.querySelectorAll('.certification-card');
     const categoryColors = {
-        all: '#FF4F79',       // Pink for All button
-        cs: '#FF6347',        // Tomato Red for Computer Science
-        ds: '#00BFFF',        // Deep Sky Blue for Data Science
-        da: '#32CD32',        // Lime Green for Data Analytics
-        se: '#FFD700'         // Gold for Software Engineering
+        all: 'red',       // Pink for All button
+        cs: '#0bdeb4c2',        // Bright Red-Orange for Computer Science
+        ds: '#93C5FD',        // Muted Purple for Data Science
+        da: '#83f988',        // Green for Data Analytics
+        se: '#AAF0D1'         // Bright Blue for Software Engineering
     };
 
     // Text colors corresponding to each category
@@ -59,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const categoryHoverTextColors = {
         all: '#ffffff',       // White text color on hover for All button
         cs: '#ffffff',        // White text color on hover for CS button
-        ds: '#ffffff',        // White text color on hover for DS button
+        ds: '#0288D1',        // White text color on hover for DS button
         da: '#ffffff',        // White text color on hover for DA button
-        se: '#ffffff'         // White text color on hover for SE button
+        se: '#0288D1'         // White text color on hover for SE button
     };
 
     // Function to set the active category and show the relevant certificates
@@ -128,8 +128,12 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!button.classList.contains('active')) {
                 const hoverColor = categoryColors[button.id];
                 const hoverTextColor = categoryHoverTextColors[button.id];
-                button.style.backgroundColor = hoverColor;
+                // Apply hover styles
+                button.style.backgroundColor = lightenDarkenColor(hoverColor, 20); // Brighter background on hover
                 button.style.color = hoverTextColor; // Set hover text color
+                button.style.boxShadow = `0 4px 12px rgba(0, 0, 0, 0.2)`; // Add shadow for depth
+                button.style.transform = 'scale(1.05)'; // Slightly enlarge the button for emphasis
+                button.style.transition = 'all 0.3s ease'; // Smooth transition for all hover effects
             }
         });
 
@@ -137,7 +141,22 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!button.classList.contains('active')) {
                 button.style.backgroundColor = ''; // Reset to parent color
                 button.style.color = ''; // Reset text color
+                button.style.boxShadow = ''; // Remove shadow
+                button.style.transform = 'scale(1)'; // Reset scale
             }
         });
     });
 });
+
+// Function to lighten or darken a color by a given amount
+function lightenDarkenColor(color, percent) {
+    let r = parseInt(color.slice(1, 3), 16);
+    let g = parseInt(color.slice(3, 5), 16);
+    let b = parseInt(color.slice(5, 7), 16);
+    
+    r = Math.min(255, Math.max(0, r + (r * percent / 100)));
+    g = Math.min(255, Math.max(0, g + (g * percent / 100)));
+    b = Math.min(255, Math.max(0, b + (b * percent / 100)));
+
+    return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
+}
