@@ -1,6 +1,6 @@
 # 💼 Portfolio Website
 
-![Logo](https://via.placeholder.com/150) <!-- Replace with your logo URL -->
+![Logo](https://github.com/121omprakash/Portfolio/blob/main/images/profile_picture.png) <!-- Replace with your logo URL -->
 
 Welcome to my **Portfolio Website**! This is a fully interactive and visually appealing portfolio built using modern web technologies such as **HTML**, **CSS**, and **JavaScript**. This site showcases my skills, certifications, and projects in a visually engaging and dynamic way. It also includes animations, category filters, and a visitor counter to track the number of visitors.
 
