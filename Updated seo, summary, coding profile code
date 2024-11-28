@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Om Prakash">
+    <title>Om Prakash - Data Scientist | Data Analyst | AI & ML Expert | Portfolio | Python, Machine Learning, Data Science | omprakas.me</title>
+    <meta name="description" content="Om Prakash's portfolio showcasing expertise in Data Science, Machine Learning, AI, Python, MySQL, Tableau, Big Data, Data Analytics, and more. Explore his work, projects, and skills.">
     
-    <!-- Enhanced Meta Tags for SEO -->
-    <meta name="description" content="Om Prakash, a Data Scientist, Data Analyst, Software Engineer from Amity University Patna, showcases expertise in Python, Data Science, Machine Learning, Artificial Intelligence (AI), MySQL, Tableau, AWS AI/ML Scholar, Data Analytics, Data Analytics Portfolio, and more. Explore Om's professional portfolio and skillset in the tech industry.">
-    <meta name="keywords" content="Om Prakash, Data Scientist, Data Analyst, Software Engineer, Om Prakash Amity University, Amity University Patna, Python, Machine Learning, Artificial Intelligence, AI, MySQL, Tableau, Data Science Portfolio, Data Science, AWS AI/ML Scholar, Data Analytics, Data Science Expert, AI Expert, Software Engineer Portfolio, Data Analysis, Data Engineering, SQL, Python Developer, Kaggle, Tableau Expert, AWS AI/ML, Big Data, Deep Learning, Business Intelligence, Data Analyst Resume, Data Science Skills, Machine Learning Skills, Data Visualization, Python Programmer, Data Scientist India, Data Analyst India, Portfolio, AI Projects, Machine Learning Projects, AI Portfolio, Data Science Portfolio, Om Prakash Portfolio, Om Prakash Data Science, Om Prakash LinkedIn, Om Prakash Kaggle, Data Science Enthusiast, Machine Learning Enthusiast, Python Expert, Data Science Professional, Artificial Intelligence Developer, Full Stack Developer, Data Modeling, Data Scientist Projects, Data Engineering Skills, Cloud Computing, Deep Learning, Data Science Research, Data Science Jobs, AI Researcher, Data Scientist Resume, Software Engineer Resume, Data Analyst Skills, Data Science Applications, Data Science Tutorials, Python for Data Science, Data Science Blog, Data Science Articles, AI Engineer, Data Engineering, Python Developer India, Data Science Internship, Data Scientist Career, MySQL Developer, Python Data Science, AI Data Science, AI Machine Learning Projects, Tableau Data Science, Python Data Analysis, Kaggle Data Science, Machine Learning Algorithm, Data Science Expert India, Data Science Applications, AI Data Analysis, Om Prakash GitHub, Om Prakash Twitter, Om Prakash LinkedIn, Om Prakash Instagram, Om Prakash Codechef, Om Prakash Professional Portfolio, Om Prakash Work, Data Analytics Career, AI Career, AI Projects, Machine Learning Career, Data Science Path, Data Science Skills for 2024, AI Skills 2024, Best Data Science Portfolio, Top Data Scientist, Leading Data Analyst, Career in Data Science, Data Science Resume Example, MySQL Developer Portfolio, Python Data Analysis Portfolio, Portfolio of Data Scientist, Om Prakash Career, AI Portfolio, Data Science Future, Python Machine Learning Portfolio, Om Prakash Personal Website, omprakas.me">
-
     <!-- Open Graph Metadata (For Social Media, Facebook, LinkedIn, etc.) -->
     <meta property="og:title" content="Om Prakash's Portfolio - Data Scientist, Data Analyst, Software Engineer | Python, AI, Machine Learning">
     <meta property="og:description" content="Explore Om Prakash's portfolio, a Data Scientist and Data Analyst from Amity University Patna with expertise in Python, Data Science, Machine Learning, AI, and more.">
@@ -22,9 +22,6 @@
     <meta name="twitter:title" content="Om Prakash's Portfolio - Data Scientist, Data Analyst, Software Engineer | Python, AI, Machine Learning">
     <meta name="twitter:description" content="Explore Om Prakash's portfolio with skills in Data Science, Machine Learning, AI, and Python.">
     <meta name="twitter:image" content="images/profile_picture.png">
-
-    <!-- Title of the Page -->
-    <title>Om Prakash's Portfolio - Data Scientist, Data Analyst, Software Engineer | Python, Machine Learning, AI | omprakas.me</title>
 
     <!-- Google Fonts (Poppins for modern typography) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -72,15 +69,13 @@
 
     <!-- Additional Meta Tags (Mobile Optimization, etc.) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Om Prakash's portfolio showcasing skills in Data Science, AI/ML, Software Engineering, and more.">
-    <meta name="keywords" content="Data Science, AI, ML, Python, Software Engineering, Portfolio, Om Prakash Portfolio, Data Science Portfolio, Data Science Expert, Om Prakash Data Analyst, Om Prakash AI, Machine Learning, Python Data Science, Software Engineering India, Data Science Skills, Python Developer Portfolio, Om Prakash Kaggle, Data Science Projects, AI Projects, Portfolio Development">
-        <meta name="keywords" content="Om Prakash, Data Scientist, Data Analyst, Software Engineer, Om Prakash Amity University, Amity University Patna, Python, Machine Learning, Artificial Intelligence, AI, MySQL, Tableau, Data Science Portfolio, Data Science, AWS AI/ML Scholar, Data Analytics, Data Science Expert, AI Expert, Software Engineer Portfolio, Data Analysis, Data Engineering, SQL, Python Developer, Kaggle, Tableau Expert, AWS AI/ML, Big Data, Deep Learning, Business Intelligence, Data Analyst Resume, Data Science Skills, Machine Learning Skills, Data Visualization, Python Programmer, Data Scientist India, Data Analyst India, Portfolio, AI Projects, Machine Learning Projects, AI Portfolio, Data Science Portfolio, Om Prakash Portfolio, Om Prakash Data Science, Om Prakash LinkedIn, Om Prakash Kaggle, Data Science Enthusiast, Machine Learning Enthusiast, Python Expert, Data Science Professional, Artificial Intelligence Developer, Full Stack Developer, Data Modeling, Data Scientist Projects, Data Engineering Skills, Cloud Computing, Deep Learning, Data Science Research, Data Science Jobs, AI Researcher, Data Scientist Resume, Software Engineer Resume, Data Analyst Skills, Data Science Applications, Data Science Tutorials, Python for Data Science, Data Science Blog, Data Science Articles, AI Engineer, Data Engineering, Python Developer India, Data Science Internship, Data Scientist Career, MySQL Developer, Python Data Science, AI Data Science, AI Machine Learning Projects, Tableau Data Science, Python Data Analysis, Kaggle Data Science, Machine Learning Algorithm, Data Science Expert India, Data Science Applications, AI Data Analysis, Om Prakash GitHub, Om Prakash Twitter, Om Prakash LinkedIn, Om Prakash Instagram, Om Prakash Codechef, Om Prakash Professional Portfolio, Om Prakash Work, Data Analytics Career, AI Career, AI Projects, Machine Learning Career, Data Science Path, Data Science Skills for 2024, AI Skills 2024, Best Data Science Portfolio, Top Data Scientist, Leading Data Analyst, Career in Data Science, Data Science Resume Example, MySQL Developer Portfolio, Python Data Analysis Portfolio, Portfolio of Data Scientist, Om Prakash Career, AI Portfolio, Data Science Future, Python Machine Learning Portfolio, Om Prakash Personal Website, omprakas.me">
-    
+<meta name="keywords" content="Om Prakash, Data Scientist, Data Analyst, Software Engineer, Om Prakash Amity University, Amity University Patna, Python, Machine Learning, Artificial Intelligence, AI, MySQL, Tableau, Data Science Portfolio, Data Science, AWS AI/ML Scholar, Data Analytics, Data Science Expert, AI Expert, Software Engineer Portfolio, Data Analysis, Data Engineering, SQL, Python Developer, Kaggle, Tableau Expert, Big Data, Deep Learning, Business Intelligence, Data Analyst Resume, Data Science Skills, Machine Learning Skills, Data Visualization, Python Programmer, Data Scientist India, Data Analyst India, Portfolio, AI Projects, Machine Learning Projects, AI Portfolio, Om Prakash Portfolio, Om Prakash Data Science, Om Prakash LinkedIn, Om Prakash Kaggle, Data Science Enthusiast, Machine Learning Enthusiast, Python Expert, Data Science Professional, Artificial Intelligence Developer, Full Stack Developer, Data Modeling, Data Scientist Projects, Data Engineering Skills, Cloud Computing, Data Science Research, Data Science Jobs, AI Researcher, Data Scientist Resume, Software Engineer Resume, Data Analyst Skills, Data Science Applications, Data Science Tutorials, Python for Data Science, Data Science Blog, Data Science Articles, AI Engineer, Data Engineering, Python Developer India, Data Science Internship, Data Scientist Career, MySQL Developer, Python Data Science, AI Data Science, AI Machine Learning Projects, Tableau Data Science, Python Data Analysis, Kaggle Data Science, Machine Learning Algorithm, Om Prakash GitHub, Om Prakash Twitter, Om Prakash Instagram, Om Prakash Codechef, Om Prakash Professional Portfolio, Data Analytics Career, AI Career, Machine Learning Career, Data Science Path, Data Science Skills for 2024, AI Skills 2024, Best Data Science Portfolio, Top Data Scientist, Leading Data Analyst, Career in Data Science, Data Science Resume Example, MySQL Developer Portfolio, Python Data Analysis Portfolio, Portfolio of Data Scientist, Om Prakash Career, AI Portfolio, Data Science Future, Python Machine Learning Portfolio, Om Prakash Personal Website, omprakas.me">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/profile_picture.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+     <link rel="canonical" href="https://omprakas.me" />
 </head>
 
 <body>
@@ -104,47 +99,49 @@
                 <a href="https://drive.google.com/file/d/1y5XrsCFGTu_ccBUmwsL7y-1peCk1RMOC/view?usp=sharing"
                 style="color: white;" 
                 onmouseover="this.style.color='#ff4081';" 
-                onmouseout="this.style.color='white';">Download Resume</a>
+                onmouseout="this.style.color='white';">📄Download Resume</a>
                 
-                <a  href="https://linktr.ee/omprakash.in" target="_blank" aria-label="Om Prakash Portfolio"
+                <a  href="https://linktr.ee/omprakash.in" target="_blank" aria-label="Profiles"
                 style="color: white;" 
                 onmouseover="this.style.color='#ff4081';" 
-                onmouseout="this.style.color='white';">🌐 Portfolio</a>
+                onmouseout="this.style.color='white';">🌐 Profiles</a>
             </div>
         </header>
 
         <!-- Summary Section -->
         <section class="summary">
-            <h2>Summary</h2>
-            <p>
-                Hi, I’m Om Prakash, a passionate Data Analyst and Software Engineer currently pursuing my BCA (Bachelor’s in Computer Applications) at Amity University Patna. I’m highly skilled in Python, MySQL, Tableau, Power BI, and Data Science, with hands-on experience in cloud technologies, machine learning, and data visualization. As an AWS AI/ML Scholar 2023 and a tech enthusiast, I am constantly looking for opportunities to solve real-world problems using data. 
+                <h2>Summary</h2>
+                <p>
+                Hi, I’m Om Prakash, an aspiring Data Analyst, Data Scientist and Software Engineer pursuing a Bachelor’s degree in Computer Applications (BCA) at Amity University Patna. I have experience with <strong>Python</strong>, <strong>MySQL</strong>, <strong>Tableau</strong>, <strong>Power BI</strong>, and <strong>Data Visualization</strong>, along with practical knowledge in <strong>cloud technologies</strong> and <strong>machine learning</strong>.As an AWS AI/ML Scholar 2023, I aim to apply my technical skills to analyze data, uncover insights, and develop solutions that address real-world challenges.I am actively seeking challenging opportunities to apply my technical skills and solve real-world problems through data analysis and machine learning techniques.
             </p>
+
         </section>
 
         <!-- Coding Profiles Section -->
-        <section class="coding-profiles">
-            <h2>Coding Profiles</h2>
-            <div class="links">
-                <a href="https://github.com/121omprakash" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
-                </a>
-                <a href="https://www.datacamp.com/portfolio/op703597-f6c53d1f-86ef-4c2f-bd41-5554f10b090e" target="_blank">
-                    <img src="https://www.datacamp.com/marketing-backgrounds/favicons/favicon-32x32.png" alt="DataCamp">
-                </a>
-                <a href="https://www.kaggle.com/ompraksh121" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png" alt="Kaggle">
-                </a>
-                <a href="https://www.geeksforgeeks.org/user/121deaw7sd/" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg" alt="GeeksforGeeks">
-                </a>
-                <a href="https://www.codechef.com/users/om121prakash" target="_blank">
-                    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef">
-                </a>
-                <a href="https://www.hackerrank.com/profile/121deathboy" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank">
-                </a>
-            </div>
-        </section>
+<section class="coding-profiles">
+    <h2>Coding Profiles</h2>
+    <div class="links">
+        <a href="https://github.com/121omprakash" target="_blank" aria-label="Visit Om Prakash's GitHub Profile" title="GitHub">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+        </a>
+        <a href="https://www.datacamp.com/portfolio/op703597-f6c53d1f-86ef-4c2f-bd41-5554f10b090e" target="_blank" aria-label="Visit Om Prakash's DataCamp Portfolio" title="DataCamp">
+            <img src="https://www.datacamp.com/marketing-backgrounds/favicons/favicon-32x32.png" alt="DataCamp">
+        </a>
+        <a href="https://www.kaggle.com/ompraksh121" target="_blank" aria-label="Visit Om Prakash's Kaggle Profile" title="Kaggle">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png" alt="Kaggle">
+        </a>
+        <a href="https://www.geeksforgeeks.org/user/121deaw7sd/" target="_blank" aria-label="Visit Om Prakash's GeeksforGeeks Profile" title="GeeksforGeeks">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg" alt="GeeksforGeeks">
+        </a>
+        <a href="https://www.codechef.com/users/om121prakash" target="_blank" aria-label="Visit Om Prakash's CodeChef Profile" title="CodeChef">
+            <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef">
+        </a>
+        <a href="https://www.hackerrank.com/profile/121deathboy" target="_blank" aria-label="Visit Om Prakash's HackerRank Profile" title="HackerRank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank">
+        </a>
+    </div>
+</section>
+
 
         <!-- Technical Skills Section with Icons -->
         <section class="skills">
