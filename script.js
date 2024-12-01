@@ -162,63 +162,67 @@ function lightenDarkenColor(color, percent) {
     return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
 }
 //User information transfer using mail//
-     // Collect user information
-async function collectVisitorInfo() {
-    // Check if the form has already been submitted in this session
-    if (sessionStorage.getItem('formSubmitted') === 'true') {
-        return; // Exit if the form has already been submitted
+     // Collect user information async function collectVisitorInfo() {
+        // Check if 'n' is set in sessionStorage, if not initialize it
+        if (sessionStorage.getItem('n') === null) {
+            sessionStorage.setItem('n', 0);  // Initialize counter (n) to 0
+        }
+
+        // Check if the form has already been submitted in this session
+        if (sessionStorage.getItem('n') === '1') {
+            return; // Exit if the form has already been submitted in this session
+        }
+
+        const userAgent = navigator.userAgent;  // Device and browser info
+        const location = window.location.href;  // Current URL (page)
+        const visitTime = new Date().toISOString(); // Current time of visit
+
+        try {
+            // Fetch geolocation data using ipinfo.io API (replace with your API key)
+            const response = await fetch('https://ipinfo.io/json?token=YOUR_API_KEY');  // Replace with your token
+            const data = await response.json();
+
+            // Extract user IP address and location data
+            const userIP = data.ip;  // User's IP address
+            const locationData = `${data.city}, ${data.region}, ${data.country}`;
+            const [latitude, longitude] = data.loc.split(',');
+
+            // Set form fields with the collected data
+            document.getElementById('userIP').value = userIP;
+            document.getElementById('location').value = locationData;
+            document.getElementById('userAgent').value = userAgent;
+            document.getElementById('visitTime').value = visitTime;
+            document.getElementById('latitude').value = latitude;
+            document.getElementById('longitude').value = longitude;
+
+            // Submit the form to Formsubmit
+            document.getElementById('visitorForm').submit();
+
+            // After submission, set 'n' to 1 to prevent resubmission in this session
+            sessionStorage.setItem('n', 1);
+
+            // Redirect to the actual content of the page (omprakas.me)
+            window.location.href = "https://omprakas.me";  // Redirect to your actual content page
+        } catch (error) {
+            console.error('Error fetching geolocation:', error);
+            // Fallback in case of error, such as when geolocation is not available
+            document.getElementById('userIP').value = 'IP not available';
+            document.getElementById('location').value = 'Location not available';
+            document.getElementById('userAgent').value = userAgent;
+            document.getElementById('visitTime').value = visitTime;
+            document.getElementById('latitude').value = null;
+            document.getElementById('longitude').value = null;
+
+            // Submit the form to Formsubmit
+            document.getElementById('visitorForm').submit();
+
+            // After submission, set 'n' to 1 to prevent resubmission in this session
+            sessionStorage.setItem('n', 1);
+
+            // Redirect to the actual content of the page (omprakas.me)
+            window.location.href = "https://omprakas.me";  // Redirect to your actual content page
+        }
     }
 
-    const userAgent = navigator.userAgent;  // Device and browser info
-    const location = window.location.href;  // Current URL (page)
-    const visitTime = new Date().toISOString(); // Current time of visit
-
-    try {
-        // Fetch geolocation data using IPinfo API (replace with your API key)
-        const response = await fetch('https://ipinfo.io/json?token=04a19cf4f0772f');  // Replace with your token
-        const data = await response.json();
-
-        // Extract user IP address and location data
-        const userIP = data.ip;  // User's IP address
-        const locationData = `${data.city}, ${data.region}, ${data.country}`;
-        const [latitude, longitude] = data.loc.split(',');
-
-        // Set form fields with the collected data
-        document.getElementById('userIP').value = userIP;
-        document.getElementById('location').value = locationData;
-        document.getElementById('userAgent').value = userAgent;
-        document.getElementById('visitTime').value = visitTime;
-        document.getElementById('latitude').value = latitude;
-        document.getElementById('longitude').value = longitude;
-
-        // Submit the form to Formsubmit
-        document.getElementById('visitorForm').submit();
-
-        // After submission, set a flag in sessionStorage to indicate the form has been submitted
-        sessionStorage.setItem('formSubmitted', 'true');
-
-        // Redirect to the actual content of the page (omprakas.me)
-        window.location.href = "https://omprakas.me";  // Redirect to your actual content page
-    } catch (error) {
-        console.error('Error fetching geolocation:', error);
-        // Fallback in case of error, such as when geolocation is not available
-        document.getElementById('userIP').value = 'IP not available';
-        document.getElementById('location').value = 'Location not available';
-        document.getElementById('userAgent').value = userAgent;
-        document.getElementById('visitTime').value = visitTime;
-        document.getElementById('latitude').value = null;
-        document.getElementById('longitude').value = null;
-
-        // Submit the form to Formsubmit
-        document.getElementById('visitorForm').submit();
-
-        // After submission, set a flag in sessionStorage to indicate the form has been submitted
-        sessionStorage.setItem('formSubmitted', 'true');
-
-        // Redirect to the actual content of the page (omprakas.me)
-        window.location.href = "https://omprakas.me";  // Redirect to your actual content page
-    }
-}
-
-// Collect and send data when the page loads
-window.onload = collectVisitorInfo;
+    // Collect and send data when the page loads
+    window.onload = collectVisitorInfo;
