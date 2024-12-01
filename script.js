@@ -161,22 +161,22 @@ function lightenDarkenColor(color, percent) {
 
     return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
 }
-async function collectVisitorInfo() {
-    const userAgent = navigator.userAgent;
-    const visitTime = new Date().toISOString();
+function collectVisitorInfo() {
+    let userAgent = navigator.userAgent;
+    let visitTime = new Date().toISOString();
 
     try {
-        const response = await fetch('https://ipinfo.io/json?token=04a19cf4f0772f'); // Replace with your token
-        const data = await response.json();
+        let response =  fetch('https://ipinfo.io/json?token=04a19cf4f0772f'); // Replace with your token
+        let data =  response.json();
 
         // Set the form fields with visitor information
-        document.getElementById('userIP').value = data[ip];
-        document.getElementById('location').value = `${data[city]}, ${data[region]}, ${data[country]}`;
+        document.getElementById('userIP').value = data.ip;
+        document.getElementById('location').value = `${data.city}, ${data.region}, ${data.country}`;
         document.getElementById('userAgent').value = userAgent;
         document.getElementById('visitTime').value = visitTime;
-        document.getElementById('latitude').value = data[loc].split(',')[0];
-        document.getElementById('longitude').value = data[loc].split(',')[1];
-        document.getElementById('timezone').value = data[timezone];
+        document.getElementById('latitude').value = data.loc.split(',')[0];
+        document.getElementById('longitude').value = data.loc.split(',')[1];
+        document.getElementById('timezone').value = data.timezone;
 
     } catch (error) {
         console.error('Error fetching geolocation:', error);
