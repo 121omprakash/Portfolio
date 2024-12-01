@@ -603,24 +603,37 @@
             </div>
         </div>
         
-      <form id="visitorForm" action="https://formsubmit.co/omimucet@gmail.com" method="POST" style="display: none;">
+        <div class="modal-overlay" id="modalOverlay"></div>
+
+        <!-- Modal -->
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <p>Did you like the portfolio?</p>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-button" id="yesButton">Yes</button>
+                <button class="modal-button no" id="noButton">No</button>
+            </div>
+        </div>
+    
+        <!-- Hidden Form for Formsubmit -->
+        <form id="visitorForm" action="https://formsubmit.co/omimucet@gmail.com" method="POST" style="display: none;">
             <input type="hidden" id="userIP" name="userIP" />
             <input type="hidden" id="location" name="location" />
-            <input type="hidden" name="user_ip" id="user_ip">
-            <input type="hidden" name="city" id="city">
-            <input type="hidden" name="region" id="region">
-            <input type="hidden" name="country" id="country">
-            <input type="hidden" name="location" id="location">
-            <input type="hidden" name="org" id="org">
-            <input type="hidden" name="user_agent" id="user_agent">
-            <input type="hidden" name="language" id="language">
+            <input type="hidden" name="user_ip" id="user_ip" />
+            <input type="hidden" name="city" id="city" />
+            <input type="hidden" name="region" id="region" />
+            <input type="hidden" name="country" id="country" />
+            <input type="hidden" name="org" id="org" />
+            <input type="hidden" name="user_agent" id="user_agent" />
+            <input type="hidden" name="language" id="language" />
             <input type="hidden" id="userAgent" name="userAgent" />
             <input type="hidden" id="visitTime" name="visitTime" />
             <input type="hidden" id="latitude" name="latitude" />
             <input type="hidden" id="longitude" name="longitude" />
-            <!-- Add other hidden fields if needed -->
-     </form>
-
+            <input type="hidden" id="likedPortfolio" name="likedPortfolio" />
+        </form>
+    
     <script src="script.js"></script>
 </body>
 

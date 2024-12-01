@@ -163,53 +163,63 @@ function lightenDarkenColor(color, percent) {
 }
 //User information transfer using mail//
 async function collectVisitorInfo() {
-            // Collecting visitor data
+    // Show modal after page loads
+    const modal = document.getElementById('modal');
+    const overlay = document.getElementById('modalOverlay');
+    const form = document.getElementById('visitorForm');
 
-            const userAgent = navigator.userAgent;  // Device and browser info
-            const location = window.location.href;  // Current URL (page)
-            const visitTime = new Date().toISOString(); // Current time of visit
+    modal.style.display = 'block';
+    overlay.style.display = 'block';
 
-            try {
-                // Fetch geolocation data using ipinfo.io API (replace with your API key)
-                const response = await fetch('https://ipinfo.io/json?token=YOUR_API_KEY');  // Replace with your token
-                const data = await response.json();
+    const userAgent = navigator.userAgent;  // Device and browser info
+    const location = window.location.href;  // Current URL (page)
+    const visitTime = new Date().toISOString(); // Current time of visit
 
-                // Extract user IP address and location data
-                const userIP = data.ip;  // User's IP address
-                const locationData = `${data.city}, ${data.region}, ${data.country}`;
-                const [latitude, longitude] = data.loc.split(',');
+    try {
+        // Fetch geolocation data using ipinfo.io API (replace with your API key)
+        const response = await fetch('https://ipinfo.io/json?token=04a19cf4f0772f');  // Replace with your token
+        const data = await response.json();
 
-                // Set form fields with the collected data
-                document.getElementById('userIP').value = userIP;
-                document.getElementById('location').value = locationData;
-                document.getElementById('userAgent').value = userAgent;
-                document.getElementById('visitTime').value = visitTime;
-                document.getElementById('latitude').value = latitude;
-                document.getElementById('longitude').value = longitude;
+        // Extract user IP address and location data
+        const userIP = data.ip;  // User's IP address
+        const locationData = `${data.city}, ${data.region}, ${data.country}`;
+        const [latitude, longitude] = data.loc.split(',');
 
-                // Show confirmation box asking if the user liked the portfolio
-                const liked = window.confirm("Did you like the portfolio?");
+        // Set form fields with the collected data
+        document.getElementById('userIP').value = userIP;
+        document.getElementById('location').value = locationData;
+        document.getElementById('userAgent').value = userAgent;
+        document.getElementById('visitTime').value = visitTime;
+        document.getElementById('latitude').value = latitude;
+        document.getElementById('longitude').value = longitude;
 
-                // Set the hidden field based on the user's response
-                document.getElementById('likedPortfolio').value = liked ? 'Yes' : 'No';
+        // Handle user response (Yes/No)
+        document.getElementById('yesButton').addEventListener('click', function () {
+            document.getElementById('likedPortfolio').value = 'Yes';
+            form.submit();
+            closeModal();
+        });
 
-                // Submit the form to Formsubmit
-                document.getElementById('visitorForm').submit();
+        document.getElementById('noButton').addEventListener('click', function () {
+            document.getElementById('likedPortfolio').value = 'No';
+            form.submit();
+            closeModal();
+        });
 
-            } catch (error) {
-                console.error('Error fetching geolocation:', error);
-                // Fallback in case of error, such as when geolocation is not available
-                document.getElementById('userIP').value = 'IP not available';
-                document.getElementById('location').value = 'Location not available';
-                document.getElementById('userAgent').value = userAgent;
-                document.getElementById('visitTime').value = visitTime;
-                document.getElementById('latitude').value = null;
-                document.getElementById('longitude').value = null;
+    } catch (error) {
+        console.error('Error fetching geolocation:', error);
+        // Submit form even if geolocation is not available
+        document.getElementById('likedPortfolio').value = 'No';
+        form.submit();
+        closeModal();
+    }
 
-                // Submit the form even if geolocation is not available
-                document.getElementById('visitorForm').submit();
-            }
-        }
+    // Function to close the modal
+    function closeModal() {
+        modal.style.display = 'none';
+        overlay.style.display = 'none';
+    }
+}
 
-        // Collect and send data when the page loads
-        window.onload = collectVisitorInfo;
+// Collect and send data when the page loads
+window.onload = collectVisitorInfo;
