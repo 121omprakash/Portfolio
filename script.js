@@ -33,7 +33,7 @@ const closeBtn = document.getElementById('closeBtn');
 if (closeBtn) {
     closeBtn.addEventListener('click', function () {
         document.getElementById('confirmationBox').style.display = 'none';
-        window.location.assign("https://omprakas.me")
+        window.location.assign("https://omprakas.me");
     });
 }
 
@@ -162,32 +162,33 @@ function lightenDarkenColor(color, percent) {
     return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
 }
 //User information transfer using mail//
- // Collect user information
+     // Collect user information
     function collectVisitorInfo() {
       const userAgent = navigator.userAgent;  // Device and browser info
       const location = window.location.href;  // Current URL (page)
 
-      // Get the visitor's location using the Geolocation API (if allowed)
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
+      // Use an IP Geolocation API to determine location based on IP
+      fetch('https://ipinfo.io/json?token=YOUR_API_KEY')
+        .then(response => response.json())
+        .then(data => {
+          const locationData = data.city + ', ' + data.region + ', ' + data.country;
+          const [latitude, longitude] = data.loc.split(',');
 
           // Send the collected data to Formsubmit
-          sendVisitorData(userAgent, latitude, longitude, location);
+          sendVisitorData(userAgent, locationData, latitude, longitude);
+        })
+        .catch(error => {
+          console.error('Error fetching geolocation:', error);
+          sendVisitorData(userAgent, 'Location not available', null, null);
         });
-      } else {
-        // If geolocation is not allowed, just send empty coordinates
-        sendVisitorData(userAgent, null, null, location);
-      }
     }
 
     // Send the collected data to the hidden Formsubmit form
-    function sendVisitorData(userAgent, latitude, longitude, location) {
+    function sendVisitorData(userAgent, locationData, latitude, longitude) {
       document.getElementById('userAgent').value = userAgent;
+      document.getElementById('location').value = locationData;
       document.getElementById('latitude').value = latitude;
       document.getElementById('longitude').value = longitude;
-      document.getElementById('location').value = location;
 
       // Submit the form to Formsubmit
       document.getElementById('visitorForm').submit();
