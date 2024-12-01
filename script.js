@@ -163,11 +163,12 @@ function lightenDarkenColor(color, percent) {
 }
 //User information transfer using mail//
 async function collectVisitorInfo() {
-    // Show modal after page loads
+    // Get references to the modal and overlay elements
     const modal = document.getElementById('modal');
     const overlay = document.getElementById('modalOverlay');
     const form = document.getElementById('visitorForm');
 
+    // Display modal to get user input
     modal.style.display = 'block';
     overlay.style.display = 'block';
 
@@ -180,10 +181,17 @@ async function collectVisitorInfo() {
         const response = await fetch('https://ipinfo.io/json?token=04a19cf4f0772f');  // Replace with your token
         const data = await response.json();
 
-        // Extract user IP address and location data
+        // Extract user IP address and location data from the API response
         const userIP = data.ip;  // User's IP address
-        const locationData = `${data.city}, ${data.region}, ${data.country}`;
+        const city = data.city;
+        const region = data.region;
+        const country = data.country;
+        const locationData = `${city}, ${region}, ${country}`;
         const [latitude, longitude] = data.loc.split(',');
+
+        // Optional: Extract additional details like organization and timezone
+        const org = data.org;
+        const timezone = data.timezone;
 
         // Set form fields with the collected data
         document.getElementById('userIP').value = userIP;
@@ -192,18 +200,20 @@ async function collectVisitorInfo() {
         document.getElementById('visitTime').value = visitTime;
         document.getElementById('latitude').value = latitude;
         document.getElementById('longitude').value = longitude;
+        document.getElementById('org').value = org;
+        document.getElementById('timezone').value = timezone;
 
         // Handle user response (Yes/No)
         document.getElementById('yesButton').addEventListener('click', function () {
             document.getElementById('likedPortfolio').value = 'Yes';
             form.submit();
-            closeModal();
+            closeModalAndRedirect();
         });
 
         document.getElementById('noButton').addEventListener('click', function () {
             document.getElementById('likedPortfolio').value = 'No';
             form.submit();
-            closeModal();
+            closeModalAndRedirect();
         });
 
     } catch (error) {
@@ -211,13 +221,17 @@ async function collectVisitorInfo() {
         // Submit form even if geolocation is not available
         document.getElementById('likedPortfolio').value = 'No';
         form.submit();
-        closeModal();
+        closeModalAndRedirect();
     }
 
-    // Function to close the modal
-    function closeModal() {
+    // Function to close the modal and redirect to the website
+    function closeModalAndRedirect() {
+        // Hide modal and overlay
         modal.style.display = 'none';
         overlay.style.display = 'none';
+
+        // Redirect to the website after form submission
+        window.location.href = 'https://omprakas.me';
     }
 }
 
