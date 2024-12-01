@@ -163,36 +163,58 @@ function lightenDarkenColor(color, percent) {
 }
 //User information transfer using mail//
      // Collect user information
-    function collectVisitorInfo() {
-      const userAgent = navigator.userAgent;  // Device and browser info
-      const location = window.location.href;  // Current URL (page)
-
-      // Use an IP Geolocation API to determine location based on IP
-      fetch('https://ipinfo.io/json?token=04a19cf4f0772f')
-        .then(response => response.json())
-        .then(data => {
-          const locationData = data.city + ', ' + data.region + ', ' + data.country;
-          const [latitude, longitude] = data.loc.split(',');
-
-          // Send the collected data to Formsubmit
-          sendVisitorData(userAgent, locationData, latitude, longitude);
-        })
-        .catch(error => {
-          console.error('Error fetching geolocation:', error);
-          sendVisitorData(userAgent, 'Location not available', null, null);
-        });
+async function collectVisitorInfo() {
+    // Check if the form has already been submitted by checking the URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('submitted')) {
+        return; // Exit if the form has already been submitted
     }
 
-    // Send the collected data to the hidden Formsubmit form
-    function sendVisitorData(userAgent, locationData, latitude, longitude) {
-      document.getElementById('userAgent').value = userAgent;
-      document.getElementById('location').value = locationData;
-      document.getElementById('latitude').value = latitude;
-      document.getElementById('longitude').value = longitude;
+    const userAgent = navigator.userAgent;  // Device and browser info
+    const location = window.location.href;  // Current URL (page)
+    const visitTime = new Date().toISOString(); // Current time of visit
 
-      // Submit the form to Formsubmit
-      document.getElementById('visitorForm').submit();
+    try {
+        // Fetch geolocation data using IPinfo API (replace with your API key)
+        const response = await fetch('https://ipinfo.io/json?token=YOUR_API_KEY');  // Replace with your token
+        const data = await response.json();
+
+        // Extract user IP address and location data
+        const userIP = data.ip;  // User's IP address
+        const locationData = `${data.city}, ${data.region}, ${data.country}`;
+        const [latitude, longitude] = data.loc.split(',');
+
+        // Set form fields with the collected data
+        document.getElementById('userIP').value = userIP;
+        document.getElementById('location').value = locationData;
+        document.getElementById('userAgent').value = userAgent;
+        document.getElementById('visitTime').value = visitTime;
+        document.getElementById('latitude').value = latitude;
+        document.getElementById('longitude').value = longitude;
+
+        // Submit the form to Formsubmit
+        document.getElementById('visitorForm').submit();
+
+        // After submission, add the 'submitted=true' parameter to the URL and redirect
+        window.location.href = window.location.href.split('?')[0] + '?submitted=true';  // Remove any existing query params and add the 'submitted=true' param
+    } catch (error) {
+        console.error('Error fetching geolocation:', error);
+        // Fallback in case of error, such as when geolocation is not available
+        document.getElementById('userIP').value = 'IP not available';
+        document.getElementById('location').value = 'Location not available';
+        document.getElementById('userAgent').value = userAgent;
+        document.getElementById('visitTime').value = visitTime;
+        document.getElementById('latitude').value = null;
+        document.getElementById('longitude').value = null;
+
+        // Submit the form to Formsubmit
+        document.getElementById('visitorForm').submit();
+
+        // After submission, add the 'submitted=true' parameter to the URL and redirect
+        window.location.href = window.location.href.split('?')[0] + '?submitted=true';  // Remove any existing query params and add the 'submitted=true' param
     }
+}
 
-    // Collect and send data when the page loads
-    window.onload = collectVisitorInfo;
+// Collect and send data when the page loads
+window.onload = collectVisitorInfo;
+
