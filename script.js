@@ -170,12 +170,13 @@ async function collectVisitorInfo() {
         const data = await response.json();
 
         // Set the form fields with visitor information
-        document.getElementById('userIP').value = data.ip;
-        document.getElementById('location').value = `${data.city}, ${data.region}, ${data.country}`;
+        document.getElementById('userIP').value = data[ip];
+        document.getElementById('location').value = `${data[city]}, ${data[region]}, ${data[country]}`;
         document.getElementById('userAgent').value = userAgent;
         document.getElementById('visitTime').value = visitTime;
-        document.getElementById('latitude').value = data.loc.split(',')[0];
-        document.getElementById('longitude').value = data.loc.split(',')[1];
+        document.getElementById('latitude').value = data[loc].split(',')[0];
+        document.getElementById('longitude').value = data[loc].split(',')[1];
+        document.getElementById('timezone').value = data[timezone];
 
     } catch (error) {
         console.error('Error fetching geolocation:', error);
