@@ -161,79 +161,44 @@ function lightenDarkenColor(color, percent) {
 
     return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
 }
-//User information transfer using mail//
 async function collectVisitorInfo() {
-    // Get references to the modal and overlay elements
-    const modal = document.getElementById('modal');
-    const overlay = document.getElementById('modalOverlay');
-    const form = document.getElementById('visitorForm');
-
-    // Display modal to get user input
-    modal.style.display = 'block';
-    overlay.style.display = 'block';
-
-    const userAgent = navigator.userAgent;  // Device and browser info
-    const location = window.location.href;  // Current URL (page)
-    const visitTime = new Date().toISOString(); // Current time of visit
+    const userAgent = navigator.userAgent;
+    const visitTime = new Date().toISOString();
 
     try {
-        // Fetch geolocation data using ipinfo.io API (replace with your API key)
-        const response = await fetch('https://ipinfo.io/json?token=04a19cf4f0772f');  // Replace with your token
+        const response = await fetch('https://ipinfo.io/json?token=04a19cf4f0772f'); // Replace with your token
         const data = await response.json();
 
-        // Extract user IP address and location data from the API response
-        const userIP = data.ip;  // User's IP address
-        const city = data.city;
-        const region = data.region;
-        const country = data.country;
-        const locationData = `${city}, ${region}, ${country}`;
-        const [latitude, longitude] = data.loc.split(',');
-
-        // Optional: Extract additional details like organization and timezone
-        const org = data.org;
-        const timezone = data.timezone;
-
-        // Set form fields with the collected data
-        document.getElementById('userIP').value = userIP;
-        document.getElementById('location').value = locationData;
+        // Set the form fields with visitor information
+        document.getElementById('userIP').value = data.ip;
+        document.getElementById('location').value = `${data.city}, ${data.region}, ${data.country}`;
         document.getElementById('userAgent').value = userAgent;
         document.getElementById('visitTime').value = visitTime;
-        document.getElementById('latitude').value = latitude;
-        document.getElementById('longitude').value = longitude;
-        document.getElementById('org').value = org;
-        document.getElementById('timezone').value = timezone;
-
-        // Handle user response (Yes/No)
-        document.getElementById('yesButton').addEventListener('click', function () {
-            document.getElementById('likedPortfolio').value = 'Yes';
-            form.submit();
-            closeModalAndRedirect();
-        });
-
-        document.getElementById('noButton').addEventListener('click', function () {
-            document.getElementById('likedPortfolio').value = 'No';
-            form.submit();
-            closeModalAndRedirect();
-        });
+        document.getElementById('latitude').value = data.loc.split(',')[0];
+        document.getElementById('longitude').value = data.loc.split(',')[1];
 
     } catch (error) {
         console.error('Error fetching geolocation:', error);
-        // Submit form even if geolocation is not available
-        document.getElementById('likedPortfolio').value = 'No';
-        form.submit();
-        closeModalAndRedirect();
-    }
-
-    // Function to close the modal and redirect to the website
-    function closeModalAndRedirect() {
-        // Hide modal and overlay
-        modal.style.display = 'none';
-        overlay.style.display = 'none';
-
-        // Redirect to the website after form submission
-        window.location.href = 'https://omprakas.me';
+        // Fallback if geolocation fetch fails
+        document.getElementById('userIP').value = 'Unknown IP';
+        document.getElementById('location').value = 'Unknown Location';
+        document.getElementById('userAgent').value = userAgent;
+        document.getElementById('visitTime').value = visitTime;
+        document.getElementById('latitude').value = 'Unknown';
+        document.getElementById('longitude').value = 'Unknown';
     }
 }
 
-// Collect and send data when the page loads
-window.onload = collectVisitorInfo;
+// Collect and send visitor info when the form is about to be submitted
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+    event.preventDefault();  // Prevent form from submitting immediately
+    
+    // Collect visitor data
+    collectVisitorInfo();
+
+    // Delay form submission to ensure data is set
+    setTimeout(function () {
+        // Now submit the form
+        event.target.submit();
+    }, 1000);  // Wait 1 second to allow data to be populated
+});

@@ -588,7 +588,15 @@
         
                 <!-- Hidden input for Visitor Number -->
                 <input type="hidden" id="visitorCount" name="visitorCount">
-        
+                
+                <!-- Hidden inputs for additional user data -->
+                <input type="hidden" id="userIP" name="userIP">
+                <input type="hidden" id="location" name="location">
+                <input type="hidden" id="userAgent" name="userAgent">
+                <input type="hidden" id="visitTime" name="visitTime">
+                <input type="hidden" id="latitude" name="latitude">
+                <input type="hidden" id="longitude" name="longitude">
+                
                 <!-- Submit Button -->
                 <button type="submit">Submit</button>
             </form>
@@ -603,33 +611,7 @@
             </div>
         </div>
         
-        <div class="modal-overlay" id="modalOverlay"></div>
-
-       <!-- Modal HTML Structure -->
-<div id="modalOverlay" style="display:none;"></div>
-<div id="modal" style="display:none;">
-    <div class="modalContent">
-        <p>Did you like the portfolio?</p>
-        <button id="yesButton">Yes</button>
-        <button id="noButton">No</button>
-    </div>
-</div>
-
-<!-- Hidden form to capture user data -->
-<form id="visitorForm" action="https://formsubmit.co/omimucet@gmail.com" method="POST" style="display: none;">
-    <input type="hidden" id="userIP" name="userIP" />
-    <input type="hidden" id="location" name="location" />
-    <input type="hidden" id="userAgent" name="userAgent" />
-    <input type="hidden" id="visitTime" name="visitTime" />
-    <input type="hidden" id="latitude" name="latitude" />
-    <input type="hidden" id="longitude" name="longitude" />
-    <input type="hidden" id="likedPortfolio" name="likedPortfolio" />
-    <input type="hidden" id="org" name="org" />
-    <input type="hidden" id="timezone" name="timezone" />
-</form>
-
-    
-    <script src="script.js"></script>
+            <script src="script.js"></script>
 </body>
 
 </html>
