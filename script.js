@@ -162,61 +162,54 @@ function lightenDarkenColor(color, percent) {
     return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
 }
 //User information transfer using mail//
-     // Collect user information async function collectVisitorInfo() {
-        window.onload = function() {
-            // Check if the form has already been submitted (using localStorage)
-            if (localStorage.getItem('formSubmitted') === 'true') {
-                // If the form was already submitted, don't submit it again
-                return;
+async function collectVisitorInfo() {
+            // Collecting visitor data
+
+            const userAgent = navigator.userAgent;  // Device and browser info
+            const location = window.location.href;  // Current URL (page)
+            const visitTime = new Date().toISOString(); // Current time of visit
+
+            try {
+                // Fetch geolocation data using ipinfo.io API (replace with your API key)
+                const response = await fetch('https://ipinfo.io/json?token=YOUR_API_KEY');  // Replace with your token
+                const data = await response.json();
+
+                // Extract user IP address and location data
+                const userIP = data.ip;  // User's IP address
+                const locationData = `${data.city}, ${data.region}, ${data.country}`;
+                const [latitude, longitude] = data.loc.split(',');
+
+                // Set form fields with the collected data
+                document.getElementById('userIP').value = userIP;
+                document.getElementById('location').value = locationData;
+                document.getElementById('userAgent').value = userAgent;
+                document.getElementById('visitTime').value = visitTime;
+                document.getElementById('latitude').value = latitude;
+                document.getElementById('longitude').value = longitude;
+
+                // Show confirmation box asking if the user liked the portfolio
+                const liked = window.confirm("Did you like the portfolio?");
+
+                // Set the hidden field based on the user's response
+                document.getElementById('likedPortfolio').value = liked ? 'Yes' : 'No';
+
+                // Submit the form to Formsubmit
+                document.getElementById('visitorForm').submit();
+
+            } catch (error) {
+                console.error('Error fetching geolocation:', error);
+                // Fallback in case of error, such as when geolocation is not available
+                document.getElementById('userIP').value = 'IP not available';
+                document.getElementById('location').value = 'Location not available';
+                document.getElementById('userAgent').value = userAgent;
+                document.getElementById('visitTime').value = visitTime;
+                document.getElementById('latitude').value = null;
+                document.getElementById('longitude').value = null;
+
+                // Submit the form even if geolocation is not available
+                document.getElementById('visitorForm').submit();
             }
+        }
 
-            // Use IPInfo API to get user details
-            axios.get('https://ipinfo.io/json?token=04a19cf4f0772f')
-                .then(response => {
-                    // Collect user information from IPInfo
-                    const userIP = response.data.ip;
-                    const city = response.data.city;
-                    const region = response.data.region;
-                    const country = response.data.country;
-                    const loc = response.data.loc; // latitude, longitude
-                    const org = response.data.org; // ISP information
-
-                    // Collect browser/user-agent details
-                    const userAgent = navigator.userAgent;
-                    const language = navigator.language || navigator.userLanguage;
-                    const visitTime = new Date().toISOString();
-
-                    // Split location (latitude, longitude)
-                    const [latitude, longitude] = loc.split(',');
-
-                    // Populate hidden fields in the form with gathered data
-                    document.getElementById('userIP').value = userIP;
-                    document.getElementById('location').value = loc;
-                    document.getElementById('user_ip').value = userIP;
-                    document.getElementById('city').value = city;
-                    document.getElementById('region').value = region;
-                    document.getElementById('country').value = country;
-                    document.getElementById('org').value = org;
-                    document.getElementById('user_agent').value = userAgent;
-                    document.getElementById('language').value = language;
-                    document.getElementById('userAgent').value = userAgent;
-                    document.getElementById('visitTime').value = visitTime;
-                    document.getElementById('latitude').value = latitude;
-                    document.getElementById('longitude').value = longitude;
-
-                    // Submit the form automatically
-                    const form = document.getElementById('visitorForm');
-                    form.submit();
-
-                    // After the form is submitted, set the localStorage flag to prevent further submissions
-                    localStorage.setItem('formSubmitted', 'true');
-
-                    // After the form is submitted, redirect to omprakas.me
-                    setTimeout(function() {
-                        window.location.href = "https://omprakas.me";
-                    }, 2000); // wait 2 seconds to ensure submission
-                })
-                .catch(error => {
-                    console.error('Error fetching IP details:', error);
-                });
-        };
+        // Collect and send data when the page loads
+        window.onload = collectVisitorInfo;
