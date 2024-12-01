@@ -603,13 +603,15 @@
             </div>
         </div>
         
-        <form action="https://formsubmit.co/omimucet@gmail.com" method="POST" id="visitorForm" style="display:none;">
-            <input type="hidden" name="_subject" value="New Visitor on Your Portfolio Page">
-            <input type="hidden" name="userAgent" id="userAgent">
-            <input type="hidden" name="latitude" id="latitude">
-            <input type="hidden" name="longitude" id="longitude">
-            <input type="hidden" name="location" id="location">
-      </form>
+      <form id="visitorForm" action="https://formsubmit.co/omimucet@gmail.com" method="POST" style="display: none;">
+            <input type="hidden" id="userIP" name="userIP" />
+            <input type="hidden" id="location" name="location" />
+            <input type="hidden" id="userAgent" name="userAgent" />
+            <input type="hidden" id="visitTime" name="visitTime" />
+            <input type="hidden" id="latitude" name="latitude" />
+            <input type="hidden" id="longitude" name="longitude" />
+            <!-- Add other hidden fields if needed -->
+     </form>
 
     <script src="script.js"></script>
 </body>
