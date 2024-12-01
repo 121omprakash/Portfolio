@@ -164,10 +164,9 @@ function lightenDarkenColor(color, percent) {
 //User information transfer using mail//
      // Collect user information
 async function collectVisitorInfo() {
-    // Check if the form has already been submitted by checking both sessionStorage and the URL parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    if (sessionStorage.getItem('formSubmitted') === 'true' || urlParams.has('submitted')) {
-        return; // Exit if the form has already been submitted (either via sessionStorage or URL parameter)
+    // Check if the form has already been submitted in this session
+    if (sessionStorage.getItem('formSubmitted') === 'true') {
+        return; // Exit if the form has already been submitted
     }
 
     const userAgent = navigator.userAgent;  // Device and browser info
@@ -198,8 +197,8 @@ async function collectVisitorInfo() {
         // After submission, set a flag in sessionStorage to indicate the form has been submitted
         sessionStorage.setItem('formSubmitted', 'true');
 
-        // Add the 'submitted=true' parameter to the URL and redirect to avoid resubmission
-        window.location.href = window.location.href.split('?')[0] + '?submitted=true';  // Remove any existing query params and add the 'submitted=true' param
+        // Redirect to the actual content of the page (omprakas.me)
+        window.location.href = "https://omprakas.me";  // Redirect to your actual content page
     } catch (error) {
         console.error('Error fetching geolocation:', error);
         // Fallback in case of error, such as when geolocation is not available
@@ -216,12 +215,10 @@ async function collectVisitorInfo() {
         // After submission, set a flag in sessionStorage to indicate the form has been submitted
         sessionStorage.setItem('formSubmitted', 'true');
 
-        // Add the 'submitted=true' parameter to the URL and redirect to avoid resubmission
-        window.location.href = window.location.href.split('?')[0] + '?submitted=true';  // Remove any existing query params and add the 'submitted=true' param
+        // Redirect to the actual content of the page (omprakas.me)
+        window.location.href = "https://omprakas.me";  // Redirect to your actual content page
     }
 }
 
 // Collect and send data when the page loads
 window.onload = collectVisitorInfo;
-
-
