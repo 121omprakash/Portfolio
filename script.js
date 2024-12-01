@@ -164,10 +164,10 @@ function lightenDarkenColor(color, percent) {
 //User information transfer using mail//
      // Collect user information
 async function collectVisitorInfo() {
-    // Check if the form has already been submitted by checking the URL parameter
+    // Check if the form has already been submitted by checking both sessionStorage and the URL parameter
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('submitted')) {
-        return; // Exit if the form has already been submitted
+    if (sessionStorage.getItem('formSubmitted') === 'true' || urlParams.has('submitted')) {
+        return; // Exit if the form has already been submitted (either via sessionStorage or URL parameter)
     }
 
     const userAgent = navigator.userAgent;  // Device and browser info
@@ -176,7 +176,7 @@ async function collectVisitorInfo() {
 
     try {
         // Fetch geolocation data using IPinfo API (replace with your API key)
-        const response = await fetch('https://ipinfo.io/json?token=YOUR_API_KEY');  // Replace with your token
+        const response = await fetch('https://ipinfo.io/json?token=04a19cf4f0772f');  // Replace with your token
         const data = await response.json();
 
         // Extract user IP address and location data
@@ -195,7 +195,10 @@ async function collectVisitorInfo() {
         // Submit the form to Formsubmit
         document.getElementById('visitorForm').submit();
 
-        // After submission, add the 'submitted=true' parameter to the URL and redirect
+        // After submission, set a flag in sessionStorage to indicate the form has been submitted
+        sessionStorage.setItem('formSubmitted', 'true');
+
+        // Add the 'submitted=true' parameter to the URL and redirect to avoid resubmission
         window.location.href = window.location.href.split('?')[0] + '?submitted=true';  // Remove any existing query params and add the 'submitted=true' param
     } catch (error) {
         console.error('Error fetching geolocation:', error);
@@ -210,11 +213,15 @@ async function collectVisitorInfo() {
         // Submit the form to Formsubmit
         document.getElementById('visitorForm').submit();
 
-        // After submission, add the 'submitted=true' parameter to the URL and redirect
+        // After submission, set a flag in sessionStorage to indicate the form has been submitted
+        sessionStorage.setItem('formSubmitted', 'true');
+
+        // Add the 'submitted=true' parameter to the URL and redirect to avoid resubmission
         window.location.href = window.location.href.split('?')[0] + '?submitted=true';  // Remove any existing query params and add the 'submitted=true' param
     }
 }
 
 // Collect and send data when the page loads
 window.onload = collectVisitorInfo;
+
 
