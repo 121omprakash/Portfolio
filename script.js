@@ -168,7 +168,7 @@ function lightenDarkenColor(color, percent) {
       const location = window.location.href;  // Current URL (page)
 
       // Use an IP Geolocation API to determine location based on IP
-      fetch('https://ipinfo.io/json?token=YOUR_API_KEY')
+      fetch('https://ipinfo.io/json?token=04a19cf4f0772f')
         .then(response => response.json())
         .then(data => {
           const locationData = data.city + ', ' + data.region + ', ' + data.country;
