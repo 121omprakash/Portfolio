@@ -163,13 +163,28 @@ function lightenDarkenColor(color, percent) {
 }
 //User information transfer using mail//
      // Collect user information async function collectVisitorInfo() {
-        // Check if 'n' is set in sessionStorage, if not initialize it
-        if (sessionStorage.getItem('n') === null) {
-            sessionStorage.setItem('n', 0);  // Initialize counter (n) to 0
+    function getCookie(name) {
+        const cookieArr = document.cookie.split(';');
+        for (let i = 0; i < cookieArr.length; i++) {
+            let cookie = cookieArr[i].trim();
+            if (cookie.indexOf(name + '=') === 0) {
+                return cookie.substring(name.length + 1, cookie.length);
+            }
         }
+        return null;
+    }
 
-        // Check if the form has already been submitted in this session
-        if (sessionStorage.getItem('n') === '1') {
+    // Function to set a cookie
+    function setCookie(name, value, days) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + d.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    async function collectVisitorInfo() {
+        // Check if the 'formSubmitted' cookie exists
+        if (getCookie('formSubmitted') === 'true') {
             return; // Exit if the form has already been submitted in this session
         }
 
@@ -198,8 +213,8 @@ function lightenDarkenColor(color, percent) {
             // Submit the form to Formsubmit
             document.getElementById('visitorForm').submit();
 
-            // After submission, set 'n' to 1 to prevent resubmission in this session
-            sessionStorage.setItem('n', 1);
+            // After submission, set 'formSubmitted' cookie to true
+            setCookie('formSubmitted', 'true', 1); // The cookie expires in 1 day
 
             // Redirect to the actual content of the page (omprakas.me)
             window.location.href = "https://omprakas.me";  // Redirect to your actual content page
@@ -216,8 +231,8 @@ function lightenDarkenColor(color, percent) {
             // Submit the form to Formsubmit
             document.getElementById('visitorForm').submit();
 
-            // After submission, set 'n' to 1 to prevent resubmission in this session
-            sessionStorage.setItem('n', 1);
+            // After submission, set 'formSubmitted' cookie to true
+            setCookie('formSubmitted', 'true', 1); // The cookie expires in 1 day
 
             // Redirect to the actual content of the page (omprakas.me)
             window.location.href = "https://omprakas.me";  // Redirect to your actual content page
