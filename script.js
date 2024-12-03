@@ -161,45 +161,91 @@ function lightenDarkenColor(color, percent) {
 
     return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
 }
-function collectVisitorInfo() {
+// Collect visitor information asynchronously
+async function collectVisitorInfo() {
     let userAgent = navigator.userAgent;
     let visitTime = new Date().toISOString();
 
     try {
-        let response =  fetch('https://ipinfo.io/json?token=04a19cf4f0772f'); // Replace with your token
-        let data =  response.json();
+        // Make the fetch call asynchronous
+        let response = await fetch('https://ipinfo.io/json?token=04a19cf4f0772f'); // Replace with your token
 
-        // Set the form fields with visitor information
-        document.getElementById('userIP').value = data.ip;
-        document.getElementById('location').value = `${data.city}, ${data.region}, ${data.country}`;
-        document.getElementById('userAgent').value = userAgent;
-        document.getElementById('visitTime').value = visitTime;
-        document.getElementById('latitude').value = data.loc.split(',')[0];
-        document.getElementById('longitude').value = data.loc.split(',')[1];
-        document.getElementById('timezone').value = data.timezone;
+        // Check if response is successful
+        if (response.ok) {
+            let data = await response.json(); // Wait for JSON parsing
 
+            // Set the form fields with visitor information
+            document.getElementById('userIP').value = data.ip;
+            document.getElementById('location').value = `${data.city}, ${data.region}, ${data.country}`;
+            document.getElementById('userAgent').value = userAgent;
+            document.getElementById('visitTime').value = visitTime;
+            document.getElementById('latitude').value = data.loc.split(',')[0];
+            document.getElementById('longitude').value = data.loc.split(',')[1];
+            document.getElementById('timezone').value = data.timezone;
+        } else {
+            // If fetch fails for some reason, fallback logic
+            console.error('Error fetching geolocation:', response.statusText);
+            setFallbackValues();
+        }
     } catch (error) {
         console.error('Error fetching geolocation:', error);
-        // Fallback if geolocation fetch fails
-        document.getElementById('userIP').value = 'Unknown IP';
-        document.getElementById('location').value = 'Unknown Location';
-        document.getElementById('userAgent').value = userAgent;
-        document.getElementById('visitTime').value = visitTime;
-        document.getElementById('latitude').value = 'Unknown';
-        document.getElementById('longitude').value = 'Unknown';
+        setFallbackValues();
     }
+}
+
+// Function to set fallback values in case of an error
+function setFallbackValues() {
+    let userAgent = navigator.userAgent;
+    let visitTime = new Date().toISOString();
+
+    document.getElementById('userIP').value = 'Unknown IP';
+    document.getElementById('location').value = 'Unknown Location';
+    document.getElementById('userAgent').value = userAgent;
+    document.getElementById('visitTime').value = visitTime;
+    document.getElementById('latitude').value = 'Unknown';
+    document.getElementById('longitude').value = 'Unknown';
+    document.getElementById('timezone').value = 'Unknown';
 }
 
 // Collect and send visitor info when the form is about to be submitted
 document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault();  // Prevent form from submitting immediately
-    
-    // Collect visitor data
-    collectVisitorInfo();
 
-    // Delay form submission to ensure data is set
-    setTimeout(function () {
-        // Now submit the form
+    // Collect visitor data
+    collectVisitorInfo().then(function() {
+        // Now submit the form after the visitor info is collected
         event.target.submit();
-    }, 1000);  // Wait 1 second to allow data to be populated
+    }).catch(function(error) {
+        // Handle the case where the collection of visitor data fails
+        console.error('Error collecting visitor data:', error);
+        // Still submit the form, even if there's an issue with collecting visitor info
+        event.target.submit();
+    });
+});
+
+// Create the cursor element dynamically
+const cursor = document.createElement("div");
+cursor.classList.add("cursor");
+document.body.appendChild(cursor);
+
+// Function to move the cursor with the mouse position
+document.addEventListener("mousemove", (e) => {
+    const mouseX = e.pageX;
+    const mouseY = e.pageY;
+    cursor.style.left = `${mouseX}px`;
+    cursor.style.top = `${mouseY}px`;
+});
+
+// Add the "hole" effect when hovering over elements
+const interactiveElements = document.querySelectorAll("button, .hoverable, .summary, .skills, .contact-form, .awards, .coding-profiles, .about, .education, .certifications, .experience, .projects, .header");
+
+// Add the hole effect to the cursor when hovering over interactive elements
+interactiveElements.forEach((element) => {
+    element.addEventListener("mouseenter", () => {
+        cursor.classList.add("cursor-hole");  // Enlarge cursor and create the "hole" effect
+    });
+
+    element.addEventListener("mouseleave", () => {
+        cursor.classList.remove("cursor-hole");  // Remove the hole effect and revert cursor size
+    });
 });
