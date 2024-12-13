@@ -1203,13 +1203,14 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
         display: flex;
         flex-wrap:wrap;
         align-items: center;
+        justify-content: center;
     }
     .certification-card h3 {
         margin-top: -10px;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     .certification-card {
-        width: 35%;
+        width: 25%;
         height: 50px;
     }
     .category-buttons {
@@ -1260,7 +1261,7 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
     .coding-profiles .links {
         display: flex;
         gap: 40px;
-        justify-content: left; /* Centers the content horizontally */
+        justify-content: center; /* Centers the content horizontally */
         flex-wrap: wrap; /* Allows the icons to wrap on smaller screens */
         
     }
