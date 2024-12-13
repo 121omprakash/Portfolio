@@ -249,3 +249,108 @@ interactiveElements.forEach((element) => {
         cursor.classList.remove("cursor-hole");  // Remove the hole effect and revert cursor size
     });
 });
+const profilePic = document.getElementById("profile-pic");
+const progressBar = document.getElementById("progress-bar");
+
+// Profile images
+const images = ["images/android-chrome-512x512.png","images/profile_picture.png"];
+let currentImageIndex = 0;
+
+// Variables for progress bar
+let progress = 0;
+let interval;
+let isHovering = false;
+
+// Function to start the progress animation
+function startProgress() {
+    progress = 0;
+    progressBar.style.transition = "none"; // Disable transition for smooth reset
+    progressBar.style.background = "conic-gradient(#00bfff 0%, #00bfff 0%)"; // Reset progress bar
+    progressBar.style.transition = "background 5s linear"; // Enable transition again
+
+    interval = setInterval(() => {
+        progress += 1;
+        progressBar.style.background = `conic-gradient(#00bfff ${progress * 3.6}deg, #ddd 0deg)`;
+
+        // When progress reaches 100%, change the profile picture
+        if (progress === 100) {
+            clearInterval(interval);
+            changeProfilePic();
+        }
+    }, 10); // Update every 50ms for smooth progress
+}
+
+// Function to change the profile picture
+function changeProfilePic() {
+    // Toggle between the images in the array
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    profilePic.src = images[currentImageIndex]; // Change to the next image
+}
+
+// Event listeners for hover
+profilePic.addEventListener("mouseenter", () => {
+    if (!isHovering) {
+        isHovering = true;
+        startProgress(); // Start the progress bar animation
+    }
+});
+
+profilePic.addEventListener("mouseleave", () => {
+    isHovering = false;
+    clearInterval(interval); // Stop the progress animation if hover is removed
+    progress = 0; // Reset the progress
+    progressBar.style.background = "conic-gradient(#ff2200 0%, #95ff00 0%)"; // Reset the progress bar
+    progressBar.style.opacity = 0; // Hide the progress bar when not hovering
+});
+// Select all sections
+const sections = document.querySelectorAll('.header,.summary,.skills-list,.edu-entry,.certifications,.exp-entry,.project, .contact-form, .awards, .coding-profiles,.ach');
+
+// Options for Intersection Observer
+const observerOptions = {
+    root: null, // Use the viewport as the root
+    rootMargin: "0px",
+    threshold: 0.546 // Trigger when 50% of the section is in view
+};
+
+// Initialize Intersection Observer
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Add the glow effect when the section is in view
+            entry.target.classList.add('section-glow');
+        } else {
+            // Remove the glow effect when the section is not in view
+            entry.target.classList.remove('section-glow');
+        }
+    });
+}, observerOptions);
+
+// Observe all sections
+sections.forEach(section => {
+    sectionObserver.observe(section);
+});
+// Select all the social media icons
+const socialIcons = document.querySelectorAll('.social-icon');
+
+// Function to simulate hover effect on touchstart (or click)
+function simulateHoverStart(event) {
+    const icon = event.target;
+    icon.classList.add('hovered');
+}
+
+// Function to remove hover effect on touchend (or click)
+function simulateHoverEnd(event) {
+    const icon = event.target;
+    icon.classList.remove('hovered');
+}
+
+// Add event listeners for touchstart and touchend
+socialIcons.forEach(icon => {
+    // For mobile devices (touchstart for tap)
+    icon.addEventListener('touchstart', simulateHoverStart);
+    icon.addEventListener('touchend', simulateHoverEnd);
+
+    // For desktop devices (click for mouse hover simulation)
+    icon.addEventListener('click', simulateHoverStart);
+    icon.addEventListener('mouseout', simulateHoverEnd);
+});
