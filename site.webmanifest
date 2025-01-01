@@ -10,11 +10,11 @@
         },
         {
             "src": "images/social.png",
-            "sizes": "1500x400",
+            "sizes": "516x516",
             "type": "image/png"
         }
     ],
-    "theme_color": "blue",
-    "background_color": "black",
+    "theme_color": "system",
+    "background_color": "linear-gradient(45deg, #333333, #516c9e, #6c497a)",
     "display": "standalone"
 }
