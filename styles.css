@@ -432,34 +432,39 @@ footer img{
     margin: auto;
     padding: 5px;
 }
-
 .profile-pic-wrapper {
     position: relative;
     display: inline-block;
-    width: 150px; /* Container size for profile picture */
-    height: 150px; /* Container size for profile picture */
+    width: 150px; /* Container size for progress circle */
+    height: 150px; /* Container size for progress circle */
 }
 
 .profile-pic {
-    width: 120px; /* Image size */
-    height: 120px; /* Image size */
+    width: 150px; /* Image size */
+    height: 150px; /* Image size */
     border-radius: 50%; /* Circular image */
-    transition: opacity 0.3s ease-in-out;
-    z-index: 0; /* Profile picture is below the progress bar */
+    z-index: 2; /* On top of the progress bar */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
 }
 
 .progress-bar {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 150px; /* Match the container size */
-    height: 150px; /* Match the container size */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px; /* Outer circle size */
+    height: 160px; /* Outer circle size */
     border-radius: 50%; /* Circular progress bar */
-    background: conic-gradient(#ff2200 0%, #95ff00 0%); /* Initially 0% progress */
-    z-index: 1; /* Progress bar on top of the profile picture */
-    opacity: 0; /* Initially hidden */
-    pointer-events: none; /* Make sure the progress bar doesn't block interactions */
+    background: conic-gradient(rgba(231, 240, 237, 0) 0deg, #05eb9e 30deg); /* Initial empty progress */
+    z-index: 1; /* Behind the profile picture */
+    opacity: 0; /* Hidden initially */
+    pointer-events: none; /* Ensure it doesn't block interactions */
     transition: opacity 0.3s ease-in-out; /* Smooth visibility transition */
+    border-radius: 90%;
+
 }
 
 .profile-pic-wrapper:hover .progress-bar {

@@ -253,7 +253,7 @@ const profilePic = document.getElementById("profile-pic");
 const progressBar = document.getElementById("progress-bar");
 
 // Profile images
-const images = ["images/android-chrome-512x512.png","images/profile_picture.png"];
+const images = ["images/android-chrome-512x512.png", "images/profile_picture.png"];
 let currentImageIndex = 0;
 
 // Variables for progress bar
@@ -265,19 +265,19 @@ let isHovering = false;
 function startProgress() {
     progress = 0;
     progressBar.style.transition = "none"; // Disable transition for smooth reset
-    progressBar.style.background = "conic-gradient(#00bfff 0%, #00bfff 0%)"; // Reset progress bar
-    progressBar.style.transition = "background 5s linear"; // Enable transition again
+    progressBar.style.background = "conic-gradient(rgba(231, 240, 237, 0) 0deg, #ddd 0deg)"; // Reset progress bar
+    progressBar.style.transition = "background 2s linear"; // Enable transition for animation
 
     interval = setInterval(() => {
         progress += 1;
-        progressBar.style.background = `conic-gradient(#00bfff ${progress * 3.6}deg, #ddd 0deg)`;
+        progressBar.style.background = `conic-gradient(rgba(231, 240, 237, 0) ${progress * 3.6}deg, #00bfff 30deg)`;
 
         // When progress reaches 100%, change the profile picture
         if (progress === 100) {
             clearInterval(interval);
             changeProfilePic();
         }
-    }, 10); // Update every 50ms for smooth progress
+    }, 35); // Update every 50ms for smooth progress
 }
 
 // Function to change the profile picture
@@ -285,22 +285,29 @@ function changeProfilePic() {
     // Toggle between the images in the array
     currentImageIndex = (currentImageIndex + 1) % images.length;
     profilePic.src = images[currentImageIndex]; // Change to the next image
+
+    // Hide the progress bar after the image changes
+    progressBar.style.opacity = 0;
+    isHovering = true; // Reset the hovering state
 }
 
 // Event listeners for hover
 profilePic.addEventListener("mouseenter", () => {
     if (!isHovering) {
         isHovering = true;
+        progressBar.style.opacity = 1; // Show the progress bar
         startProgress(); // Start the progress bar animation
     }
 });
 
 profilePic.addEventListener("mouseleave", () => {
     isHovering = false;
-    clearInterval(interval); // Stop the progress animation if hover is removed
+    clearInterval(interval); // Stop the progress animation
     progress = 0; // Reset the progress
-    progressBar.style.background = "conic-gradient(#ff2200 0%, #95ff00 0%)"; // Reset the progress bar
-    progressBar.style.opacity = 0; // Hide the progress bar when not hovering
+    progressBar.style.transition = "none"; // Disable transition for immediate reset
+    progressBar.style.background = "conic-gradient(rgba(231, 240, 237, 0) 0deg,#00bfff 30deg)"; // Reset the progress bar visually
+    progressBar.style.transition = "background 2s linear"; // Re-enable smooth animation
+    progressBar.style.opacity = 0; // Hide the progress bar
 });
 // Select all sections
 const sections = document.querySelectorAll('.header,.summary,.skills-list,.edu-entry,.certifications,.exp-entry,.project, .contact-form, .awards, .coding-profiles,.ach');
