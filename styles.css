@@ -1,30 +1,38 @@
 /* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #0b0b0b, #7d7979); /* Dark to light gray fade */
+    background: linear-gradient(to bottom, #0b0b0b, #7d7979);
+    /* Dark to light gray fade */
     color: #E5E5E5;
     margin: 0;
     padding: 0;
     transition: background-color 0.3s ease;
-    background: linear-gradient(to bottom, #0b0b0b, #7d7979); /* Dark to light gray fade */
+    background: linear-gradient(to bottom, #0b0b0b, #7d7979);
+    /* Dark to light gray fade */
     transition: background 0.3s ease-in-out;
     background: linear-gradient(135deg, #fcfafa, #050505, #9fc6cc);
-    background-size: 400% 400%; /* Larger gradient area for effect */
+    background-size: 400% 400%;
+    /* Larger gradient area for effect */
     animation: ambientGlow 10s ease-in-out infinite;
     box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
 }
+
 section {
-    margin-bottom: 20px; /* Adjust this value to control the space between sections */
+    margin-bottom: 20px;
+    /* Adjust this value to control the space between sections */
 }
+
 a {
     text-decoration: none;
     color: #00BFFF;
 }
 
-h1, h2 {
+h1,
+h2 {
     color: #FF4F79;
 }
+
 h3 {
     color: #00BFFF;
 }
@@ -66,14 +74,16 @@ h3 {
     width: 30px;
 }
 
-.contact-links img:hover { /* Removed space here */
+.contact-links img:hover {
+    /* Removed space here */
     transform: scale(1.2);
 }
 
 /* About Section */
 .about {
     padding: 40px;
-    background: linear-gradient(to bottom, #222222, #f9f9f9); /* Dark to light gray fade */
+    background: linear-gradient(to bottom, #222222, #f9f9f9);
+    /* Dark to light gray fade */
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 10px;
@@ -93,7 +103,8 @@ h3 {
 /* Education Section */
 .education {
     padding: 40px;
-    background: linear-gradient(to bottom, #333333, #444444); /* Dark gray to lighter gray fade */
+    background: linear-gradient(to bottom, #333333, #444444);
+    /* Dark gray to lighter gray fade */
     border-radius: 10px;
 }
 
@@ -109,11 +120,14 @@ h3 {
     border-radius: 10px;
     border: 1px solid #ddd;
 }
+
 .edu-entry:hover {
     transition: background 0.3s ease-in-out;
-    transform: scale(1.02); /* Slight zoom-in effect */
+    transform: scale(1.02);
+    /* Slight zoom-in effect */
     transition: color 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Increase shadow on hover */
 }
 
 .edu-entry p {
@@ -124,10 +138,12 @@ h3 {
 /* Experience Section */
 .experience {
     padding: 40px;
-    background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
+    background: linear-gradient(to bottom, #444444, #555555);
+    /* Dark to lighter gray fade */
     border-radius: 10px;
 }
-.experience h2{
+
+.experience h2 {
     margin-top: -10px;
     font-size: 28px;
 }
@@ -139,19 +155,24 @@ h3 {
     border-radius: 10px;
     border: 1px solid #ddd;
 }
+
 .exp-entry:hover {
     transition: background 0.3s ease-in-out;
-    transform: scale(1.02); /* Slight zoom-in effect */
+    transform: scale(1.02);
+    /* Slight zoom-in effect */
     transition: color 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Increase shadow on hover */
 }
 
 /* Skills Section */
 .skills {
-    background: linear-gradient(to bottom, #333333, #444444); /* Dark gray to lighter gray fade */
+    background: linear-gradient(to bottom, #333333, #444444);
+    /* Dark gray to lighter gray fade */
     padding: 40px 20px;
 }
-.skills h2{
+
+.skills h2 {
     margin-top: -10px;
     font-size: 28px;
 }
@@ -177,19 +198,22 @@ h3 {
 
 /* Projects Section */
 .projects {
-    background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
+    background: linear-gradient(to bottom, #444444, #555555);
+    /* Dark to lighter gray fade */
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
 }
-.projects h2{
+
+.projects h2 {
     margin-top: -10px;
     font-size: 28px;
 }
 
 .project {
-    background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
+    background: linear-gradient(to bottom, #444444, #555555);
+    /* Dark to lighter gray fade */
     padding: 20px;
     margin-top: 10px;
     border-radius: 10px;
@@ -214,16 +238,20 @@ h3 {
 }
 
 .project:hover {
-    background-color: #f0f8ff; /* Change background color on hover */
-    transform: scale(1.02); /* Slight zoom-in effect */
+    background-color: #f0f8ff;
+    /* Change background color on hover */
+    transform: scale(1.02);
+    /* Slight zoom-in effect */
     transition: color 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Increase shadow on hover */
 }
 
 /* Hover Effect on Project Links */
 .project a {
     text-decoration: none;
-    color: #1E90FF; /* Link color */
+    color: #1E90FF;
+    /* Link color */
     font-weight: bold;
     transition: color 0.3s ease;
 }
@@ -244,14 +272,16 @@ h3 {
 
 /* Certifications Section */
 .certifications {
-    background: linear-gradient(to bottom, #333333, #444444); /* Dark to medium blue-gray gradient */
+    background: linear-gradient(to bottom, #333333, #444444);
+    /* Dark to medium blue-gray gradient */
     padding: 40px 20px;
     margin-top: 20px;
     border-radius: 10px;
 }
 
 .certifications h2 {
-    color: #FF4F79; /* Light Blue for heading */
+    color: #FF4F79;
+    /* Light Blue for heading */
     text-align: center;
     margin-top: -10px;
     font-size: 28px;
@@ -269,9 +299,12 @@ h3 {
 .category-btn {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #444444; /* Dark blue-gray for default background */
-    color: #ecf0f1; /* Light gray for text */
-    border: 2px solid #34495e; /* Lighter border for buttons */
+    background-color: #444444;
+    /* Dark blue-gray for default background */
+    color: #ecf0f1;
+    /* Light gray for text */
+    border: 2px solid #34495e;
+    /* Lighter border for buttons */
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -279,28 +312,38 @@ h3 {
 
 /* Hover Effect for Category Buttons */
 #all:hover {
-    background-color: #FF4F79; /* Red for All button */
-    color: #ecf0f1; /* Light text on hover */
+    background-color: #FF4F79;
+    /* Red for All button */
+    color: #ecf0f1;
+    /* Light text on hover */
 }
 
 #cs:hover {
-    background-color: #FF5733; /* Bright Red-Orange for Computer Science */
-    color: #ffffff; /* White text on hover */
+    background-color: #FF5733;
+    /* Bright Red-Orange for Computer Science */
+    color: #ffffff;
+    /* White text on hover */
 }
 
 #ds:hover {
-    background-color: #6a4c93; /* Muted Purple for Data Science */
-    color: #ecf0f1; /* Light text on hover */
+    background-color: #6a4c93;
+    /* Muted Purple for Data Science */
+    color: #ecf0f1;
+    /* Light text on hover */
 }
 
 #da:hover {
-    background-color: #16a085; /* Green for Data Analytics */
-    color: #ffffff; /* White text on hover */
+    background-color: #16a085;
+    /* Green for Data Analytics */
+    color: #ffffff;
+    /* White text on hover */
 }
 
 #se:hover {
-    background-color: #2980b9; /* Bright Blue for Software Engineering */
-    color: #ecf0f1; /* Light text on hover */
+    background-color: #2980b9;
+    /* Bright Blue for Software Engineering */
+    color: #ecf0f1;
+    /* Light text on hover */
 }
 
 /* Active State for Category Buttons */
@@ -314,96 +357,155 @@ h3 {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     justify-items: center;
+    border-radius: 15px;
 }
 
 .certification-card {
-    background-color: #444444; /* Dark Blue-Gray for cards */
+    position: relative;
+    background-color: #444444;
+    /* Dark Blue-Gray for cards */
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
     width: 80%;
     border: rgb(189, 176, 176) solid 2px;
-    display: none; /* Default hide */
+    display: none;
+    /* Default hide */
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
 }
 
 /* Certification Card Background Colors */
 .certification-card.show {
-    display: block; /* Show only relevant certification cards */
+    display: block;
+    /* Show only relevant certification cards */
 }
 
 .certification-card h3 {
-    font-size: 18px;
-    color: #ecf0f1; /* Light gray for card text */
+    font-size: 14px;
+    color: #ecf0f1;
+    /* Light gray for card text */
+    opacity: 0;
+    /* Initially hide the text */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+/* Show text when hovered */
+.certification-card:hover h3 {
+    font-size: 16px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Links */
 .certification-card a {
     text-decoration: none;
-    color: #2980b9; /* Light Blue for links */
+    color: #2980b9;
+    /* Light Blue for links */
     transition: color 0.3s ease;
 }
 
 .certification-card a:hover {
     color: #FF4F79;
-     /* Darker Blue for link 
-    hover */
-    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2), /* Strong shadow for depth */
-                   0px 25px 10px rgba(0, 0, 0, 0.1);
-    
+    /* Darker Blue for link hover */
+    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2),
+        /* Strong shadow for depth */
+        0px 25px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Hover effects for the card */
 .certification-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.4);
+    /* Increase brightness on hover */
+}
+
+/* Image Zoom on hover */
+.certification-card:hover {
+    transform: translateY(8px) scale(0.95);
+    transform: translateX(10px) scale(1.1);
+    /* Zoom the background image */
 }
 
 /* Text and Hover Colors for Each Category (Dynamic based on button color) */
 
 /* Default All Button (Red) */
-#all.active ~ .certifications-list .certification-card.show h3 {
-    color: #e74c3c; /* Red text for relevant cards */
+#all.active~.certifications-list .certification-card.show h3 {
+    color: #e74c3c;
+    /* Red text for relevant cards */
 }
 
-#all.active ~ .certifications-list .certification-card.show a {
-    color: #e74c3c; /* Red hover text */
+#all.active~.certifications-list .certification-card.show a {
+    color: #e74c3c;
+    /* Red hover text */
 }
 
 /* Computer Science (Bright Red-Orange) */
-#cs.active ~ .certifications-list .certification-card.show h3 {
-    color: #FF5733; /* Bright Red-Orange text */
+#cs.active~.certifications-list .certification-card.show h3 {
+    color: #FF5733;
+    /* Bright Red-Orange text */
 }
 
-#cs.active ~ .certifications-list .certification-card.show a {
-    color: #FF5733; /* Bright Red-Orange hover text */
+#cs.active~.certifications-list .certification-card.show a {
+    color: #FF5733;
+    /* Bright Red-Orange hover text */
 }
 
 /* Data Science (Muted Purple) */
-#ds.active ~ .certifications-list .certification-card.show h3 {
-    color: #6a4c93; /* Muted Purple text */
+#ds.active~.certifications-list .certification-card.show h3 {
+    color: #6a4c93;
+    /* Muted Purple text */
 }
 
-#ds.active ~ .certifications-list .certification-card.show a {
-    color: #6a4c93; /* Muted Purple hover text */
+#ds.active~.certifications-list .certification-card.show a {
+    color: #6a4c93;
+    /* Muted Purple hover text */
 }
 
 /* Data Analytics (Green) */
-#da.active ~ .certifications-list .certification-card.show h3 {
-    color: #16a085; /* Green text */
+#da.active~.certifications-list .certification-card.show h3 {
+    color: #16a085;
+    /* Green text */
 }
 
-#da.active ~ .certifications-list .certification-card.show a {
-    color: #16a085; /* Green hover text */
+#da.active~.certifications-list .certification-card.show a {
+    color: #16a085;
+    /* Green hover text */
 }
 
 /* Software Engineering (Bright Blue) */
-#se.active ~ .certifications-list .certification-card.show h3 {
-    color: #2980b9; /* Bright Blue text */
+#se.active~.certifications-list .certification-card.show h3 {
+    color: #2980b9;
+    /* Bright Blue text */
 }
 
-#se.active ~ .certifications-list .certification-card.show a {
-    color: #2980b9; /* Bright Blue hover text */
+#se.active~.certifications-list .certification-card.show a {
+    color: #2980b9;
+    /* Bright Blue hover text */
 }
 
+/* Optional: Add an overlay with some opacity for better text readability */
+.certification-card::after {
+    content: "";
+    position: absolute;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black overlay with opacity */
+    z-index: 1;
+}
+
+/* Ensure the text is above the overlay */
+.certification-card h3 {
+    z-index: 2;
+}
 
 /* Hidden Sections for Animations */
 .hidden {
@@ -422,7 +524,8 @@ footer {
     font-size: 14px;
     color: #FF4F79;
 }
-footer img{
+
+footer img {
     border-radius: 5px;
     gap: 15%;
 }
@@ -432,22 +535,30 @@ footer img{
     margin: auto;
     padding: 5px;
 }
+
 .profile-pic-wrapper {
     position: relative;
     display: inline-block;
-    width: 150px; /* Container size for progress circle */
-    height: 150px; /* Container size for progress circle */
+    width: 150px;
+    /* Container size for progress circle */
+    height: 150px;
+    /* Container size for progress circle */
 }
 
 .profile-pic {
-    width: 150px; /* Image size */
-    height: 150px; /* Image size */
-    border-radius: 50%; /* Circular image */
-    z-index: 2; /* On top of the progress bar */
+    width: 150px;
+    /* Image size */
+    height: 150px;
+    /* Image size */
+    border-radius: 50%;
+    /* Circular image */
+    z-index: 2;
+    /* On top of the progress bar */
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center the image */
+    transform: translate(-50%, -50%);
+    /* Center the image */
 }
 
 .progress-bar {
@@ -455,21 +566,31 @@ footer img{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 160px; /* Outer circle size */
-    height: 160px; /* Outer circle size */
-    border-radius: 50%; /* Circular progress bar */
-    background: conic-gradient(rgba(231, 240, 237, 0) 0deg, #05eb9e 30deg); /* Initial empty progress */
-    z-index: 1; /* Behind the profile picture */
-    opacity: 0; /* Hidden initially */
-    pointer-events: none; /* Ensure it doesn't block interactions */
-    transition: opacity 0.3s ease-in-out; /* Smooth visibility transition */
+    width: 160px;
+    /* Outer circle size */
+    height: 160px;
+    /* Outer circle size */
+    border-radius: 50%;
+    /* Circular progress bar */
+    background: conic-gradient(rgba(231, 240, 237, 0) 0deg, #05eb9e 30deg);
+    /* Initial empty progress */
+    z-index: 1;
+    /* Behind the profile picture */
+    opacity: 0;
+    /* Hidden initially */
+    pointer-events: none;
+    /* Ensure it doesn't block interactions */
+    transition: opacity 0.3s ease-in-out;
+    /* Smooth visibility transition */
     border-radius: 90%;
 
 }
 
 .profile-pic-wrapper:hover .progress-bar {
-    opacity: 1; /* Show progress bar on hover */
+    opacity: 1;
+    /* Show progress bar on hover */
 }
+
 .heading {
     font-size: 2.5rem;
     margin-top: 10px;
@@ -495,16 +616,20 @@ footer img{
     margin-right: 20px;
     align-items: center;
     display: inline-block;
-    width: 60px; /* Set the width of each icon */
-    height: 60px; /* Set the height of each icon */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for transform and box-shadow */
+    width: 60px;
+    /* Set the width of each icon */
+    height: 60px;
+    /* Set the height of each icon */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Add transition for transform and box-shadow */
 }
 
 .coding-profiles .links img {
     width: 90px;
     height: 60px;
     border-radius: 10px;
-    transition: transform 0.3s ease; /* Add transition for image scale */
+    transition: transform 0.3s ease;
+    /* Add transition for image scale */
 }
 
 /* Center the coding-profiles section */
@@ -516,20 +641,25 @@ footer img{
 
 .coding-profiles .links {
     display: flex;
-    justify-content: center; /* Centers the content horizontally */
-    gap: 40px; /* Space between the icons */
-    flex-wrap: wrap; /* Allows the icons to wrap on smaller screens */
+    justify-content: center;
+    /* Centers the content horizontally */
+    gap: 40px;
+    /* Space between the icons */
+    flex-wrap: wrap;
+    /* Allows the icons to wrap on smaller screens */
 }
 
 /* Hover effect for links */
 .coding-profiles .links a:hover {
-    transform: scale(1.1); /* Slightly enlarge the icon on hover */
-    
+    transform: scale(1.1);
+    /* Slightly enlarge the icon on hover */
+
 }
 
 /* Hover effect for images inside the links */
 .coding-profiles .links a:hover img {
-    transform: scale(1.1); /* Slightly enlarge the image inside the link */
+    transform: scale(1.1);
+    /* Slightly enlarge the image inside the link */
 }
 
 /* Skills Section */
@@ -560,7 +690,8 @@ footer img{
     padding: 30px;
     background-color: #1b1a1a;
     border-radius: 8px;
-    background: linear-gradient(to bottom, #333333, #444444); /* Dark to light fade */
+    background: linear-gradient(to bottom, #333333, #444444);
+    /* Dark to light fade */
 }
 
 /* Center the heading */
@@ -592,13 +723,16 @@ h3 {
 
 /* Hover effect for skill cards */
 .skill:hover {
-    transform: translateY(-10px); /* Lift effect */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    transform: translateY(-10px);
+    /* Lift effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Stronger shadow */
 }
 
 /* Add a subtle color change on hover */
 .skill:hover img {
-    filter: brightness(1.3); /* Make the image slightly brighter on hover */
+    filter: brightness(1.3);
+    /* Make the image slightly brighter on hover */
 }
 
 /* Image styling for each logo */
@@ -611,7 +745,8 @@ h3 {
 
 /* Hover effect on images (slightly enlarge them) */
 .skill:hover img {
-    transform: scale(1.1); /* Slight zoom-in effect on hover */
+    transform: scale(1.1);
+    /* Slight zoom-in effect on hover */
 }
 
 /* Style the skill text */
@@ -624,7 +759,8 @@ h3 {
 
 /* Change text color on hover */
 .skill:hover p {
-    color: #0073e6; /* Change text color to blue */
+    color: #0073e6;
+    /* Change text color to blue */
 }
 
 /* Add a subtle fade-in effect when the page loads */
@@ -644,22 +780,27 @@ h3 {
 .skills-list .skill:nth-child(1) {
     animation-delay: 0.1s;
 }
+
 .skills-list .skill:nth-child(2) {
     animation-delay: 0.2s;
 }
+
 .skills-list .skill:nth-child(3) {
     animation-delay: 0.3s;
 }
+
 .skills-list .skill:nth-child(4) {
     animation-delay: 0.4s;
 }
+
 .skills-list .skill:nth-child(5) {
     animation-delay: 0.5s;
 }
 
 /* Education Section */
 .highlight {
-    color: #FF4500; /* Tomato color */
+    color: #FF4500;
+    /* Tomato color */
     font-weight: bold;
 }
 
@@ -685,7 +826,8 @@ h3 {
     flex-direction: column;
     gap: 15px;
 }
-.contact-form{
+
+.contact-form {
     border-radius: 10px;
     padding: 20px;
     border-radius: 8px;
@@ -784,20 +926,26 @@ h3 {
 /* Coding Profiles Section */
 .coding-profiles {
     padding: 40px;
-    background: linear-gradient(to bottom, #333333, #444444); /* Dark to lighter gray fade */
+    background: linear-gradient(to bottom, #333333, #444444);
+    /* Dark to lighter gray fade */
     text-align: center;
     margin: 50px 0;
     margin-bottom: 20px;
 }
-.coding-profiles h2{
+
+.coding-profiles h2 {
     margin-top: -10px;
     font-size: 28px;
 }
+
 .coding-profiles .links {
     display: flex;
-    justify-content: center; /* Centers the content horizontally */
-    gap: 40px; /* Space between the icons */
-    flex-wrap: wrap; /* Allows the icons to wrap on smaller screens */
+    justify-content: center;
+    /* Centers the content horizontally */
+    gap: 40px;
+    /* Space between the icons */
+    flex-wrap: wrap;
+    /* Allows the icons to wrap on smaller screens */
 }
 
 .coding-profiles .links a {
@@ -814,10 +962,12 @@ h3 {
     transition: transform 0.3s ease;
 }
 
-/* Awards and Achievements Section *//* General Styles for Awards Section */
+/* Awards and Achievements Section */
+/* General Styles for Awards Section */
 .awards {
     padding: 40px;
-    background: linear-gradient(to bottom, #444444, #555555); /* Dark to lighter gray fade */
+    background: linear-gradient(to bottom, #444444, #555555);
+    /* Dark to lighter gray fade */
     color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -847,15 +997,18 @@ h3 {
 }
 
 .awards ul li:hover {
-    transform: translateX(10px); /* Slightly shift to the right on hover */
-    color: #FFB732; /* Change text color to gold on hover */
+    transform: translateX(10px);
+    /* Slightly shift to the right on hover */
+    color: #FFB732;
+    /* Change text color to gold on hover */
 }
 
 /* Icon Styling */
 .awards ul li .icon {
     font-size: 20px;
     margin-right: 15px;
-    color: #FFB732; /* Gold color for icons */
+    color: #FFB732;
+    /* Gold color for icons */
 }
 
 /* Adding animation for list items */
@@ -885,7 +1038,8 @@ h3 {
 /* Contact Me Section */
 .contact-form {
     padding: 40px;
-    background: linear-gradient(to bottom, #333333, #444444); /* Dark to lighter gray fade */
+    background: linear-gradient(to bottom, #333333, #444444);
+    /* Dark to lighter gray fade */
 }
 
 .contact-form h2 {
@@ -927,6 +1081,7 @@ h3 {
 body.modal-active {
     filter: blur(5px);
 }
+
 .visitor-container {
     text-align: center;
     padding: 20px;
@@ -934,11 +1089,12 @@ body.modal-active {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 #visitor-count {
     font-size: 20px;
     color: #93C5FD;
     font-weight: bold;
-    color:#83f988;
+    color: #83f988;
 }
 
 @keyframes slideIn {
@@ -946,15 +1102,24 @@ body.modal-active {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-.summary, .skills, .contact-form, .awards, .coding-profiles {
+
+.summary,
+.skills,
+.contact-form,
+.awards,
+.coding-profiles {
     animation: slideIn 1s ease-out;
 }
-.button-class, .skill:hover, .coding-profiles .links a {
+
+.button-class,
+.skill:hover,
+.coding-profiles .links a {
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -964,23 +1129,34 @@ body.modal-active {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 /* Hover text underline and background color change */
-h2, h3, .skills .skill-item, .projects .project-title {
+h2,
+h3,
+.skills .skill-item,
+.projects .project-title {
     position: relative;
     cursor: pointer;
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-h2:hover, h3:hover, .skills .skill-item:hover, .projects .project-title:hover {
+h2:hover,
+h3:hover,
+.skills .skill-item:hover,
+.projects .project-title:hover {
     color: #FF6347;
 }
 
-h2::after, h3::after, .skills .skill-item::after, .projects .project-title::after {
+h2::after,
+h3::after,
+.skills .skill-item::after,
+.projects .project-title::after {
     content: '';
     position: absolute;
     left: 0;
@@ -991,7 +1167,10 @@ h2::after, h3::after, .skills .skill-item::after, .projects .project-title::afte
     transition: width 0.3s ease;
 }
 
-h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .project-title:hover::after {
+h2:hover::after,
+h3:hover::after,
+.skills .skill-item:hover::after,
+.projects .project-title:hover::after {
     width: 100%;
 }
 
@@ -1019,10 +1198,25 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
 
 
 /* Change background color dynamically when hovering over sections */
-.summary:hover, .skills:hover, .contact-form:hover, .awards:hover, .coding-profiles:hover,.summary:hover, .skills:hover, .contact-form:hover, .awards:hover, .coding-profiles:hover, .about:hover, 
-.education:hover, .certifications:hover, .experience:hover, .projects:hover, .header:hover {
+.summary:hover,
+.skills:hover,
+.contact-form:hover,
+.awards:hover,
+.coding-profiles:hover,
+.summary:hover,
+.skills:hover,
+.contact-form:hover,
+.awards:hover,
+.coding-profiles:hover,
+.about:hover,
+.education:hover,
+.certifications:hover,
+.experience:hover,
+.projects:hover,
+.header:hover {
     background: linear-gradient(45deg, #333333, #516c9e, #6c497a);
-    background-size: 400% 400%; /* Larger gradient area for effect */
+    background-size: 400% 400%;
+    /* Larger gradient area for effect */
     animation: ambientGlow 4s ease-in-out infinite;
     box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
@@ -1032,9 +1226,11 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -1048,14 +1244,15 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
     bottom: 0;
     border-radius: 10px;
     margin-top: 30px;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1); /* Depth */
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    /* Depth */
 }
 
 /* Footer Content Layout */
 .footer-content {
     display: flex;
     justify-content: space-between;
-    
+
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
@@ -1073,7 +1270,7 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
 }
 
 .footer-links {
-    
+
     padding: 0;
     margin: 0;
     display: flex;
@@ -1094,7 +1291,8 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
 
 .footer-link:hover {
     color: #1abc9c;
-    transform: scale(1.1); /* Slight zoom effect */
+    transform: scale(1.1);
+    /* Slight zoom effect */
 }
 
 /* Social Media Icons */
@@ -1107,34 +1305,41 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
 
 .footer-social a {
     font-size: 40px;
-    transition: color 0.3s ease; /* Smooth color transition */
+    transition: color 0.3s ease;
+    /* Smooth color transition */
     text-decoration: none;
 }
 
 /* Default color for each icon */
 .footer-social a {
-    color: #fbf9fa; /* Instagram color */
+    color: #fbf9fa;
+    /* Instagram color */
 }
 
 /* Hover effects */
 .footer-social a.linkedin:hover {
-    color: #0a66c2; /* Keep LinkedIn color on hover */
+    color: #0a66c2;
+    /* Keep LinkedIn color on hover */
     transform: scale(1.2);
-    
+
 }
+
 .footer-social a.github:hover {
     color: #805eb4;
-    transform: scale(1.2); /* Change GitHub color on hover */
+    transform: scale(1.2);
+    /* Change GitHub color on hover */
 }
 
 .footer-social a.twitter:hover {
     color: #1a91da;
-    transform: scale(1.2); /* Change Twitter color on hover */
+    transform: scale(1.2);
+    /* Change Twitter color on hover */
 }
 
 .footer-social a.instagram:hover {
     color: #e4405f;
-    transform: scale(1.2); /* Change Instagram color on hover */
+    transform: scale(1.2);
+    /* Change Instagram color on hover */
 }
 
 /* Footer Bottom Section */
@@ -1148,49 +1353,68 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
 /* Responsive  */
 @media (max-width: 768px) {
     .heading {
-        font-size: 28px; /* Adjust font size for smaller screens */
+        font-size: 28px;
+        /* Adjust font size for smaller screens */
     }
 
     .tagline {
-        font-size: 16px; /* Slightly smaller tagline for mobile */
+        font-size: 16px;
+        /* Slightly smaller tagline for mobile */
     }
 
     .profile-pic-wrapper {
         position: relative;
         display: inline-block;
-        width: 150px; /* Container size for profile picture */
-        height: 150px; /* Container size for profile picture */
+        width: 150px;
+        /* Container size for profile picture */
+        height: 150px;
+        /* Container size for profile picture */
     }
-    
+
     .profile-pic {
-        width: 120px; /* Image size */
-        height: 120px; /* Image size */
-        border-radius: 50%; /* Circular image */
+        width: 120px;
+        /* Image size */
+        height: 120px;
+        /* Image size */
+        border-radius: 50%;
+        /* Circular image */
         transition: opacity 0.3s ease-in-out;
-        z-index: 0; /* Profile picture is below the progress bar */
+        z-index: 0;
+        /* Profile picture is below the progress bar */
     }
-    
+
     .progress-bar {
         position: absolute;
         top: 0;
         left: 0;
-        width: 150px; /* Match the container size */
-        height: 150px; /* Match the container size */
-        border-radius: 50%; /* Circular progress bar */
-        background: conic-gradient(#ff2200 0%, #95ff00 0%); /* Initially 0% progress */
-        z-index: 1; /* Progress bar on top of the profile picture */
-        opacity: 0; /* Initially hidden */
-        pointer-events: none; /* Make sure the progress bar doesn't block interactions */
-        transition: opacity 0.3s ease-in-out; /* Smooth visibility transition */
+        width: 150px;
+        /* Match the container size */
+        height: 150px;
+        /* Match the container size */
+        border-radius: 50%;
+        /* Circular progress bar */
+        background: conic-gradient(#ff2200 0%, #95ff00 0%);
+        /* Initially 0% progress */
+        z-index: 1;
+        /* Progress bar on top of the profile picture */
+        opacity: 0;
+        /* Initially hidden */
+        pointer-events: none;
+        /* Make sure the progress bar doesn't block interactions */
+        transition: opacity 0.3s ease-in-out;
+        /* Smooth visibility transition */
     }
-    
+
     .profile-pic-wrapper:hover .progress-bar {
-        opacity: 1; /* Show progress bar on hover */
+        opacity: 1;
+        /* Show progress bar on hover */
     }
-    
+
     .contact-links a {
-        font-size: 25px; /* Smaller font for links */
-        margin: 8px; /* Less margin on mobile */
+        font-size: 25px;
+        /* Smaller font for links */
+        margin: 8px;
+        /* Less margin on mobile */
         color: white;
     }
 
@@ -1198,6 +1422,7 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
         height: 25px;
         width: 25px;
     }
+
     .certifications h2 {
         margin-top: -10px;
         font-size: 1.5rem;
@@ -1206,23 +1431,27 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
     .certifications-list {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         display: flex;
-        flex-wrap:wrap;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
     }
+
     .certification-card h3 {
         margin-top: -10px;
         font-size: 0.7rem;
     }
+
     .certification-card {
         width: 25%;
         height: 50px;
     }
+
     .category-buttons {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .skill {
         width: 25%;
         height: 50px;
@@ -1230,10 +1459,11 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
         margin-left: 15px;
         margin-top: 15px;
     }
-    .skill p{
-        color:white;
+
+    .skill p {
+        color: white;
         font-size: 0.7rem;
-        
+
     }
 
     .skills-list {
@@ -1249,32 +1479,39 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
         border-radius: 10px;
         width: 90%;
         margin-left: 15px;
-        
+
     }
+
     .contact-form input,
     .contact-form textarea {
-        font-size: 0.9rem; /* Adjust for smaller screens */
+        font-size: 0.9rem;
+        /* Adjust for smaller screens */
     }
 
     h2 {
         font-size: 1.5rem;
     }
+
     .skills-list {
         display: flex;
         justify-content: left;
     }
+
     .coding-profiles .links {
         display: flex;
         gap: 40px;
-        justify-content: center; /* Centers the content horizontally */
-        flex-wrap: wrap; /* Allows the icons to wrap on smaller screens */
-        
+        justify-content: center;
+        /* Centers the content horizontally */
+        flex-wrap: wrap;
+        /* Allows the icons to wrap on smaller screens */
+
     }
+
     .footer-content {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .footer-left {
         margin-bottom: 10px;
     }
@@ -1294,75 +1531,124 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
         gap: 20px;
         justify-content: center;
         margin-top: 50px;
-        flex-direction: row; /* Align items in a row by default */
+        flex-direction: row;
+        /* Align items in a row by default */
     }
 
     /* Social media icon styling */
     .footer-social a {
         font-size: 40px;
-        color: #fbf9fa; /* Default color for all icons */
-        transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scaling */
-        text-decoration: none; /* Remove underline from links */
+        color: #fbf9fa;
+        /* Default color for all icons */
+        transition: color 0.3s ease, transform 0.3s ease;
+        /* Smooth transition for color and scaling */
+        text-decoration: none;
+        /* Remove underline from links */
     }
 
     /* Hover effects for social media icons */
     .footer-social a.linkedin:hover {
-        color: #0a66c2; /* LinkedIn color */
-        transform: scale(1.2); /* Enlarge on hover */
+        color: #0a66c2;
+        /* LinkedIn color */
+        transform: scale(1.2);
+        /* Enlarge on hover */
     }
 
     .footer-social a.github:hover {
-        color: #7957ab; /* GitHub color */
-        transform: scale(1.2); /* Enlarge on hover */
+        color: #7957ab;
+        /* GitHub color */
+        transform: scale(1.2);
+        /* Enlarge on hover */
     }
 
     .footer-social a.twitter:hover {
-        color: #1a91da; /* Twitter color */
-        transform: scale(1.2); /* Enlarge on hover */
+        color: #1a91da;
+        /* Twitter color */
+        transform: scale(1.2);
+        /* Enlarge on hover */
     }
 
     .footer-social a.instagram:hover {
-        color: #e4405f; /* Instagram color */
-        transform: scale(1.2); /* Enlarge on hover */
+        color: #e4405f;
+        /* Instagram color */
+        transform: scale(1.2);
+        /* Enlarge on hover */
     }
 
-/* Keyframe for ambient glowing effect */
-@keyframes ambientGlow {
-    0% {
-        background-position: 0% 50%;
+    /* Keyframe for ambient glowing effect */
+    @keyframes ambientGlow {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
     }
-    50% {
-        background-position: 100% 50%;
+
+    /* Glow effect for the current section when it is in view */
+    .section-glow {
+        background: linear-gradient(45deg, #333333, #516c9e, #6c497a);
+        background-size: 400% 400%;
+        /* Larger gradient area for effect */
+        animation: ambientGlow 4s ease-in-out infinite;
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
     }
-    100% {
-        background-position: 0% 50%;
-    }
+
 }
 
-/* Glow effect for the current section when it is in view */
-.section-glow {
-    background: linear-gradient(45deg, #333333, #516c9e, #6c497a);
-    background-size: 400% 400%; /* Larger gradient area for effect */
-    animation: ambientGlow 4s ease-in-out infinite;
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-}
-
-}
 @keyframes slideIn {
     from {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-.summary, .skills, .contact-form, .awards, .coding-profiles,.summary, .skills, .contact-form, .awards, .coding-profiles, .about,.education, .certifications, .experience, .projects, .header {
+
+.summary,
+.skills,
+.contact-form,
+.awards,
+.coding-profiles,
+.summary,
+.skills,
+.contact-form,
+.awards,
+.coding-profiles,
+.about,
+.education,
+.certifications,
+.experience,
+.projects,
+.header {
     animation: slideIn 1s ease-out;
 }
-.summary, .skills, .contact-form, .awards, .coding-profiles,.summary, .skills, .contact-form, .awards, .coding-profiles, .about,.education, .certifications, .experience, .projects, .header a {
+
+.summary,
+.skills,
+.contact-form,
+.awards,
+.coding-profiles,
+.summary,
+.skills,
+.contact-form,
+.awards,
+.coding-profiles,
+.about,
+.education,
+.certifications,
+.experience,
+.projects,
+.header a {
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -1372,6 +1658,7 @@ h2:hover::after, h3:hover::after, .skills .skill-item:hover::after, .projects .p
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
