@@ -18,6 +18,18 @@ body {
     transition: all 0.3s ease;
 }
 
+#scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6px;
+    border-radius: 5px;
+    background-color: #47ec06;
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.2s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother cubic bezier curve */
+}
+
 section {
     margin-bottom: 20px;
     /* Adjust this value to control the space between sections */
@@ -219,11 +231,13 @@ h3 {
     border-radius: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
+    text-align: left;
 }
 
 .project h3 {
     color: #FF4F79;
     font-size: 22px;
+    text-align: center;
 }
 
 .project a {
@@ -674,6 +688,7 @@ footer img {
     margin-left: 50px;
     flex-direction: row;
     align-items: left;
+    border: 1px solid #ddd;
 }
 
 .skill {
@@ -1176,67 +1191,61 @@ h3:hover::after,
 }
 
 
-/* Cursor style */
-.cursor {
-    position: fixed;
-    pointer-events: none;
-    top: 0;
-    left: 0;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    /* background: rgba(182, 39, 39, 0.7); */
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, background 0.3s;
-}
 
-/* Hovered state of the cursor (will increase size and change color) */
-.cursor-hovered {
-    width: 60px;
-    height: 60px;
-    box-shadow: 0 0 300px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.5);
-}
 
 
 /* Change background color dynamically when hovering over sections */
-.summary:hover,
-.skills:hover,
-.contact-form:hover,
-.awards:hover,
-.coding-profiles:hover,
-.summary:hover,
-.skills:hover,
-.contact-form:hover,
-.awards:hover,
-.coding-profiles:hover,
-.about:hover,
-.education:hover,
-.certifications:hover,
-.experience:hover,
-.projects:hover,
-.header:hover {
-    background: linear-gradient(45deg, #333333, #516c9e, #6c497a);
-    background-size: 400% 400%;
-    /* Larger gradient area for effect */
-    animation: ambientGlow 4s ease-in-out infinite;
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
+@media (min-width: 1024px) {
+    .summary:hover,
+    .skills:hover,
+    .contact-form:hover,
+    .awards:hover,
+    .coding-profiles:hover,
+    .about:hover,
+    .education:hover,
+    .certifications:hover,
+    .experience:hover,
+    .projects:hover,
+    .header:hover {
+        background: linear-gradient(45deg, #333333, #516c9e, #6c497a);
+        background-size: 400% 400%; /* Larger gradient area for effect */
+        
+        /* Ambient glow animation for background */
+        animation: ambientGlow 4s ease-in-out infinite, goldGlow 10s linear infinite; 
+        
+        /* Glow effect around the element */
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
+        
+        /* Transition for smooth hover effect */
+        transition: all 0.3s ease;
+    }
+
+    /* Keyframe for ambient glowing effect (animated gradient movement) */
+    @keyframes ambientGlow {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Keyframe for gold glow effect */
+    @keyframes goldGlow {
+        0% {
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2), 0 0 50px rgba(255, 255, 255, 0.05); /* Soft glow */
+        }
+        50% {
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.4), 0 0 80px rgba(255, 215, 0, 0.1); /* Gold glow for a classy look */
+        }
+        100% {
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2), 0 0 50px rgba(255, 255, 255, 0.05); /* Soft glow */
+        }
+    }
 }
-
-@keyframes ambientGlow {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 /* Footer Section */
 .footer {
     color: #ffffff;
@@ -1409,7 +1418,7 @@ h3:hover::after,
         /* Smooth visibility transition */
     }
 
-    .profile-pic-wrapper:hover .progress-bar {
+    .profile-pic-wrapper:active .progress-bar {
         opacity: 1;
         /* Show progress bar on hover */
     }
@@ -1451,8 +1460,8 @@ h3:hover::after,
     }
 
     .certification-card {
-        width: 160px;
-        height: 80px;
+        width: 240px;
+        height: 120px;
         
     }
 
@@ -1465,14 +1474,16 @@ h3:hover::after,
     .skill {
         width: 25%;
         height: 50px;
-        margin-bottom: 40px;
-        margin-left: 15px;
-        margin-top: 15px;
+        margin: 20px 10px 38px 10px;
+    }
+    .skill img{
+        height: 90%;
+        width: 50%;
     }
 
     .skill p {
         color: white;
-        font-size: 0.7rem;
+        font-size: 0.9rem;
 
     }
 
@@ -1485,7 +1496,7 @@ h3:hover::after,
         flex-wrap: wrap;
         justify-content: center;
         flex-direction: row;
-        align-items: center;
+        align-items:safe;
         border-radius: 10px;
         width: 90%;
         margin-left: 15px;
@@ -1503,13 +1514,14 @@ h3:hover::after,
     }
 
     .skills-list {
-        display:flex;
+        display:flexbox;
         justify-content:safe;
+        
     }
 
     .coding-profiles .links {
         display: flex;
-        gap: 80px;
+        gap: 40px;
         justify-content:safe;
         /* Centers the content horizontally */
         flex-wrap: wrap;
@@ -1585,29 +1597,70 @@ h3:hover::after,
         /* Enlarge on hover */
     }
 
-    /* Keyframe for ambient glowing effect */
+    /* Glow effect for the current section when it is in view */
+    .section-glow {
+        background: linear-gradient(45deg, #333333, #516c9e, #6c497a);
+        background-size: 400% 400%; /* Larger gradient area for effect */
+        
+        /* Ambient glow animation for background */
+        animation: ambientGlow 4s ease-in-out infinite, goldGlow 5s linear infinite; 
+        
+        /* Glow effect around the element */
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
+        
+        /* Transition for smooth hover effect */
+        transition: all 0.3s ease;
+    }
+
+    /* Keyframe for ambient glowing effect (animated gradient movement) */
     @keyframes ambientGlow {
         0% {
             background-position: 0% 50%;
         }
-
         50% {
             background-position: 100% 50%;
         }
-
         100% {
             background-position: 0% 50%;
         }
     }
 
-    /* Glow effect for the current section when it is in view */
-    .section-glow {
-        background: linear-gradient(45deg, #333333, #516c9e, #6c497a);
-        background-size: 400% 400%;
-        /* Larger gradient area for effect */
-        animation: ambientGlow 4s ease-in-out infinite;
-        box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
-        transition: all 0.3s ease;
+    /* Keyframe for gold glow effect */
+    @keyframes goldGlow {
+        0% {
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1), 0 0 50px rgba(255, 255, 255, 0.1); /* Soft glow */
+        }
+        50% {
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.2), 0 0 80px rgba(255, 215, 0, 0.2); /* Gold glow for a classy look */
+        }
+        100% {
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1), 0 0 50px rgba(255, 255, 255, 0.1); /* Soft glow */
+        }
+    }
+    /* Hover effects */
+    .footer-social a.linkedin:active {
+        color: #0a66c2;
+        /* Keep LinkedIn color on hover */
+        transform: scale(1.2);
+
+    }
+
+    .footer-social a.github:active {
+        color: #805eb4;
+        transform: scale(1.2);
+        /* Change GitHub color on hover */
+    }
+
+    .footer-social a.twitter:active {
+        color: #1a91da;
+        transform: scale(1.2);
+        /* Change Twitter color on hover */
+    }
+
+    .footer-social a.instagram:active {
+        color: #e4405f;
+        transform: scale(1.2);
+        /* Change Instagram color on hover */
     }
 
 }
@@ -1624,24 +1677,6 @@ h3:hover::after,
     }
 }
 
-.summary,
-.skills,
-.contact-form,
-.awards,
-.coding-profiles,
-.summary,
-.skills,
-.contact-form,
-.awards,
-.coding-profiles,
-.about,
-.education,
-.certifications,
-.experience,
-.projects,
-.header {
-    animation: slideIn 1s ease-out;
-}
 
 .summary,
 .skills,
@@ -1660,6 +1695,7 @@ h3:hover::after,
 .projects,
 .header a {
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    animation: slideIn 1s ease-out;
 }
 
 /* Fade-in transition for sections */

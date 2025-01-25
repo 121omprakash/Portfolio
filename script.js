@@ -310,7 +310,7 @@ profilePic.addEventListener("mouseleave", () => {
     progressBar.style.opacity = 0; // Hide the progress bar
 });
 // Select all sections
-const sections = document.querySelectorAll('.header,.summary,.skills-list,.edu-entry,.certifications,.exp-entry,.project, .contact-form, .awards, .coding-profiles,.ach');
+const sections = document.querySelectorAll('.header,.summary,.skills-list,.edu-entry,.certifications,.exp-entry,.project, .contact-form,  .coding-profiles,.ach');
 
 // Options for Intersection Observer
 const observerOptions = {
@@ -361,3 +361,27 @@ socialIcons.forEach(icon => {
     icon.addEventListener('click', simulateHoverStart);
     icon.addEventListener('mouseout', simulateHoverEnd);
 });
+
+
+let ticking = false; // Prevent excessive calculations on scroll
+
+function updateProgressBar() {
+  const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPosition = window.scrollY;
+  const scrollPercentage = (scrollPosition / totalHeight) * 100;
+  
+  const progressBar = document.getElementById('scroll-progress-bar');
+  progressBar.style.width = `${scrollPercentage}%`;
+}
+
+// Use requestAnimationFrame for smoother updates
+window.addEventListener('scroll', function() {
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      updateProgressBar();
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+  
