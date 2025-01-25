@@ -1603,7 +1603,7 @@ h3:hover::after,
         background-size: 400% 400%; /* Larger gradient area for effect */
         
         /* Ambient glow animation for background */
-        animation: ambientGlow 4s ease-in-out infinite, goldGlow 5s linear infinite; 
+        animation: ambientGlow 4s ease-in-out infinite, goldGlow 20s linear infinite; 
         
         /* Glow effect around the element */
         box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
