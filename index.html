@@ -47,10 +47,6 @@
     <!-- External Stylesheet (Styles for your webpage) -->
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Font Awesome Icons (Optional, for better UI/UX) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- Schema.org JSON-LD for Structured Data (To improve search engine understanding) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -141,717 +137,829 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+
 </head>
 
 <body>
     <div id="scroll-progress-bar"></div>
-    <div id="portfolio-container">
+    <!-- Particle.js Background -->
+    <div id="particles-js"></div>
 
-        <!-- Header Section -->
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
 
-        <header class="header">
-            <div class="profile-pic-wrapper">
-                <img id="profile-pic" class="profile-pic" src="images/android-chrome-512x512.png" alt="Profile Picture">
-                <div class="progress-bar" id="progress-bar"></div>
-            </div>
-            <h1 class="heading">Om Prakash</h1>
-            <p class="tagline">Data Scientist | Data Analyst | Software Engineer | AWS AI/ML Scholar '23</p>
-            <div class="contact-links">
-                <a href="mailto:omimucet@gmail.com" aria-label="Email Om Prakash">📧 Email</a>
-                <!--                 <a  href="tel:+919523173538" aria-label="Call Om Prakash">📱 Phone</a> -->
-                <a href="https://in.linkedin.com/in/om%7Eprakash?trk=profile-badge" target="_blank"
-                    aria-label="Om Prakash LinkedIn">
-                    <img src="images/linkedin.svg"> LinkedIn
-                </a>
+    <!-- Navigation -->
+    <nav class="navbar" data-aos="fade-down">
+        <div class="logo"><a href="#home" class="nav-link">Om Prakash</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#timeline" class="nav-link">Journey</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#achievements" class="nav-link">Achievements</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="hamburger" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-                <a href="https://drive.google.com/file/d/1NUzMkIixVymuM56IpJKwuJBg7-_TU3J2/view?usp=sharing"
-                    style="color: white;" onmouseover="this.style.color='#ff4081';"
-                    onmouseout="this.style.color='white';">📄 Download Resume</a>
+    <!-- Hero Section -->
+    <section id="home" class="section hero" data-aos="fade-up">
+        <div class="profile-pic-wrapper">
+            <img id="profile-pic" class="profile-pic" src="images/android-chrome-512x512.png" alt="Profile Picture">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <h1>Om Prakash</h1>
+        <p>I’m a <span class="typed-text"></span></p>
+        <div class="contact-links">
+            <a href="mailto:omimucet@gmail.com" aria-label="Email Om Prakash">📧 Email</a>
+            <!--                 <a  href="tel:+919523173538" aria-label="Call Om Prakash">📱 Phone</a> -->
+            <a href="https://in.linkedin.com/in/om%7Eprakash?trk=profile-badge" target="_blank"
+                aria-label="Om Prakash LinkedIn">
+                <img src="images/linkedin.svg"> LinkedIn
+            </a>
 
-                <a href="https://linktr.ee/omprakash.in" target="_blank" aria-label="Profiles" style="color: white;"
-                    onmouseover="this.style.color='#ff4081';" onmouseout="this.style.color='white';">🌐 Profiles</a>
-            </div>
-        </header>
+            <a href="https://drive.google.com/file/d/1NUzMkIixVymuM56IpJKwuJBg7-_TU3J2/view?usp=sharing">📄 Download Resume</a>
 
-        <!-- Summary Section -->
-        <section class="summary">
-            <h2>Summary</h2>
-            <p>
-                Hi, I’m Om Prakash, an aspiring Data Analyst, Data Scientist and Software Engineer pursuing a Bachelor’s
-                degree in Computer Applications (BCA) at Amity University Patna. I have experience with
-                <strong>Python</strong>, <strong>MySQL</strong>, <strong>Tableau</strong>, <strong>Power BI</strong>,
-                and <strong>Data Visualization</strong>, along with practical knowledge in <strong>cloud
-                    technologies</strong> and <strong>machine learning</strong>.As an AWS AI/ML Scholar 2023, I aim to
-                apply my technical skills to analyze data, uncover insights, and develop solutions that address
-                real-world challenges.I am actively seeking challenging opportunities to apply my technical skills and
-                solve real-world problems through data analysis and machine learning techniques.
-            </p>
+            <a href="https://linktr.ee/omprakash.in" target="_blank" aria-label="Profiles">🌐
+                Profiles</a>
+        </div>
 
-        </section>
+        <a href="#contact" class="touch">Get in Touch</a>
+    </section>
 
-        <!-- Coding Profiles Section -->
-        <section class="coding-profiles">
-            <h2>Coding Profiles</h2>
-            <div class="links">
-                <a href="https://github.com/121omprakash" target="_blank" aria-label="Visit Om Prakash's GitHub Profile"
-                    title="GitHub">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-                        alt="GitHub">
-                </a>
-                <a href="https://www.datacamp.com/portfolio/op703597-f6c53d1f-86ef-4c2f-bd41-5554f10b090e"
-                    target="_blank" aria-label="Visit Om Prakash's DataCamp Portfolio" title="DataCamp">
-                    <img src="https://www.datacamp.com/marketing-backgrounds/favicons/favicon-32x32.png" alt="DataCamp">
-                </a>
-                <a href="https://www.kaggle.com/ompraksh121" target="_blank"
-                    aria-label="Visit Om Prakash's Kaggle Profile" title="Kaggle">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png" alt="Kaggle">
-                </a>
-                <a href="https://www.geeksforgeeks.org/user/121deaw7sd/" target="_blank"
-                    aria-label="Visit Om Prakash's GeeksforGeeks Profile" title="GeeksforGeeks">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg"
-                        alt="GeeksforGeeks">
-                </a>
-                <a href="https://www.codechef.com/users/om121prakash" target="_blank"
-                    aria-label="Visit Om Prakash's CodeChef Profile" title="CodeChef">
-                    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef">
-                </a>
-                <a href="https://www.hackerrank.com/profile/121deathboy" target="_blank"
-                    aria-label="Visit Om Prakash's HackerRank Profile" title="HackerRank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png"
-                        alt="HackerRank">
-                </a>
-            </div>
-        </section>
-
-
-        <!-- Technical Skills Section with Icons -->
-        <section class="skills">
-            <h2>
-                <center>Technical Skills</center>
-            </h2>
-            <h3>Programming Languages</h3>
-            <div class="skills-list">
-                <div class="skill">
-                    <img src="images/python.svg" alt="Python">
-                    <p>Python</p>
-                </div>
-                <div class="skill">
-                    <img src="images/c-plus-plus.svg" alt="C++">
-                    <p>C++</p>
-                </div>
-                <div class="skill">
-                    <img src="images/java.svg" alt="Java">
-                    <p>Java</p>
-                </div>
-                <div class="skill">
-                    <img src="images/mysql.svg" alt="SQL">
-                    <p>SQL</p>
-                </div>
-                <div class="skill">
-                    <img src="images/r.png" alt="R">
-                    <p>R</p>
-                </div>
-                <div class="skill">
-                    <img src="images/bash.svg"
-                        alt="Bash">
-                    <p>Bash</p>
-                </div>
-            </div>
-            <h3>Tools & Frameworks</h3>
-            <div class="skills-list">
-                <div class="skill">
-                    <img src="images/tableau.png" alt="Tableau">
-                    <p>Tableau</p>
-                </div>
-                <div class="skill">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg"
-                        alt="MS Excel">
-                    <p>MS Excel</p>
-                </div>
-                <div class="skill">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI">
-                    <p>Power BI</p>
-                </div>
-                <div class="skill">
-                    <img src="images/pytorch.svg" alt="PyTorch">
-                    <p>PyTorch</p>
-                </div>
-                <div class="skill">
-                    <img src="images/aws.svg"
-                        alt="AWS">
-                    <p>AWS</p>
-                </div>
-                <div class="skill">
-                    <img src="images/google-cloud.svg"
-                        alt="Google Cloud">
-                    <p>Google Cloud</p>
-                </div>
-                <div class="skill">
-                    <img src="images/mongodb.svg"
-                        alt="MongoDB">
-                    <p>MongoDB</p>
-                </div>
-                <div class="skill">
-                    <img src="images/git.svg" alt="Git">
-                    <p>Git</p>
-                </div>
-                <div class="skill">
-
-                    <img src="images/docker.svg"
-                        alt="Docker">
-                    <p>Docker</p>
-                </div>
-            </div>
-            <h3>Data Science Libraries</h3>
-            <div class="skills-list">
-                <div class="skill">
-                    <img src="images/numpy.png" alt="NumPy">
-                    <p>NumPy</p>
-                </div>
-                <div class="skill">
-                    <img src="images/pandas.png" alt="Pandas">
-                    <p>Pandas</p>
-                </div>
-                <div class="skill">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
-                        alt="Scikit-learn">
-                    <p>Scikit-learn</p>
-                </div>
-                <div class="skill">
-                    <img src="images/tensorflow.svg" alt="TensorFlow">
-                    <p>TensorFlow</p>
-                </div>
-                <div class="skill">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Streamlit-logo-primary-colormark-darktext.png"
-                        alt="Streamlit">
-                    <p>Streamlit</p>
-                </div>
-                <div class="skill">
-                    <img src="https://seaborn.pydata.org/_static/logo-wide-lightbg.svg" alt="Streamlit">
-                    <p>Seaborn</p>
-                </div>
-
-            </div>
-            <h3>Other Tools</h3>
-            <div class="skills-list">
-                <div class="skill">
-                    <img src="images/vscode.svg"
-                        alt="VS Code">
-                    <p>VS Code</p>
-                </div>
-                <div class="skill">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg"
-                        alt="Jupyter Notebook">
-                    <p>Jupyter Notebook</p>
-                </div>
-                <div class="skill">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Colaboratory_SVG_Logo.svg"
-                        alt="Google Collab">
-                    <p>Google Collab</p>
-                </div>
-                <div class="skill">
-                    <img src="images/linux.svg"
-                        alt="Linux">
-                    <p>Linux</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section class="education">
-            <h2>Education</h2>
-            <div class="edu-entry">
-                <p><strong>BCA in Computer Science</strong></p>
-                <p>Amity University Patna | Sept 2022 – Present</p>
-                <ul>
-                    <li>Skills Learned: <span class="highlight">#SQL #Python, #Data Analysis, #Statistics, #R</span>
-                    </li>
-                    <li>Relevant Courses: Data Structures, Algorithms, Database Management Systems, Data Analytics, Data
-                        Science Using R</li>
-                </ul>
-            </div>
-            <div class="edu-entry">
-                <p><strong>Intermediate (Science)</strong></p>
-                <p>Rasbihari +2 High School | May 2020 – May 2022</p>
-                <ul>
-                    <li>Skills Learned: <span class="highlight">#Mathematics, #Physics, #Chemistry,#Agriculture</span>
-                    </li>
-                    <li>Relevant Courses: Calculus, Probability Theory</li>
-                </ul>
-            </div>
-            <div class="edu-entry">
-                <p><strong>Matriculation</strong></p>
-                <p>RDH High School Rajgir | Apr 2018 – Apr 2020</p>
-                <ul>
-                    <li>Skills Learned: Basic Computing, Mathematics, General Science</li>
-                </ul>
-            </div>
-        </section>
-
-
-        <!-- Certifications Section -->
-        <section class="certifications">
-            <h2>Certifications</h2>
-
-            <!-- Category Buttons -->
-            <div class="category-buttons">
-                <button class="category-btn" id="all">All</button>
-                <button class="category-btn" id="cs">Computer Science</button>
-                <button class="category-btn" id="ds">Data Science</button>
-                <button class="category-btn" id="da">Data Analytics</button>
-                <button class="category-btn" id="se">Software Engineering</button>
-            </div>
-
-            <!-- Certifications List -->
-            <div class="certifications-list">
-
-                <div class="certification-card se"
-                    style="background-image: url('/certificate/ibm.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://drive.google.com/file/d/13ueF6PwNy5iqTDra5uQ5Jt6thtnKnmTW/view?usp=sharing"
-                                target="_blank">IBM Hack Challenge -(IBM SkillsBuild) (2023)</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card ds da"
-                style="background-image: url('/certificate/hack_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.hackerrank.com/certificates/7927870DAAFA" target="_blank">SQL (Basic) -
-                                HackerRank (2023)</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card da"
-                    style="background-image: url('/certificate/accen_data.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://drive.google.com/file/d/1JNFjsM7lSr6j0Lj8vdzFz2dPGVyLAPO7/view"
-                                target="_blank">Data Analytics and Visualization Virtual
-                                Experience -Accenture</a></h3>
-                    </div>
-
-                </div>
-                <div class="certification-card se"
-                    style="background-image: url('/certificate/hack_sw.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.hackerrank.com/certificates/54011b90a3b0" target="_blank">Software
-                                Engineer
-                                Intern Certificate
-                            </a></h3>
-                    </div>
-                </div>
-                <div class="certification-card se"
-                    style="background-image: url('/certificate/mongi.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.geeksforgeeks.org/certificate/d3ec5668b50a4019728f70ef542c649b?utm_source=socials&utm_medium=cc_link"
-                                target="_blank">MongoDB Developer's Toolkit - GeeksforGeeks (2023)</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card ds"
-                    style="background-image: url('/certificate/aws.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://cdn.getblueshift.com/pictures/194761/content/p1-completed-aws-winter.jpg?bsft_aaid=8d7e276e-4a10-41b2-8868-423fe96dd6b2&bsft_eid=33376e36-10a2-5d05-e872-29974def376a&utm_campaign=sch_600_ndxxx_aws-ai-ml-winter-project-1-completed&utm_source=blueshift&utm_medium=email&utm_content=sch_600_ndxxx_aws-ai-ml-winter-project-completed&bsft_clkid=303d203b-e3d0-4baa-b5a2-ac32a31dd18c&bsft_uid=86e7bf05-56ec-4f67-824a-2c638b9d4617&bsft_mid=192365d2-bd0e-40ad-a965-f5d724f791a0&bsft_txnid=b557cc05-568d-46a0-90af-6f04d3b8474e&bsft_mime_type=html&bsft_ek=2023-11-30T11%3A35%3A13Z&bsft_lx=2&bsft_tv=5"
-                                target="_blank">AWS AI/ML Scholarship - AWS (2023)</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card ds"
-                    style="background-image: url('/certificate/gfg_data.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.geeksforgeeks.org/certificate/fb470ef516c2544f926679143b4ec8a1"
-                                target="_blank">Complete Machine Learning and Data Science - GeeksforGeeks (2023)</a>
-                        </h3>
-                    </div>
-                </div>
-                <div class="certification-card cs ds"
-                    style="background-image: url('/certificate/free_python.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.freecodecamp.org/certification/fcced1d69ac-a2ac-4606-8fcb-890e1175c960/scientific-computing-with-python-v7"
-                                target="_blank">Scientific Computing with Python - freeCodeCamp (2023)</a></h3>
-                    </div>
-                </div>
-                
-                <div class="certification-card da"
-                    style="background-image: url('/certificate/data_bi.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.datacamp.com/statement-of-accomplishment/track/aef617ad779cf7f6a3207b19f0548a33b98e9807?raw=1"
-                                target="_blank">Power Bi Fundamentals - DataCamp</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card da"
-                    style="background-image: url('/certificate/hack_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.datacamp.com/statement-of-accomplishment/track/aef617ad779cf7f6a3207b19f0548a33b98e9807?raw=1"
-                                target="_blank">Introduction to DAX In Power Bi - DataCamp</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card da"
-                    style="background-image: url('/certificate/data_bi_vi.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/cbc43f8aa7965d95d93820b74a5b849a6fc7d173?raw=1"
-                                target="_blank">Data Visualization In Power Bi - DataCamp</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card da"
-                    style="background-image: url('/certificate/data_bi_pr.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/59ebe704073c3eecae69ca7ef02922314f125c9e?raw=1"
-                                target="_blank">Data Preparation In Power Bi Fundamentals - DataCamp</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card da"
-                    style="background-image: url('/certificate/data_bi_mo.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/94719dd6f4731d3ff863ed053086388cf05c39de?raw=1"
-                                target="_blank">Data Modelling In Power Bi - DataCamp</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card da"
-                    style="background-image: url('/certificate/data_bi_tr.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/823c97e52a7337a969678e011c1ff4d535709ac1?raw=1"
-                                target="_blank">Data Transformation In Power Bi - DataCamp</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card ds da"
-                    style="background-image: url('/certificate/data_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/9ca97c230017800792f83add36b97b38a591ee8d?raw=1"
-                                target="_blank">Introduction to SQL - DataCamp</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card ds da"
-                    style="background-image: url('/certificate/data_sql_int.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/8ebd89c7d616c55dc65a1a59a41245c3f19bf698?raw=1"
-                                target="_blank">Intermediate SQL - DataCamp</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card ds da"
-                    style="background-image: url('/certificate/hack_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/ca2bdc65c7772462c6a4d3d2064dbc031091a654"
-                                target="_blank">Introduction to Python - DataCamp</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card ds da"
-                    style="background-image: url('/certificate/hack_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/eccd91e6f9813b50e579900f4783b937d9e87427"
-                                target="_blank">Intermediate Python - DataCamp</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card ds"
-                    style="background-image: url('/certificate/hack_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/81123850741f87603f53ccefb7abb3c1d376b30d?raw=1"
-                                target="_blank">Introduction to R Programming - DataCamp</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card se"
-                    style="background-image: url('/certificate/hack_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.credly.com/badges/60f3e975-73ea-428b-a4f8-c76e89480d7b/linked_in_profile"
-                                target="_blank">Networking Basics - Cisco</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card da"
-                    style="background-image: url('/certificate/hack_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.credly.com/badges/f5fd9087-05eb-471a-8fa2-a2c61af6c959"
-                                target="_blank">Data Analytics Essentials - Cisco</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card ds"
-                    style="background-image: url('/certificate/hack_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.credly.com/badges/af722c61-0f88-4c39-bd31-067a9b202cef"
-                                target="_blank">Introduction to Data Science - Cisco</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card cs"
-                    style="background-image: url('/certificate/hack_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.credly.com/badges/4db8b6ae-6105-4be8-b77e-3e25cca25b37"
-                                target="_blank">Introduction to Cybersecurity - Cisco</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card cs"
-                    style="background-image: url('/certificate/hack_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://drive.google.com/file/d/14Vu6kBVun357YfCM7gVW6w0zscQoE8yl/view"
-                                target="_blank">NDG Linux Essentials - Cisco,NDG</a></h3>
-                    </div>
-                </div>
-                <div class="certification-card cs"
-                    style="background-image: url('/certificate/hack_sql.png'); background-size: cover; background-position: center;">
-                    <div class="card-content">
-                        <h3><a href="https://www.codechef.com/certificates/public/7c47fa5" target="_blank">C++ for
-                                Problem
-                                Solving - Codechef</a></h3>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section class="experience">
-            <h2>Experience</h2>
-            <div class="exp-entry">
-                <p><strong>Frontend Web Developer Intern</strong></p>
-                <p>Virito Digital Solutions Pvt Ltd | July 2024 – August 2024</p>
-                <ul>
-                    <li>Skills Learned: <span class="highlight">#HTML, #CSS, #JavaScript, #React,#BootStrap</span></li>
-                    <li>Responsibilities: Created responsive front-end web pages and integrated APIs for client
-                        applications.</li>
-                </ul>
-            </div>
-            <div class="exp-entry">
-                <p><strong>Data Science Intern</strong></p>
-                <p>Oasis Infobyte | July 2023 – August 2023</p>
-                <ul>
-                    <li>Skills Learned: <span class="highlight">#Python, #DataPreprocessing, #Pandas, #NumPy</span></li>
-                    <li>Responsibilities: Analyzed datasets, performed data cleaning, and implemented machine learning
-                        models.</li>
-                </ul>
-            </div>
-            <div class="exp-entry">
-                <p><strong>Data Science Intern</strong></p>
-                <p>Pragytmika | June 2023 – July 2023</p>
-                <ul>
-                    <li>Skills Learned: <span class="highlight">#Python, #DataAnalysis, #MachineLearning</span></li>
-                    <li>Responsibilities: Worked on data cleaning, feature engineering, and model evaluation.</li>
-                </ul>
-            </div>
-            <div class="exp-entry">
-                <p><strong>Data Science Intern</strong></p>
-                <p>CETPA Infotech Pvt Ltd | Dec 2023 – Jan 2024</p>
-                <ul>
-                    <li>Skills Learned: <span class="highlight">#PCA, #SVM, #KNN</span></li>
-                    <li>Responsibilities: Analyzed datasets, performed data cleaning, DataPreprocessing,model deployment
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <!-- Projects Section -->
-        <section class="projects">
-            <h2>Projects</h2>
-
-            <!-- Data Science Projects -->
-            <h3>Data Science Projects</h3>
-
-            <div class="project">
-                <div class="project-content">
-                    <h3>Heart Disease Prediction</h3>
-                    <p>Developed a logistic regression model for heart disease prediction using real-world healthcare
-                        data. Deployed the model via Streamlit for real-time predictions and easy access.</p>
-                </div>
-                <button class="category-button" style="background-color: #6a4c93; color: white;">Data Science</button>
-                <a href="https://om-heart-disease.streamlit.app/" target="_blank">View Project</a>
-            </div>
-
-            <div class="project">
-                <div class="project-content">
-                    <h3>Inventory Management System</h3>
-                    <p>Created a Python-based inventory management system that allows users to manage products, track
-                        sales, apply discounts, and monitor stock levels. This system simplifies inventory tracking for
-                        businesses.</p>
-                </div>
-                <button class="category-button" style="background-color: #6a4c93; color: white;">Data Science</button>
-                <a href="https://github.com/121omprakash/Data-science/blob/main/Projects/Inventroy_json.py"
-                    target="_blank">View Project</a>
-            </div>
-
-            <div class="project">
-                <div class="project-content">
-                    <h3>Iris Flower Classification</h3>
-                    <p>Built a machine learning model using the Iris dataset to classify flowers based on features such
-                        as petal and sepal length/width. The model uses various classification algorithms for
-                        comparison.</p>
-                </div>
-                <button class="category-button" style="background-color: #6a4c93; color: white;">Data Science</button>
-                <a href="https://github.com/121omprakash/OIBSIP/blob/main/Task1%20Iris%20flower%20Classification.ipynb"
-                    target="_blank">View Project</a>
-            </div>
-
-            <div class="project">
-                <div class="project-content">
-                    <h3>Email Spam Detection</h3>
-                    <p>Developed a machine learning model to identify and classify email messages as spam or not. This
-                        model leverages natural language processing (NLP) techniques for efficient email filtering.</p>
-                </div>
-                <button class="category-button" style="background-color: #6a4c93; color: white;">Data Science</button>
-                <a href="https://github.com/121omprakash/OIBSIP/blob/main/Task1%20Email%20Spam%20Detection.ipynb"
-                    target="_blank">View Project</a>
-            </div>
-            <!-- Computer Science Projects -->
-            <h3>Computer Science Projects</h3>
-
-            <div class="project">
-                <div class="project-content">
-                    <h3>Voice Controlled Assistant</h3>
-                    <p>Developed a voice-controlled assistant using Python and its libraries (such as SpeechRecognition
-                        and pyttsx3). This assistant can perform tasks like opening applications and searching the web
-                        via voice commands.</p>
-                </div>
-                <button class="category-button"
-                    style="background-color: rgba(11, 222, 180, 0.76); color: white;">Computer Science</button>
-                <a href="https://github.com/121omprakash/OIBSIP/blob/main/Task1%20Voice%20Assistant.ipynb"
-                    target="_blank">View Project</a>
-            </div>
-
-            <!-- UI/UX Projects -->
-            <h3>UI/UX Projects</h3>
-
-            <div class="project">
-                <div class="project-content">
-                    <h3>Munim - Expense Tracker Web Application</h3>
-                    <p>Developed "Munim", a full-fledged expense tracking web application featuring a user-friendly
-                        dashboard, analytics, data visualization, budget management, and saving goals. Focused on
-                        intuitive design and seamless user experience.</p>
-                </div>
-                <p><strong>User:</strong> admin &nbsp;&nbsp;<strong>Password:</strong> Password</p>
-                <button class="category-button" style="background-color: green; color: white;">UI/UX</button>
-                <a href="https://121omprakash.github.io/Munim/Index.html" target="_blank">View Project</a>
-            </div>
-
-            <!-- Data Analytics Projects -->
-            <h3>Data Analytics Projects</h3>
-
-            <div class="project">
-                <div class="project-content">
-                    <h3>Data Analysis Dashboard</h3>
-                    <p>Created an interactive data analysis dashboard using Python and Plotly. This dashboard allows
-                        users to visualize and analyze large datasets, providing insights through dynamic charts and
-                        graphs.</p>
-                </div>
-                <button class="category-button" style="background-color:rgb(131, 249, 136); color: white;">Data
-                    Analytics</button>
-                <a href="https://github.com/121omprakash/Data-Analysis-Dashboard" target="_blank">View Project</a>
-            </div>
-            <div class="project">
-                <div class="project-content">
-                    <h3>Unemployment Analysis</h3>
-                    <p>Created a machine learning model to analyze unemployment trends and predict future employment
-                        status based on historical data. This project helps identify key factors influencing
-                        unemployment rates.</p>
-                </div>
-                <button class="category-button" style="background-color:rgb(131, 249, 136); color: white;">Data
-                    Analytics</button>
-                <a href="https://github.com/121omprakash/OIBSIP/blob/main/Task1%20Unemployment%20Analysis.ipynb"
-                    target="_blank">View Project</a>
-            </div>
-
-        </section>
-
-
-        <!-- Awards and Achievements Section -->
-        <section class="awards">
-            <h2>Awards and Achievements</h2>
-            <ul>
-                <li class="ach">
-                    <span class="icon"><i class="fas fa-trophy"></i></span>
-                    NextGen TechBooster Scholarship Recipient 
-                </li>
-                <li class="ach">
-                    <span class="icon"><i class="fas fa-trophy"></i></span>
-                    AWS AI/ML Scholarship - AWS (2023)
-                </li>
-                <li class="ach">
-                    <span class="icon"><i class="fas fa-certificate"></i></span>
-                    Top Data Science Voice - LinkedIn
-                </li>
-                <li class="ach">
-                    <span class="icon"><i class="fas fa-users"></i></span>
-                    Tech Co-ordinator, Ami-Technocrats Club, Amity University Patna
-                </li>
-                <li class="ach">
-                    <span class="icon"><i class="fas fa-briefcase"></i></span>
-                    Best Internship Performer at CETPA Infotech Pvt Ltd
-                </li>
-                <li class="ach">
-                    <span class="icon"><i class="fas fa-medal"></i></span>
-                    Won the Data Science Challenge by GeeksforGeeks
-                </li>
-                <li class="ach">
-                    <span class="icon"><i class="fas fa-medal"></i></span>
-                    Institute Rank 1 Problem Solver on GeeksforGeeks
-                </li>
-            </ul>
-        </section>
-
-        <!-- Contact Form Section -->
-        <section class="contact-form">
-            <h2>Contact Me</h2>
-            <form id="contactForm" action="https://formsubmit.co/omimucet@gmail.com" method="POST">
-                <!-- Form Fields -->
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <!-- Hidden input to redirect after form submission -->
-                <input type="hidden" name="_next" value="https://121omprakash.github.io/Portfolio/#confirmationBox">
-
-                <!-- Hidden input for form submission confirmation -->
-                <input type="hidden" name="_subject" value="New Contact Form Submission">
-
-                <!-- Anti-spam feature -->
-                <input type="text" name="_honey" style="display:none">
-
-                <!-- Hidden input for Visitor Number -->
-                <input type="hidden" id="visitorCount" name="visitorCount">
-
-                <!-- Hidden inputs for additional user data -->
-                <input type="hidden" id="userIP" name="userIP">
-                <input type="hidden" id="location" name="location">
-                <input type="hidden" id="userAgent" name="userAgent">
-                <input type="hidden" id="visitTime" name="visitTime">
-                <input type="hidden" id="latitude" name="latitude">
-                <input type="hidden" id="longitude" name="longitude">
-                <input type="hidden" id="timezone" name="timezone">
-
-                <!-- Submit Button -->
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-
-        <!-- Confirmation Box (initially hidden) -->
-        <div id="confirmationBox" class="confirmation-box" style="display:none;">
-            <div class="confirmation-content">
-                <span id="success-icon" class="icon">&#10004;</span>
-                <p>Your message has been sent to Omprakash!</p>
-                <button id="closeBtn" class="close-btn">Close</button>
+    <!-- About Section -->
+    <section id="about" class="section about" data-aos="fade-up">
+        <div class="parallax"></div>
+        <h2>About Me</h2>
+        <div class="about-content">
+        <img src="img_prof.jpg" alt="Om Prakash">
+        <div>
+                <p>Hi, I’m Om Prakash, a passionate Data Scientist and Software Engineer pursuing a BCA at Amity University Patna. With expertise in Python, SQL, Tableau, and Machine Learning, I aim to solve real-world problems through data-driven insights.</p>
+                <p>As an AWS AI/ML Scholar 2023, I’ve worked on projects like sentiment analysis models and Power BI dashboards during my internship at Virito Digital Solutions. I’m committed to continuous learning and innovation in the tech space.</p>
+                <p>My journey started with a curiosity for programming in high school, leading me to build ML models, web apps, and visualizations that make an impact.</p>
             </div>
         </div>
-        <!-- Footer Section -->
-        <footer class="footer">
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/in/om%7Eprakash" target="_blank" class="social-icon linkedin">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/121omprakash" target="_blank" class="social-icon github">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://twitter.com/121deathboy" target="_blank" class="social-icon twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/vompr" target="_blank" class="social-icon instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
+    <section id="timeline" class="section timeline" data-aos="fade-up">
+    <h2>My Journey</h2>
+    <div class="timeline">
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card tilt">
+                <h3>2020 - Completed 10th</h3>
+                <p>Completed matriculation at RDH High School, focusing on mathematics and general science.</p>
             </div>
-            <div class="footer-left">
-                <center>
-                    <p>&copy; 2024 Om Prakash. All Rights Reserved.</p>
-                    <p>Created with passion for technology and innovation.</p>
-                </center>
+        </div>
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card tilt">
+                <h3>2021 - Learned Microsoft Office</h3>
+                <p>Explored basics of Microsoft Office (Word, Excel, PowerPoint) in high school.</p>
             </div>
-        </footer>
+        </div>
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card tilt">
+                <h3>2022 - Completed Intermediate</h3>
+                <p>Graduated from Rasbihari +2 High School, gaining foundational academic knowledge.</p>
+            </div>
+        </div>
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card tilt">
+                <h3>June 2022 - Started BCA</h3>
+                <p>Joined Amity University Patna for a Bachelor’s in Computer Applications, diving into computer science.</p>
+            </div>
+        </div>
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card tilt">
+                <h3>2023 - AWS AI/ML Scholarship</h3>
+                <p>Selected for the prestigious AWS AI/ML Scholarship, recognizing expertise in AI and machine learning.</p>
+            </div>
+        </div>
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card tilt">
+                <h3>June-July 2023 - AI with IoT Internship</h3>
+                <p>Completed AI with IoT training and internship at CodroidHub, building smart solutions.</p>
+            </div>
+        </div>
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card tilt">
+                <h3>May-July 2024 - Python Training & Internship</h3>
+                <p>Completed Python training and internship at Pragyatmika Pvt. Ltd., enhancing programming skills.</p>
+            </div>
+        </div>
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card tilt">
+                <h3>July-August 2024 - Data Science Internship</h3>
+                <p>Interned at Cetpa Infotech Pvt. Ltd., working on data science projects.</p>
+            </div>
+        </div>
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card tilt">
+                <h3>2024 - NextGen Tech Booster Scholarship</h3>
+                <p>Selected for the NextGen Tech Booster Scholarship, supporting tech innovation.</p>
+            </div>
+        </div>
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card tilt">
+                <h3>2024 - Tech Coordinator at Amitechnocrats Club</h3>
+                <p>Selected as Tech Coordinator at Amitechnocrats Club, leading tech initiatives at Amity University.</p>
+            </div>
+        </div>
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card tilt">
+                <h3>2025 - AWS AI/ML Scholarship Renewal</h3>
+                <p>Re-selected for the AWS AI/ML Scholarship, continuing to advance AI/ML expertise.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <script src="script.js"></script>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills" data-aos="fade-up">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <!-- Programming Languages -->
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                <p>Python</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                    alt="C++">
+                <p>C++</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                <p>Java</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL">
+                <p>SQL</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilts">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R">
+                <p>R</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash">
+                <p>Bash</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <!-- Tools & Frameworks -->
+            <div class="skill tilt">
+                <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau">
+                <p>Tableau</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg"
+                    alt="MS Excel">
+                <p>MS Excel</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.worldvectorlogo.com/logos/power-bi.svg" alt="Power BI">
+                <p>Power BI</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"
+                    alt="PyTorch">
+                <p>PyTorch</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg"
+                    alt="AWS">
+                <p>AWS</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+                    alt="Google Cloud">
+                <p>Google Cloud</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                    alt="MongoDB">
+                <p>MongoDB</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                <p>Git</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+                <p>Docker</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <!-- Data Science Libraries -->
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
+                <p>NumPy</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
+                <p>Pandas</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                    alt="Scikit-learn">
+                <p>Scikit-learn</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                    alt="TensorFlow">
+                <p>TensorFlow</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Streamlit-logo-primary-colormark-darktext.png"
+                    alt="Streamlit">
+                <p>Streamlit</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://seaborn.pydata.org/_static/logo-wide-lightbg.svg" alt="Seaborn">
+                <p>Seaborn</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <!-- Other Tools -->
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+                <p>VS Code</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter Notebook">
+                <p>Jupyter Notebook</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Colaboratory_SVG_Logo.svg"
+                    alt="Google Collab">
+                <p>Google Collab</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill tilt">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+                <p>Linux</p>
+                <div class="sprogress-bar">
+                    <div class="progress" style="--progress: 80%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="coding-profiles" data-aos="fade-up">
+        <h2>Coding Profiles</h2>
+        <div class="coding-profiles-links">
+            <!-- <a href="https://leetcode.com/yourusername" target="_blank" class="coding-profile-card" aria-label="LeetCode">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode">
+                <span>LeetCode</span>
+            </a> -->
+            <a href="https://github.com/121omprakashet="_blank" class="coding-profile-card" aria-label="GitHub">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+                <span>GitHub</span>
+            </a>
+            <a href="https://www.codechef.com/users/om121prakash" target="_blank" class="coding-profile-card" aria-label="CodeChef">
+                <img src="https://s3.amazonaws.com/codechef_shared/sites/all/themes/abessive/cc-logo.png" alt="CodeChef">
+                <span>CodeChef</span>
+            </a>
+            <a href="https://www.hackerrank.com/121deathboy" target="_blank" class="coding-profile-card" aria-label="HackerRank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png" alt="HackerRank">
+                <span>HackerRank</span>
+            </a>
+            <a href="https://www.geeksforgeeks.org/user/121deaw7sd/"target="_blank" class="coding-profile-card" aria-label="GeeksforGeeks">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg"
+                        alt="GeeksforGeeks">
+                <span>GeeksforGeeks</span>
+            </a>
+            <!-- //kaggle// -->
+            <a href="https://www.kaggle.com/ompraksh121" target="_blank" class="coding-profile-card" aria-label="kaggle">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png" alt="Kaggle">
+                <span>Kaggle</span>
+            </a>
+            <!-- DataCamp -->
+             <a href="https://www.datacamp.com/portfolio/op703597-f6c53d1f-86ef-4c2f-bd41-5554f10b090e" target="_blank" class="coding-profile-card" aria-label="DataCamp">
+                <img src="https://www.datacamp.com/marketing-backgrounds/favicons/favicon-32x32.png" alt="DataCamp">
+                <span>DataCamp</span>
+            </a>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="section projects" data-aos="fade-up">
+        <h2>Projects</h2>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+            <button class="filter-btn" data-filter="data-viz">Data Visualization</button>
+        </div>
+        <div class="projects-grid">
+            <!-- Inventory Management System -->
+            <div class="project-card tilt" data-category="data-viz">
+                <img src="https://images.unsplash.com/photo-1551288049-b1f3a0c3f8e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
+                    alt="Inventory Management System">
+                <h3>Inventory Management System</h3>
+                <p>Created a Python-based inventory management system to manage products, track sales, and monitor stock
+                    levels.</p>
+                <button class="btn open-modal" data-modal="project1">View Details</button>
+            </div>
+            <!-- Iris Flower Classification -->
+            <div class="project-card tilt" data-category="ml">
+                <img src="https://images.unsplash.com/photo-1551288049-b1f3a0c3f8e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
+                    alt="Iris Flower Classification">
+                <h3>Iris Flower Classification</h3>
+                <p>Built a machine learning model to classify Iris flowers using various classification algorithms.</p>
+                <button class="btn open-modal" data-modal="project2">View Details</button>
+            </div>
+            <!-- Email Spam Detection -->
+            <div class="project-card tilt" data-category="ml">
+                <img src="https://images.unsplash.com/photo-1551288049-b1f3a0c3f8e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
+                    alt="Email Spam Detection">
+                <h3>Email Spam Detection</h3>
+                <p>Developed a machine learning model using NLP to classify emails as spam or not.</p>
+                <button class="btn open-modal" data-modal="project3">View Details</button>
+            </div>
+            <!-- Voice Controlled Assistant -->
+            <div class="project-card tilt" data-category="ml">
+                <img src="https://images.unsplash.com/photo-1551288049-b1f3a0c3f8e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
+                    alt="Voice Controlled Assistant">
+                <h3>Voice Controlled Assistant</h3>
+                <p>Developed a Python-based assistant for tasks like opening apps and web searches via voice commands.
+                </p>
+                <button class="btn open-modal" data-modal="project4">View Details</button>
+            </div>
+            <!-- Munim - Expense Tracker -->
+            <div class="project-card tilt" data-category="web">
+                <img src="https://images.unsplash.com/photo-1551288049-b1f3a0c3f8e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
+                    alt="Munim Expense Tracker">
+                <h3>Munim - Expense Tracker</h3>
+                <p>Developed a web app with a user-friendly dashboard for expense tracking and budget management.</p>
+                <button class="btn open-modal" data-modal="project5">View Details</button>
+            </div>
+            <!-- Data Analysis Dashboard -->
+            <div class="project-card tilt" data-category="data-viz">
+                <img src="https://images.unsplash.com/photo-1551288049-b1f3a0c3f8e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
+                    alt="Data Analysis Dashboard">
+                <h3>Data Analysis Dashboard</h3>
+                <p>Created an interactive dashboard using Python and Plotly for visualizing large datasets.</p>
+                <button class="btn open-modal" data-modal="project6">View Details</button>
+            </div>
+            <!-- Unemployment Analysis -->
+            <div class="project-card tilt" data-category="data-viz">
+                <img src="https://images.unsplash.com/photo-1551288049-b1f3a0c3f8e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
+                    alt="Unemployment Analysis">
+                <h3>Unemployment Analysis</h3>
+                <p>Built a model to analyze unemployment trends and predict future employment status.</p>
+                <button class="btn open-modal" data-modal="project7">View Details</button>
+            </div>
+        </div>
+        <!-- Project Modals -->
+        <div class="modal" id="project1">
+            <div class="modal-content">
+                <span class="modal-close">×</span>
+                <h3>Inventory Management System</h3>
+                <p>Created a Python-based inventory management system that allows users to manage products, track sales,
+                    apply discounts, and monitor stock levels. This system simplifies inventory tracking for businesses.
+                </p>
+                <a href="https://github.com/121omprakash/Data-science/blob/main/Projects/Inventroy_json.py"
+                    target="_blank" class="btn">View on GitHub</a>
+            </div>
+        </div>
+        <div class="modal" id="project2">
+            <div class="modal-content">
+                <span class="modal-close">×</span>
+                <h3>Iris Flower Classification</h3>
+                <p>Built a machine learning model using the Iris dataset to classify flowers based on features such as
+                    petal and sepal length/width. The model uses various classification algorithms for comparison.</p>
+                <a href="https://github.com/121omprakash/OIBSIP/blob/main/Task1%20Iris%20flower%20Classification.ipynb"
+                    target="_blank" class="btn">View on GitHub</a>
+            </div>
+        </div>
+        <div class="modal" id="project3">
+            <div class="modal-content">
+                <span class="modal-close">×</span>
+                <h3>Email Spam Detection</h3>
+                <p>Developed a machine learning model to identify and classify email messages as spam or not. This model
+                    leverages natural language processing (NLP) techniques for efficient email filtering.</p>
+                <a href="https://github.com/121omprakash/OIBSIP/blob/main/Task1%20Email%20Spam%20Detection.ipynb"
+                    target="_blank" class="btn">View on GitHub</a>
+            </div>
+        </div>
+        <div class="modal" id="project4">
+            <div class="modal-content">
+                <span class="modal-close">×</span>
+                <h3>Voice Controlled Assistant</h3>
+                <p>Developed a voice-controlled assistant using Python and its libraries (such as SpeechRecognition and
+                    pyttsx3). This assistant can perform tasks like opening applications and searching the web via voice
+                    commands.</p>
+                <a href="https://github.com/121omprakash/OIBSIP/blob/main/Task1%20Voice%20Assistant.ipynb"
+                    target="_blank" class="btn">View on GitHub</a>
+            </div>
+        </div>
+        <div class="modal" id="project5">
+            <div class="modal-content">
+                <span class="modal-close">×</span>
+                <h3>Munim - Expense Tracker Web Application</h3>
+                <p>Developed "Munim", a full-fledged expense tracking web application featuring a user-friendly
+                    dashboard, analytics, data visualization, budget management, and saving goals. Focused on intuitive
+                    design and seamless user experience.</p>
+                <p><strong>User:</strong> admin &nbsp; <strong>Password:</strong> Password</p>
+                <a href="https://121omprakash.github.io/Munim/Index.html" target="_blank" class="btn">View Project</a>
+            </div>
+        </div>
+        <div class="modal" id="project6">
+            <div class="modal-content">
+                <span class="modal-close">×</span>
+                <h3>Data Analysis Dashboard</h3>
+                <p>Created an interactive data analysis dashboard using Python and Plotly. This dashboard allows users
+                    to visualize and analyze large datasets, providing insights through dynamic charts and graphs.</p>
+                <a href="https://github.com/121omprakash/Data-Analysis-Dashboard" target="_blank" class="btn">View on
+                    GitHub</a>
+            </div>
+        </div>
+        <div class="modal" id="project7">
+            <div class="modal-content">
+                <span class="modal-close">×</span>
+                <h3>Unemployment Analysis</h3>
+                <p>Created a machine learning model to analyze unemployment trends and predict future employment status
+                    based on historical data. This project helps identify key factors influencing unemployment rates.
+                </p>
+                <a href="https://github.com/121omprakash/OIBSIP/blob/main/Task1%20Unemployment%20Analysis.ipynb"
+                    target="_blank" class="btn">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+<section id="certifications" class="section certifications" data-aos="fade-up">
+    <h2>Certifications</h2>
+
+    <!-- Category Buttons -->
+    <div class="category-buttons">
+        <button class="category-btn active" id="all">All</button>
+        <button class="category-btn" id="cs">Computer Science</button>
+        <button class="category-btn" id="ds">Data Science</button>
+        <button class="category-btn" id="da">Data Analytics</button>
+        <button class="category-btn" id="se">Software Engineering</button>
+    </div>
+
+    <!-- Certifications List -->
+    <div class="certifications-list">
+        <div class="certification-card se tilt show" data-aos="zoom-in">
+            <img src="/certificate/ibm.png" alt="IBM Hack Challenge Certificate">
+            <div class="card-content">
+                <h3><a href="https://drive.google.com/file/d/13ueF6PwNy5iqTDra5uQ5Jt6thtnKnmTW/view?usp=sharing" target="_blank">IBM Hack Challenge - IBM SkillsBuild (2023)</a></h3>
+            </div>
+        </div>
+        <div class="certification-card ds da tilt show" data-aos="zoom-in">
+            <img src="/certificate/hack_sql.png" alt="SQL Basic Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.hackerrank.com/certificates/7927870DAAFA" target="_blank">SQL (Basic) - HackerRank (2023)</a></h3>
+            </div>
+        </div>
+        <div class="certification-card da tilt show" data-aos="zoom-in">
+            <img src="/certificate/accen_data.png" alt="Accenture Data Analytics Certificate">
+            <div class="card-content">
+                <h3><a href="https://drive.google.com/file/d/1JNFjsM7lSr6j0Lj8vdzFz2dPGVyLAPO7/view" target="_blank">Data Analytics and Visualization Virtual Experience - Accenture</a></h3>
+            </div>
+        </div>
+        <div class="certification-card se tilt show" data-aos="zoom-in">
+            <img src="/certificate/hack_sw.png" alt="Software Engineer Intern Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.hackerrank.com/certificates/54011b90a3b0" target="_blank">Software Engineer Intern Certificate - HackerRank</a></h3>
+            </div>
+        </div>
+        <div class="certification-card se tilt show" data-aos="zoom-in">
+            <img src="/certificate/mongi.png" alt="MongoDB Developer's Toolkit Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.geeksforgeeks.org/certificate/d3ec5668b50a4019728f70ef542c649b" target="_blank">MongoDB Developer's Toolkit - GeeksforGeeks (2023)</a></h3>
+            </div>
+        </div>
+        <div class="certification-card ds tilt show" data-aos="zoom-in">
+            <img src="/certificate/aws.png" alt="AWS AI/ML Scholarship Certificate">
+            <div class="card-content">
+                <h3><a href="https://cdn.getblueshift.com/pictures/194761/content/p1-completed-aws-winter.jpg" target="_blank">AWS AI/ML Scholarship - AWS (2023)</a></h3>
+            </div>
+        </div>
+        <div class="certification-card ds tilt show" data-aos="zoom-in">
+            <img src="/certificate/gfg_data.png" alt="Machine Learning and Data Science Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.geeksforgeeks.org/certificate/fb470ef516c2544f926679143b4ec8a1" target="_blank">Complete Machine Learning and Data Science - GeeksforGeeks (2023)</a></h3>
+            </div>
+        </div>
+        <div class="certification-card cs ds tilt show" data-aos="zoom-in">
+            <img src="/certificate/free_python.png" alt="Scientific Computing with Python Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.freecodecamp.org/certification/fcced1d69ac-a2ac-4606-8fcb-890e1175c960/scientific-computing-with-python-v7" target="_blank">Scientific Computing with Python - freeCodeCamp (2023)</a></h3>
+            </div>
+        </div>
+        <div class="certification-card da tilt show" data-aos="zoom-in">
+            <img src="/certificate/data_bi.png" alt="Power BI Fundamentals Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.datacamp.com/statement-of-accomplishment/track/aef617ad779cf7f6a3207b19f0548a33b98e9807" target="_blank">Power BI Fundamentals - DataCamp</a></h3>
+            </div>
+        </div>
+        <div class="certification-card da tilt show" data-aos="zoom-in">
+            <img src="/certificate/data_bi_dax.png" alt="Introduction to DAX in Power BI Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.datacamp.com/statement-of-accomplishment/track/aef617ad779cf7f6a3207b19f0548a33b98e9807" target="_blank">Introduction to DAX in Power BI - DataCamp</a></h3>
+            </div>
+        </div>
+        <div class="certification-card da tilt show" data-aos="zoom-in">
+            <img src="/certificate/data_bi_vi.png" alt="Data Visualization in Power BI Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/cbc43f8aa7965d95d93820b74a5b849a6fc7d173" target="_blank">Data Visualization in Power BI - DataCamp</a></h3>
+            </div>
+        </div>
+        <div class="certification-card da tilt show" data-aos="zoom-in">
+            <img src="/certificate/data_bi_pr.png" alt="Data Preparation in Power BI Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/59ebe704073c3eecae69ca7ef02922314f125c9e" target="_blank">Data Preparation in Power BI Fundamentals - DataCamp</a></h3>
+            </div>
+        </div>
+        <div class="certification-card da tilt show" data-aos="zoom-in">
+            <img src="/certificate/data_bi_mo.png" alt="Data Modelling in Power BI Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/94719dd6f4731d3ff863ed053086388cf05c39de" target="_blank">Data Modelling in Power BI - DataCamp</a></h3>
+            </div>
+        </div>
+        <div class="certification-card da tilt show" data-aos="zoom-in">
+            <img src="/certificate/data_bi_tr.png" alt="Data Transformation in Power BI Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/823c97e52a7337a969678e011c1ff4d535709ac1" target="_blank">Data Transformation in Power BI - DataCamp</a></h3>
+            </div>
+        </div>
+        <div class="certification-card ds da tilt show" data-aos="zoom-in">
+            <img src="/certificate/data_sql.png" alt="Introduction to SQL Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/9ca97c230017800792f83add36b97b38a591ee8d" target="_blank">Introduction to SQL - DataCamp</a></h3>
+            </div>
+        </div>
+        <div class="certification-card ds da tilt show" data-aos="zoom-in">
+            <img src="/certificate/data_sql_int.png" alt="Intermediate SQL Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/8ebd89c7d616c55dc65a1a59a41245c3f19bf698" target="_blank">Intermediate SQL - DataCamp</a></h3>
+            </div>
+        </div>
+        <div class="certification-card ds da tilt show" data-aos="zoom-in">
+            <img src="/certificate/data_python.png" alt="Introduction to Python Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/ca2bdc65c7772462c6a4d3d2064dbc031091a654" target="_blank">Introduction to Python - DataCamp</a></h3>
+            </div>
+        </div>
+        <div class="certification-card ds da tilt show" data-aos="zoom-in">
+            <img src="/certificate/data_python_int.png" alt="Intermediate Python Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/eccd91e6f9813b50e579900f4783b937d9e87427" target="_blank">Intermediate Python - DataCamp</a></h3>
+            </div>
+        </div>
+        <div class="certification-card ds tilt show" data-aos="zoom-in">
+            <img src="/certificate/data_r.png" alt="Introduction to R Programming Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.datacamp.com/statement-of-accomplishment/course/81123850741f87603f53ccefb7abb3c1d376b30d" target="_blank">Introduction to R Programming - DataCamp</a></h3>
+            </div>
+        </div>
+        <div class="certification-card se tilt show" data-aos="zoom-in">
+            <img src="/certificate/cisco_network.png" alt="Networking Basics Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.credly.com/badges/60f3e975-73ea-428b-a4f8-c76e89480d7b/linked_in_profile" target="_blank">Networking Basics - Cisco</a></h3>
+            </div>
+        </div>
+        <div class="certification-card da tilt show" data-aos="zoom-in">
+            <img src="/certificate/cisco_data.png" alt="Data Analytics Essentials Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.credly.com/badges/f5fd9087-05eb-471a-8fa2-a2c61af6c959" target="_blank">Data Analytics Essentials - Cisco</a></h3>
+            </div>
+        </div>
+        <div class="certification-card ds tilt show" data-aos="zoom-in">
+            <img src="/certificate/cisco_ds.png" alt="Introduction to Data Science Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.credly.com/badges/af722c61-0f88-4c39-bd31-067a9b202cef" target="_blank">Introduction to Data Science - Cisco</a></h3>
+            </div>
+        </div>
+        <div class="certification-card cs tilt show" data-aos="zoom-in">
+            <img src="/certificate/cisco_cyber.png" alt="Introduction to Cybersecurity Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.credly.com/badges/4db8b6ae-6105-4be8-b77e-3e25cca25b37" target="_blank">Introduction to Cybersecurity - Cisco</a></h3>
+            </div>
+        </div>
+        <div class="certification-card cs tilt show" data-aos="zoom-in">
+            <img src="/certificate/cisco_linux.png" alt="NDG Linux Essentials Certificate">
+            <div class="card-content">
+                <h3><a href="https://drive.google.com/file/d/14Vu6kBVun357YfCM7gVW6w0zscQoE8yl/view" target="_blank">NDG Linux Essentials - Cisco, NDG</a></h3>
+            </div>
+        </div>
+        <div class="certification-card cs tilt show" data-aos="zoom-in">
+            <img src="/certificate/codechef_cpp.png" alt="C++ for Problem Solving Certificate">
+            <div class="card-content">
+                <h3><a href="https://www.codechef.com/certificates/public/7c47fa5" target="_blank">C++ for Problem Solving - CodeChef</a></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section achievements" data-aos="fade-up">
+        <h2>Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card tilt">
+                <i class="fas fa-award"></i>
+                <h3>AWS AI/ML Scholar</h3>
+                <p>Received in 2023 for AI/ML expertise.</p>
+            </div>
+            <div class="achievement-card tilt">
+                <i class="fas fa-trophy"></i>
+                <h3>Hackathon Winner</h3>
+                <p>Won a national hackathon in 2025.</p>
+            </div>
+            <div class="achievement-card tilt">
+                <i class="fas fa-certificate"></i>
+                <h3>Python Certification</h3>
+                <p>Completed from Coursera.</p>
+            </div>
+            <div class="achievement-card tilt">
+                <i class="fas fa-certificate"></i>
+                <h3>SQL Certification</h3>
+                <p>Earned from HackerRank.</p>
+            </div>
+            <div class="achievement-card tilt">
+                <i class="fas fa-certificate"></i>
+                <h3>Tableau Certification</h3>
+                <p>Certified in data visualization.</p>
+            </div>
+            <div class="achievement-card tilt">
+                <i class="fas fa-certificate"></i>
+                <h3>Power BI Certification</h3>
+                <p>Completed from Microsoft.</p>
+            </div>
+            <div class="achievement-card tilt">
+                <i class="fas fa-certificate"></i>
+                <h3>ML Certification</h3>
+                <p>Earned from Stanford Online.</p>
+            </div>
+            <div class="achievement-card tilt">
+                <i class="fas fa-code"></i>
+                <h3>Open-Source Contribution</h3>
+                <p>Contributed to a Python library in 2023.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+<!-- <section id="resume" class="section resume" data-aos="fade-up"> -->
+    <h2>My Resume</h2>
+    <div class="resume-content">
+        <div class="resume-embed-wrapper">
+            <embed src="Om Prakash-Resume.pdf" type="application/pdf" title="Om Prakash Resume">
+        </div>
+        <a href="https://drive.google.com/file/d/1NUzMkIixVymuM56IpJKwuJBg7-_TU3J2/view" download class="btn glow">Download Resume</a>
+    </div>
+</section>
+    <!-- Contact Section -->
+    <section id="contact" class="section contact" data-aos="fade-up">
+        <h2>Contact Me</h2>
+        <form id="contact-form" action="https://formsubmit.co/omimucet@gmail.com" method="POST">
+            <!-- Form Fields -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <!-- Hidden input to redirect after form submission -->
+            <input type="hidden" name="_next" value="https://121omprakash.github.io/Portfolio/#confirmationBox">
+
+            <!-- Hidden input for form submission confirmation -->
+            <input type="hidden" name="_subject" value="New Contact Form Submission">
+
+            <!-- Anti-spam feature -->
+            <input type="text" name="_honey" style="display:none">
+
+            <!-- Hidden input for Visitor Number -->
+            <input type="hidden" id="visitorCount" name="visitorCount">
+
+            <!-- Hidden inputs for additional user data -->
+            <input type="hidden" id="userIP" name="userIP">
+            <input type="hidden" id="location" name="location">
+            <input type="hidden" id="userAgent" name="userAgent">
+            <input type="hidden" id="visitTime" name="visitTime">
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
+            <input type="hidden" id="timezone" name="timezone">
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn glow">Submit</button>
+        </form>
+    </section>
+
+    <!-- Confirmation Box (initially hidden) -->
+    <div id="confirmationBox" class="confirmation-box" style="display:none;">
+        <div class="confirmation-content">
+            <span id="success-icon" class="icon">&#10004;</span>
+            <p>Your message has been sent to Omprakash!</p>
+            <button id="closeBtn" class="close-btn">Close</button>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Om Prakash. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/121omprakash" target="_blank" class="social-icon"><i
+                    class="fab fa-github"></i></a>
+            <a href="https://in.linkedin.com/in/om%7Eprakash" target="_blank" class="social-icon"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/121deathboy" target="_blank" class="social-icon"><i
+                    class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <!-- External Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+
+
+    <script src="script.js"></script>
 </body>
 
 </html>

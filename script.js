@@ -1,387 +1,439 @@
-document.addEventListener("DOMContentLoaded", function () {
-    displayVisitorNumber(); // Call function to display the visitor number after DOM is ready
-});
-
-// Initialize Visitor Count from localStorage
-let visitorCount = localStorage.getItem('visitorCount');
-if (!visitorCount) {
-    visitorCount = 0; // Initialize if not set
-}
-
-// Increment Visitor Count
-visitorCount++;
-localStorage.setItem('visitorCount', visitorCount);
-
-// Populate Visitor Count in the hidden input field
-document.getElementById('visitorCount').value = visitorCount;
-
-// Function to display confirmation box when the form is successfully submitted
-function showConfirmationMessage() {
-    document.getElementById('confirmationBox').style.display = 'flex';
-}
-
-// Check if the URL contains `#confirmationBox` to show the confirmation message
-window.onload = function () {
-    // If the URL has the hash "#confirmationBox", show the confirmation box
-    if (window.location.hash === '#confirmationBox') {
-        showConfirmationMessage();
-    }
-}
-
-// Handle closing of confirmation box
-const closeBtn = document.getElementById('closeBtn');
-if (closeBtn) {
-    closeBtn.addEventListener('click', function () {
-        document.getElementById('confirmationBox').style.display = 'none';
-        window.location.assign("https://omprakas.me");
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const buttons = document.querySelectorAll('.category-btn');
-    const certificationCards = document.querySelectorAll('.certification-card');
-    const categoryColors = {
-        all: 'red',       // Pink for All button
-        cs: '#0bdeb4c2',        // Bright Red-Orange for Computer Science
-        ds: '#93C5FD',        // Muted Purple for Data Science
-        da: '#83f988',        // Green for Data Analytics
-        se: '#AAF0D1'         // Bright Blue for Software Engineering
-    };
-
-    // Text colors corresponding to each category
-    const categoryTextColors = {
-        all: '#ffffff',       // White text color for All button
-        cs: '#ffffff',        // White text color for CS button
-        ds: '#ffffff',        // White text color for DS button
-        da: '#ffffff',        // White text color for DA button
-        se: '#ffffff'         // White text color for SE button
-    };
-
-    const categoryHoverTextColors = {
-        all: '#ffffff',       // White text color on hover for All button
-        cs: '#ffffff',        // White text color on hover for CS button
-        ds: '#0288D1',        // White text color on hover for DS button
-        da: '#ffffff',        // White text color on hover for DA button
-        se: '#0288D1'         // White text color on hover for SE button
-    };
-
-    // Function to set the active category and show the relevant certificates
-    function setActiveCategory(categoryId) {
-        // Reset all buttons and certificates
-        buttons.forEach(button => {
-            button.classList.remove('active');
-            button.style.backgroundColor = ''; // Reset to default background
-            button.style.color = ''; // Reset text color
-            button.style.transition = 'background-color 0.3s, color 0.3s'; // Smooth transition
-        });
-
-        certificationCards.forEach(card => {
-            card.classList.remove('show');
-            card.style.backgroundColor = ''; // Reset the background color of irrelevant cards
-            card.style.color = ''; // Reset text color
-            card.style.transition = 'color 0.3s ease'; // Smooth transition for text color change
-        });
-
-        // Set active state for the clicked button
-        const clickedButton = document.querySelector(`#${categoryId}`);
-        clickedButton.classList.add('active');
-        const activeColor = categoryColors[categoryId];
-        clickedButton.style.backgroundColor = activeColor; // Set the background color for the button
-        clickedButton.style.color = categoryTextColors[categoryId]; // Set text color for the active button
-
-        // Show relevant certificates and change their background color, text color, and hover text color
-        certificationCards.forEach(card => {
-            if (card.classList.contains(categoryId)) {
-                card.classList.add('show');
-                card.style.backgroundColor = activeColor; // Change background color of relevant cards
-                card.style.color = categoryTextColors[categoryId]; // Change text color of relevant cards
-                // Change hover text color when hovering over the certification cards
-                card.addEventListener('mouseenter', function () {
-                    card.style.color = categoryHoverTextColors[categoryId]; // Set hover text color
-                });
-                card.addEventListener('mouseleave', function () {
-                    card.style.color = categoryTextColors[categoryId]; // Reset text color on mouse leave
-                });
-            }
-        });
-    }
-
-    // Initially set "All" as active and display all certificates
-    setActiveCategory('all'); // This will set "All" button as active and show all certificates
-
-    // Add event listeners to category buttons
-    buttons.forEach(button => {
-        button.addEventListener('click', function () {
-            if (button.id === 'all') {
-                setActiveCategory('all'); // Show all certificates
-                certificationCards.forEach(card => {
-                    card.classList.add('show');
-                    card.style.backgroundColor = ''; // Reset card background
-                    card.style.color = ''; // Reset card text color
-                });
-            } else {
-                setActiveCategory(button.id); // Show only relevant certificates
-            }
-        });
-
-        // Hover effect handling for buttons
-        button.addEventListener('mouseenter', function () {
-            if (!button.classList.contains('active')) {
-                const hoverColor = categoryColors[button.id];
-                const hoverTextColor = categoryHoverTextColors[button.id];
-                // Apply hover styles
-                button.style.backgroundColor = lightenDarkenColor(hoverColor, 20); // Brighter background on hover
-                button.style.color = hoverTextColor; // Set hover text color
-                button.style.boxShadow = `0 4px 12px rgba(0, 0, 0, 0.2)`; // Add shadow for depth
-                button.style.transform = 'scale(1.05)'; // Slightly enlarge the button for emphasis
-                button.style.transition = 'all 0.3s ease'; // Smooth transition for all hover effects
-            }
-        });
-
-        button.addEventListener('mouseleave', function () {
-            if (!button.classList.contains('active')) {
-                button.style.backgroundColor = ''; // Reset to parent color
-                button.style.color = ''; // Reset text color
-                button.style.boxShadow = ''; // Remove shadow
-                button.style.transform = 'scale(1)'; // Reset scale
-            }
-        });
-    });
-});
-
-// Function to lighten or darken a color by a given amount
-function lightenDarkenColor(color, percent) {
-    let r = parseInt(color.slice(1, 3), 16);
-    let g = parseInt(color.slice(3, 5), 16);
-    let b = parseInt(color.slice(5, 7), 16);
-    
-    r = Math.min(255, Math.max(0, r + (r * percent / 100)));
-    g = Math.min(255, Math.max(0, g + (g * percent / 100)));
-    b = Math.min(255, Math.max(0, b + (b * percent / 100)));
-
-    return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
-}
-// Collect visitor information asynchronously
-async function collectVisitorInfo() {
-    let userAgent = navigator.userAgent;
-    let visitTime = new Date().toISOString();
-
-    try {
-        // Make the fetch call asynchronous
-        let response = await fetch('https://ipinfo.io/json?token=04a19cf4f0772f'); // Replace with your token
-
-        // Check if response is successful
-        if (response.ok) {
-            let data = await response.json(); // Wait for JSON parsing
-
-            // Set the form fields with visitor information
-            document.getElementById('userIP').value = data.ip;
-            document.getElementById('location').value = `${data.city}, ${data.region}, ${data.country}`;
-            document.getElementById('userAgent').value = userAgent;
-            document.getElementById('visitTime').value = visitTime;
-            document.getElementById('latitude').value = data.loc.split(',')[0];
-            document.getElementById('longitude').value = data.loc.split(',')[1];
-            document.getElementById('timezone').value = data.timezone;
-        } else {
-            // If fetch fails for some reason, fallback logic
-            console.error('Error fetching geolocation:', response.statusText);
-            setFallbackValues();
-        }
-    } catch (error) {
-        console.error('Error fetching geolocation:', error);
-        setFallbackValues();
-    }
-}
-
-// Function to set fallback values in case of an error
-function setFallbackValues() {
-    let userAgent = navigator.userAgent;
-    let visitTime = new Date().toISOString();
-
-    document.getElementById('userIP').value = 'Unknown IP';
-    document.getElementById('location').value = 'Unknown Location';
-    document.getElementById('userAgent').value = userAgent;
-    document.getElementById('visitTime').value = visitTime;
-    document.getElementById('latitude').value = 'Unknown';
-    document.getElementById('longitude').value = 'Unknown';
-    document.getElementById('timezone').value = 'Unknown';
-}
-
-// Collect and send visitor info when the form is about to be submitted
-document.getElementById('contactForm').addEventListener('submit', function (event) {
-    event.preventDefault();  // Prevent form from submitting immediately
-
-    // Collect visitor data
-    collectVisitorInfo().then(function() {
-        // Now submit the form after the visitor info is collected
-        event.target.submit();
-    }).catch(function(error) {
-        // Handle the case where the collection of visitor data fails
-        console.error('Error collecting visitor data:', error);
-        // Still submit the form, even if there's an issue with collecting visitor info
-        event.target.submit();
-    });
-});
-
-// Create the cursor element dynamically
-const cursor = document.createElement("div");
-cursor.classList.add("cursor");
-document.body.appendChild(cursor);
-
-// Function to move the cursor with the mouse position
-document.addEventListener("mousemove", (e) => {
-    const mouseX = e.pageX;
-    const mouseY = e.pageY;
-    cursor.style.left = `${mouseX}px`;
-    cursor.style.top = `${mouseY}px`;
-});
-
-// Add the "hole" effect when hovering over elements
-const interactiveElements = document.querySelectorAll("button, .hoverable, .summary, .skills, .contact-form, .awards, .coding-profiles, .about, .education, .certifications, .experience, .projects, .header");
-
-// Add the hole effect to the cursor when hovering over interactive elements
-interactiveElements.forEach((element) => {
-    element.addEventListener("mouseenter", () => {
-        cursor.classList.add("cursor-hole");  // Enlarge cursor and create the "hole" effect
-    });
-
-    element.addEventListener("mouseleave", () => {
-        cursor.classList.remove("cursor-hole");  // Remove the hole effect and revert cursor size
-    });
-});
-const profilePic = document.getElementById("profile-pic");
-const progressBar = document.getElementById("progress-bar");
-
-// Profile images
-const images = ["images/android-chrome-512x512.png", "images/profile_picture.png"];
-let currentImageIndex = 0;
-
-// Variables for progress bar
-let progress = 0;
-let interval;
-let isHovering = false;
-
-// Function to start the progress animation
-function startProgress() {
-    progress = 0;
-    progressBar.style.transition = "none"; // Disable transition for smooth reset
-    progressBar.style.background = "conic-gradient(rgba(231, 240, 237, 0) 0deg, #ddd 0deg)"; // Reset progress bar
-    progressBar.style.transition = "background 2s linear"; // Enable transition for animation
-
-    interval = setInterval(() => {
-        progress += 1;
-        progressBar.style.background = `conic-gradient(rgba(231, 240, 237, 0) ${progress * 3.6}deg, #00bfff 30deg)`;
-
-        // When progress reaches 100%, change the profile picture
-        if (progress === 100) {
-            clearInterval(interval);
-            changeProfilePic();
-        }
-    }, 35); // Update every 50ms for smooth progress
-}
-
-// Function to change the profile picture
-function changeProfilePic() {
-    // Toggle between the images in the array
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-    profilePic.src = images[currentImageIndex]; // Change to the next image
-
-    // Hide the progress bar after the image changes
-    progressBar.style.opacity = 0;
-    isHovering = true; // Reset the hovering state
-}
-
-// Event listeners for hover
-profilePic.addEventListener("mouseenter", () => {
-    if (!isHovering) {
-        isHovering = true;
-        progressBar.style.opacity = 1; // Show the progress bar
-        startProgress(); // Start the progress bar animation
-    }
-});
-
-profilePic.addEventListener("mouseleave", () => {
-    isHovering = false;
-    clearInterval(interval); // Stop the progress animation
-    progress = 0; // Reset the progress
-    progressBar.style.transition = "none"; // Disable transition for immediate reset
-    progressBar.style.background = "conic-gradient(rgba(231, 240, 237, 0) 0deg,#00bfff 30deg)"; // Reset the progress bar visually
-    progressBar.style.transition = "background 2s linear"; // Re-enable smooth animation
-    progressBar.style.opacity = 0; // Hide the progress bar
-});
-// Select all sections
-const sections = document.querySelectorAll('.header,.summary,.skills-list,.edu-entry,.certifications,.exp-entry,.project, .contact-form,  .coding-profiles,.ach');
-
-// Options for Intersection Observer
-const observerOptions = {
-    root: null, // Use the viewport as the root
-    rootMargin: "0px",
-    threshold: 0.546 // Trigger when 50% of the section is in view
-};
-
-// Initialize Intersection Observer
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Add the glow effect when the section is in view
-            entry.target.classList.add('section-glow');
-        } else {
-            // Remove the glow effect when the section is not in view
-            entry.target.classList.remove('section-glow');
-        }
-    });
-}, observerOptions);
-
-// Observe all sections
-sections.forEach(section => {
-    sectionObserver.observe(section);
-});
-// Select all the social media icons
-const socialIcons = document.querySelectorAll('.social-icon');
-
-// Function to simulate hover effect on touchstart (or click)
-function simulateHoverStart(event) {
-    const icon = event.target;
-    icon.classList.add('hovered');
-}
-
-// Function to remove hover effect on touchend (or click)
-function simulateHoverEnd(event) {
-    const icon = event.target;
-    icon.classList.remove('hovered');
-}
-
-// Add event listeners for touchstart and touchend
-socialIcons.forEach(icon => {
-    // For mobile devices (touchstart for tap)
-    icon.addEventListener('touchstart', simulateHoverStart);
-    icon.addEventListener('touchend', simulateHoverEnd);
-
-    // For desktop devices (click for mouse hover simulation)
-    icon.addEventListener('click', simulateHoverStart);
-    icon.addEventListener('mouseout', simulateHoverEnd);
-});
-
-
-let ticking = false; // Prevent excessive calculations on scroll
-
+// Progress Bar for Scroll Position
 function updateProgressBar() {
   const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
   const scrollPosition = window.scrollY;
   const scrollPercentage = (scrollPosition / totalHeight) * 100;
-  
   const progressBar = document.getElementById('scroll-progress-bar');
   progressBar.style.width = `${scrollPercentage}%`;
 }
 
-// Use requestAnimationFrame for smoother updates
-window.addEventListener('scroll', function() {
+// Profile Picture Hover Effect
+const profilePic = document.getElementById("profile-pic");
+const progressBar = document.getElementById("progress-bar");
+const images = ["images/android-chrome-512x512.png", "images/profile_picture.png"];
+let currentImageIndex = 0;
+let progress = 0;
+let interval;
+let isHovering = false;
+
+// Start progress animation on hover
+function startProgress() {
+  progress = 0;
+  progressBar.style.transition = "none";
+  progressBar.style.background = "conic-gradient(rgba(231, 240, 237, 0) 0deg, #ddd 0deg)";
+  progressBar.style.transition = "background 2s linear";
+
+  interval = setInterval(() => {
+    progress += 1;
+    progressBar.style.background = `conic-gradient(rgba(231, 240, 237, 0) ${progress * 3.6}deg, #00bfff 30deg)`;
+    if (progress === 100) {
+      clearInterval(interval);
+      changeProfilePic();
+    }
+  }, 35);
+}
+
+// Change profile picture after progress completes
+function changeProfilePic() {
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  profilePic.src = images[currentImageIndex];
+  progressBar.style.opacity = 0;
+  isHovering = true;
+}
+
+// Profile picture hover event listeners
+profilePic.addEventListener("mouseenter", () => {
+  if (!isHovering) {
+    isHovering = true;
+    progressBar.style.opacity = 1;
+    startProgress();
+  }
+});
+
+profilePic.addEventListener("mouseleave", () => {
+  isHovering = false;
+  clearInterval(interval);
+  progress = 0;
+  progressBar.style.transition = "none";
+  progressBar.style.background = "conic-gradient(rgba(231, 240, 237, 0) 0deg, #00bfff 30deg)";
+  progressBar.style.transition = "background 2s linear";
+  progressBar.style.opacity = 0;
+});
+
+// Initialize Particle.js for background particles
+particlesJS('particles-js', {
+  particles: {
+    number: { value: 80, density: { enable: true, value_area: 800 } },
+    color: { value: '#007bff' },
+    shape: { type: 'circle' },
+    opacity: { value: 0.5 },
+    size: { value: 3, random: true },
+    move: { enable: true, speed: 2, direction: 'none', random: false }
+  },
+  interactivity: {
+    detect_on: 'canvas',
+    events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+    modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+  }
+});
+
+// Initialize AOS for animations
+AOS.init({ duration: 1000, once: true });
+
+// Initialize Vanilla Tilt for card tilt effects
+VanillaTilt.init(document.querySelectorAll('.tilt'), {
+  max: 25,
+  speed: 400,
+  glare: true,
+  'max-glare': 0.5
+});
+
+// Typed.js for animated text in hero section
+new Typed('.typed-text', {
+  strings: ['Data Scientist', 'Software Engineer', 'AWS AI/ML Scholar', 'Problem Solver'],
+  typeSpeed: 50,
+  backSpeed: 30,
+  loop: true
+});
+
+// Hamburger Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Theme Toggle for Light/Dark Mode
+const themeToggle = document.querySelector('#theme-toggle');
+themeToggle.addEventListener('click', () => {
+  document.documentElement.setAttribute('data-theme',
+    document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+  );
+  themeToggle.innerHTML = `<i class="fas fa-${document.documentElement.getAttribute('data-theme') === 'dark' ? 'sun' : 'moon'}"></i>`;
+});
+
+// Navbar Scroll Effect
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Smooth Scroll for Navigation Links
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').substring(1);
+    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+    navLinks.classList.remove('active');
+  });
+});
+
+// Project Filters
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    const filter = button.getAttribute('data-filter');
+    projectCards.forEach(card => {
+      card.style.display = filter === 'all' || card.getAttribute('data-category') === filter ? 'block' : 'none';
+    });
+  });
+});
+
+// Modals for Project Details
+const modalButtons = document.querySelectorAll('.open-modal');
+const modals = document.querySelectorAll('.modal');
+const modalCloses = document.querySelectorAll('.modal-close');
+modalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    document.getElementById(button.getAttribute('data-modal')).style.display = 'flex';
+  });
+});
+modalCloses.forEach(close => {
+  close.addEventListener('click', () => {
+    modals.forEach(modal => modal.style.display = 'none');
+  });
+});
+modals.forEach(modal => {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+});
+
+// Visitor Counter
+let visitorCount = localStorage.getItem('visitorCount') || 0;
+visitorCount++;
+localStorage.setItem('visitorCount', visitorCount);
+document.getElementById('visitorCount').value = visitorCount;
+
+// Form Submission Confirmation
+function showConfirmationMessage() {
+  document.getElementById('confirmationBox').style.display = 'flex';
+}
+
+window.onload = function () {
+  if (window.location.hash === '#confirmationBox') {
+    showConfirmationMessage();
+  }
+};
+
+const closeBtn = document.getElementById('closeBtn');
+if (closeBtn) {
+  closeBtn.addEventListener('click', () => {
+    document.getElementById('confirmationBox').style.display = 'none';
+    window.location.assign("https://omprakas.me");
+  });
+}
+
+// Certification Category Filters
+const buttons = document.querySelectorAll('.category-btn');
+const certificationCards = document.querySelectorAll('.certification-card');
+const categoryColors = {
+  all: 'red',
+  cs: '#0bdeb4c2',
+  ds: '#93C5FD',
+  da: '#83f988',
+  se: '#AAF0D1'
+};
+const categoryTextColors = {
+  all: '#ffffff',
+  cs: '#ffffff',
+  ds: '#ffffff',
+  da: '#ffffff',
+  se: '#ffffff'
+};
+const categoryHoverTextColors = {
+  all: '#ffffff',
+  cs: '#ffffff',
+  ds: '#0288D1',
+  da: '#ffffff',
+  se: '#0288D1'
+};
+
+function setActiveCategory(categoryId) {
+  buttons.forEach(button => {
+    button.classList.remove('active');
+    button.style.backgroundColor = '';
+    button.style.color = '';
+    button.style.transition = 'background-color 0.3s, color 0.3s';
+  });
+  certificationCards.forEach(card => {
+    card.classList.remove('show');
+    card.style.backgroundColor = '';
+    card.style.color = '';
+    card.style.transition = 'color 0.3s ease';
+  });
+
+  const clickedButton = document.querySelector(`#${categoryId}`);
+  clickedButton.classList.add('active');
+  const activeColor = categoryColors[categoryId];
+  clickedButton.style.backgroundColor = activeColor;
+  clickedButton.style.color = categoryTextColors[categoryId];
+
+  certificationCards.forEach(card => {
+    if (card.classList.contains(categoryId)) {
+      card.classList.add('show');
+      card.style.backgroundColor = activeColor;
+      card.style.color = categoryTextColors[categoryId];
+      card.addEventListener('mouseenter', () => {
+        card.style.color = categoryHoverTextColors[categoryId];
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.color = categoryTextColors[categoryId];
+      });
+    }
+  });
+}
+
+setActiveCategory('all');
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    if (button.id === 'all') {
+      setActiveCategory('all');
+      certificationCards.forEach(card => {
+        card.classList.add('show');
+        card.style.backgroundColor = '';
+        card.style.color = '';
+      });
+    } else {
+      setActiveCategory(button.id);
+    }
+  });
+
+  button.addEventListener('mouseenter', () => {
+    if (!button.classList.contains('active')) {
+      const hoverColor = categoryColors[button.id];
+      const hoverTextColor = categoryHoverTextColors[button.id];
+      button.style.backgroundColor = lightenDarkenColor(hoverColor, 20);
+      button.style.color = hoverTextColor;
+      button.style.boxShadow = `0 4px 12px rgba(0, 0, 0, 0.2)`;
+      button.style.transform = 'scale(1.05)';
+      button.style.transition = 'all 0.3s ease';
+    }
+  });
+
+  button.addEventListener('mouseleave', () => {
+    if (!button.classList.contains('active')) {
+      button.style.backgroundColor = '';
+      button.style.color = '';
+      button.style.boxShadow = '';
+      button.style.transform = 'scale(1)';
+    }
+  });
+});
+
+// Color Lighten/Darken Utility
+function lightenDarkenColor(color, percent) {
+  let r = parseInt(color.slice(1, 3), 16);
+  let g = parseInt(color.slice(3, 5), 16);
+  let b = parseInt(color.slice(5, 7), 16);
+  r = Math.min(255, Math.max(0, r + (r * percent / 100)));
+  g = Math.min(255, Math.max(0, g + (g * percent / 100)));
+  b = Math.min(255, Math.max(0, b + (b * percent / 100)));
+  return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
+}
+
+// Collect Visitor Information
+async function collectVisitorInfo() {
+  let userAgent = navigator.userAgent;
+  let visitTime = new Date().toISOString();
+  try {
+    let response = await fetch('https://ipinfo.io/json?token=04a19cf4f0772f');
+    if (response.ok) {
+      let data = await response.json();
+      document.getElementById('userIP').value = data.ip;
+      document.getElementById('location').value = `${data.city}, ${data.region}, ${data.country}`;
+      document.getElementById('userAgent').value = userAgent;
+      document.getElementById('visitTime').value = visitTime;
+      document.getElementById('latitude').value = data.loc.split(',')[0];
+      document.getElementById('longitude').value = data.loc.split(',')[1];
+      document.getElementById('timezone').value = data.timezone;
+    } else {
+      console.error('Error fetching geolocation:', response.statusText);
+      setFallbackValues();
+    }
+  } catch (error) {
+    console.error('Error fetching geolocation:', error);
+    setFallbackValues();
+  }
+}
+
+function setFallbackValues() {
+  let userAgent = navigator.userAgent;
+  let visitTime = new Date().toISOString();
+  document.getElementById('userIP').value = 'Unknown IP';
+  document.getElementById('location').value = 'Unknown Location';
+  document.getElementById('userAgent').value = userAgent;
+  document.getElementById('visitTime').value = visitTime;
+  document.getElementById('latitude').value = 'Unknown';
+  document.getElementById('longitude').value = 'Unknown';
+  document.getElementById('timezone').value = 'Unknown';
+}
+
+// Handle Form Submission with Visitor Info
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+  collectVisitorInfo().then(() => {
+    event.target.submit();
+  }).catch(error => {
+    console.error('Error collecting visitor data:', error);
+    event.target.submit();
+  });
+});
+
+// Custom Cursor Effect
+const cursor = document.createElement("div");
+cursor.classList.add("cursor");
+document.body.appendChild(cursor);
+
+document.addEventListener("mousemove", (e) => {
+  const mouseX = e.pageX;
+  const mouseY = e.pageY;
+  cursor.style.left = `${mouseX}px`;
+  cursor.style.top = `${mouseY}px`;
+});
+
+const interactiveElements = document.querySelectorAll("button, .hoverable, .summary, .skills, .contact-form, .awards, .coding-profiles, .about, .education, .certifications, .experience, .projects, .header");
+interactiveElements.forEach(element => {
+  element.addEventListener("mouseenter", () => {
+    cursor.classList.add("cursor-hole");
+  });
+  element.addEventListener("mouseleave", () => {
+    cursor.classList.remove("cursor-hole");
+  });
+});
+
+// Section Glow Effect on Scroll
+const sections = document.querySelectorAll('.header, .summary, .skills-list, .edu-entry, .certifications, .exp-entry, .project, .contact-form, .coding-profiles, .ach');
+const observerOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.546
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('section-glow');
+    } else {
+      entry.target.classList.remove('section-glow');
+    }
+  });
+}, observerOptions);
+
+sections.forEach(section => {
+  sectionObserver.observe(section);
+});
+
+// Social Icon Hover Effect for Touch and Click
+const socialIcons = document.querySelectorAll('.social-icon');
+function simulateHoverStart(event) {
+  event.target.classList.add('hovered');
+}
+function simulateHoverEnd(event) {
+  event.target.classList.remove('hovered');
+}
+
+socialIcons.forEach(icon => {
+  icon.addEventListener('touchstart', simulateHoverStart);
+  icon.addEventListener('touchend', simulateHoverEnd);
+  icon.addEventListener('click', simulateHoverStart);
+  icon.addEventListener('mouseout', simulateHoverEnd);
+});
+
+// Scroll Progress Bar with RequestAnimationFrame
+let ticking = false;
+window.addEventListener('scroll', function () {
   if (!ticking) {
-    window.requestAnimationFrame(function() {
+    window.requestAnimationFrame(function () {
       updateProgressBar();
       ticking = false;
     });
     ticking = true;
   }
 });
-  
+
+// Parallax Effect for .parallax-bg Elements
+const parallaxBgs = document.querySelectorAll('.parallax-bg');
+window.addEventListener('scroll', () => {
+    parallaxBgs.forEach(bg => {
+        const speed = 0.5;
+        const yPos = -(window.scrollY * speed);
+        bg.style.transform = `translateY(${yPos}px)`;
+    });
+});
+
+// Scroll Progress Bar
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    document.getElementById('scroll-progress-bar').style.width = `${scrollPercent}%`;
+});
