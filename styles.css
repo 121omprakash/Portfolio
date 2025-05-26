@@ -961,7 +961,12 @@ footer {
         font-size: 1rem;
     }
 
-
+    .coding-profiles-links {
+        flex-wrap:wrap;
+        justify-content: left;
+        align-items: left;
+        margin-left:3rem;
+    }
     .resume-embed-wrapper embed {
         height: calc(100vw * 1.414);
     }
@@ -1215,14 +1220,17 @@ footer {
         font-size: 0.9rem;
     }
 /* timeline */
-
+    .timeline {
+        margin-top:-2rem;
+        margin-bottom:-1rem;
+    }
     .timeline::before {
         content: '';
         position: absolute;
-        top: 0;
+        top: -4rem;
         left: 50%;
         width: 4px;
-        height: 95%;
+        height: 92%;
         background: var(--accent);
         transform: translateX(-50%);
     }
@@ -1230,12 +1238,12 @@ footer {
     .timeline-item {
         position: relative;
         margin: 1rem 0;
-        width: 50%;
-        padding: 1.3rem;
+        width: 70%;
+        
     }
 
     .timeline-item.left {
-        left: 0;
+        left:-3.8rem ;
         text-align: right;
         font-size: 0.6rem;
     }
@@ -1309,21 +1317,35 @@ footer {
 
     .skill {
         width: 40%;
-        
+    }
+    .skill img{
+        height:35px;
+        width:35px;
     }
 
     .skill p {
         font-size: 0.8rem;
     }
 /* Coding Profiles Section */
+    
     .coding-profiles-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: left;
-        gap: 2rem;
+        flex-wrap:wrap;
+        justify-content: center;
+        align-items: center;
+        margin-left: -5rem;
+        margin-right: -5rem;
     }
-    .coding-profile-card {
-        width:5px;
+    
+    .coding-profiles-links a {
+        width: 30%;
+        
+    }
+    .coding-profile-card span{
+        font-size:0.6rem;
+    }
+    .coding-profile-card img{
+        height: 40px;
+        width: 30px;
     }
 /* projects */
     .filters {
@@ -1350,16 +1372,17 @@ footer {
 
     .project-card {
         flex-wrap: wrap;;
-        
         padding: 1rem;
+        text-align: justify;
+        align-items:left;
     }
 
     .project-card img {
-        height: 150px;
+        height: 80px;
     }
 
     .modal{
-        length:100vw;
+        length:50vw;
     }
     .modal-content {
         width: 95%;
@@ -1471,12 +1494,14 @@ footer {
 
 @media (max-width: 600px) {
     .coding-profiles-links {
-        flex-direction: column;
-        align-items: center;
+        flex-wrap:wrap;
+        justify-content: left;
+        align-items: left;
+        margin-left:3rem;
     }
 
     .coding-profile-card {
-        width: 90vw;
+        width: 20vw;
         max-width: 320px;
     }
 }

@@ -437,3 +437,35 @@ window.addEventListener('scroll', () => {
     const scrollPercent = (scrollTop / docHeight) * 100;
     document.getElementById('scroll-progress-bar').style.width = `${scrollPercent}%`;
 });
+
+//for project modal
+document.querySelectorAll('.open-modal').forEach(button => {
+    button.addEventListener('click', () => {
+        const modalId = button.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        modal.style.display = 'block';
+
+        if (window.innerWidth <= 480) {
+            const projectCard = button.closest('.project-card');
+            const cardRect = projectCard.getBoundingClientRect();
+            const modalContent = modal.querySelector('.modal-content');
+            const offset = 10; // Small gap above the project card
+            modalContent.style.top = `${cardRect.top - modalContent.offsetHeight - offset + window.scrollY}px`;
+        }
+    });
+});
+
+document.querySelectorAll('.modal-close').forEach(closeBtn => {
+    closeBtn.addEventListener('click', () => {
+        closeBtn.closest('.modal').style.display = 'none';
+    });
+});
+
+// Close modal when clicking outside
+document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
