@@ -231,7 +231,17 @@ body {
 .profile-pic-wrapper:hover .progress-bar {
     opacity: 1;
 }
-
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    transform: translateZ(0);
+}
 .hero h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 3.5rem;
@@ -304,19 +314,6 @@ h2 {
     overflow: hidden; /* Prevent overflow issues */
 }
 
-.about .parallax-bg {
-    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3');
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    transform: translateZ(0); /* Ensure smooth rendering */
-    will-change: transform; /* Optimize for animations */
-}
 
 .about-content {
     display: flex;
@@ -335,7 +332,6 @@ h2 {
     border-radius: 10px;
     box-shadow: var(--shadow);
     object-fit: cover;
-    background-attachment: scroll;
 }
 
 .about-content div {
@@ -506,8 +502,10 @@ h2 {
 .coding-profiles-links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     gap: 2rem;
+    align-items: left;
+    margin-left: 3rem;
 }
 
 .coding-profile-card {
@@ -518,7 +516,7 @@ h2 {
     border-radius: 14px;
     /* box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07); */
     padding: 1.5rem 1.2rem;
-    width: 160px ;
+    width: 20% ;
     text-decoration: none;
     transition: transform 0.2s, box-shadow 0.2s;
     
@@ -561,6 +559,7 @@ h2 {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    width:100%
 }
 
 .filter-btn {
@@ -578,25 +577,31 @@ h2 {
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: left;
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin-left:6rem;
 }
 
 .project-card {
     background: var(--card-bg);
     padding: 1.5rem;
+    width:300px;
     border-radius: 10px;
     box-shadow: var(--shadow);
-    text-align: center;
+    text-align: justify;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card h3 {
+    text-align:center;
 }
 
 .project-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    align-items: center;
     border-radius: 10px;
     margin-bottom: 1rem;
 }
@@ -606,29 +611,100 @@ h2 {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(200, 200, 200, 0.2)
+    ); /* Foggy, semi-transparent gradient */
+    backdrop-filter: blur(8px) opacity(0.9); /* Foggy, droplet-like effect */
+    -webkit-backdrop-filter: blur(8px) opacity(0.9); /* Safari compatibility */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    z-index: 2000; /* High z-index to overlay all elements, including clicked project */
+    overflow: auto; /* Handle overflow */
 }
-
 .modal-content {
-    background: var(--bg-secondary);
+    background: var(--bg-secondary, rgba(255, 255, 255, 0.95)); /* Slightly transparent white */
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 12px;
     max-width: 600px;
     width: 90%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between elements */
+    max-height: 80vh;
+    overflow-y: auto; /* Scrollable content */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    z-index: 2001; /* Slightly higher than .modal for layering */
+}
+
+.modal-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary, #222);
+    text-align: center; /* Centered heading */
+    margin: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent, #007bff); /* Underline */
 }
 
 .modal-close {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 12px;
+    right: 12px;
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--text-primary, #333);
+    transition: color 0.2s;
+    z-index: 2002; /* Above .modal-content */
+}
+
+.modal-close:hover {
+    color: var(--accent, #007bff);
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Space between sections */
+}
+
+.project-details p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-primary, #333);
+    text-align: justify; /* Justified text */
+    line-height: 1.6;
+}
+
+.project-details ul {
+    margin: 0;
+    padding-left: 1.5rem;
+    font-size: 1rem;
+    color: var(--text-primary, #333);
+    line-height: 1.6;
+}
+
+.project-details a.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent, #007bff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-align: center;
+    align-self: center; /* Center buttons */
+    min-width: 150px;
+    transition: background 0.3s;
+}
+
+.project-details a.btn:hover {
+    background: var(--accent-dark, #0056b3);
 }
 
 /* Certifications Section */
@@ -636,15 +712,11 @@ h2 {
 .certifications {
     position: relative;
     padding: 2rem 2rem;
-    min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
     justify-content: left;
     align-items: left;
     overflow: hidden;
-    margin-top: -5rem;
-    margin-bottom: -2rem;
 }
 .category-buttons {
     display: flex;
@@ -686,9 +758,9 @@ h2 {
     justify-content: left;
     margin-left: 3rem;;
     gap: 2rem;
-    max-width: 1200px;
     position: relative;
     z-index: 1;
+    margin-left:5rem;
 }
 
 .certification-card {
@@ -720,6 +792,8 @@ h2 {
     border-radius: 8px;
     margin-bottom: 1rem;
     display: block;
+    align-self: center;
+    object-fit: fill;
 }
 .certification-card img:hover {
     transform: scale(1.1);
@@ -756,11 +830,12 @@ h2 {
 .achievements-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin-left: 6rem;
+    
+    
 }
 
 .achievement-card {
@@ -770,7 +845,7 @@ h2 {
     box-shadow: var(--shadow);
     text-align: center;
     transition: transform 0.3s ease;
-    width: 25%;
+    width: 300px;
     height: 200px;
 }
 
@@ -790,15 +865,17 @@ h2 {
 .resume {
     padding: 60px 20px;
     text-align: center;
+    border-radius: 10px;
 }
 
 .resume-content {
-    width: 800px;
+    width: 80%;
     height:100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     
 }
 
@@ -813,12 +890,17 @@ h2 {
 }
 
 /* Contact Section */
+.contact{
+    padding: 60px 20px;
+    margin-top:2rem;
+}
 .contact form {
-    max-width: 600px;
-    width: 100%;
+    /* max-width: 600px; */
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-top:1rem;
 }
 
 .contact input,
@@ -973,12 +1055,15 @@ footer {
     .skills-grid {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: left;
         align-items: left;
         gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
+        margin-left: 5rem;
         justify-items: center;
+    }
+    .coding-profiles-links {
+        margin-left:12%;
+
     }
         .filters {
         justify-content: left;
@@ -986,15 +1071,13 @@ footer {
 
     .projects-grid {
         display: flex;
-        flex-direction: column;
-        align-items: center;
         flex-wrap:wrap;
-        gap: 2rem;
-        max-width: 1200px;
+        align-items: left;
+        flex-wrap:wrap;
         margin: 3rem;
     }
     .project-card {    
-        width: 100%;
+        width: 40%;
     }
     .modal {
         display: none;
@@ -1006,20 +1089,51 @@ footer {
         justify-content: center;
         z-index: 2000;
     }
-    .modal-content {
-        background: var(--bg-secondary);
-        padding: 2rem;
-        border-radius: 10px;
-        max-width: 600px;
-        width: 90%;
-        position: relative;
+      .modal {
+        backdrop-filter: blur(7px) opacity(0.9);
+        -webkit-backdrop-filter: blur(7px) opacity(0.9);
+        z-index: 1000; /* Still high enough to overlay */
     }
 
+    .modal-content {
+        padding: 1.5rem;
+        max-width: 500px;
+        width: 92%;
+        max-height: 85vh;
+        gap: 1rem;
+        z-index: 1001;
+    }
+
+    .modal-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .modal-close {
+        font-size: 1.3rem;
+        top: 10px;
+        right: 10px;
+        z-index: 1002;
+    }
+
+    .project-details p {
+        font-size: 0.95rem;
+    }
+
+    .project-details ul {
+        font-size: 0.95rem;
+        padding-left: 1.4rem;
+    }
+
+    .project-details a.btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+        min-width: 130px;
+    }
     .category-buttons {
         display: flex;
         justify-content: left;
         gap: 10px;
-        margin-bottom: 30px;
+        margin-left:5rem;
         flex-wrap: wrap;
     }
 
@@ -1028,28 +1142,23 @@ footer {
     }
 
     .certification-card {
-        width: 100%;
-        max-width: 300px;
+        width: 40%;
     }
 
-    .certifications .parallax-bg {
-        background-attachment: scroll;
-    }
+    
     .achievements-grid {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         gap: 2rem;
-        max-width: 1200px;
         margin: 0 auto;
     }
     .achievement-card {
-        width: 100%;
-        max-width: 300px;
+        width: 40%;
     }
     .resume-content {
-        width: 400px;
+        width: 100%;
         height:100%;
         margin: 0 auto;
         display: flex;
@@ -1333,11 +1442,10 @@ footer {
         justify-content: center;
         align-items: center;
         margin-left: -5rem;
-        margin-right: -5rem;
     }
     
     .coding-profiles-links a {
-        width: 30%;
+        width: 25%;
         
     }
     .coding-profile-card span{
@@ -1345,7 +1453,7 @@ footer {
     }
     .coding-profile-card img{
         height: 40px;
-        width: 30px;
+        width: 40px;
     }
 /* projects */
     .filters {
@@ -1355,6 +1463,7 @@ footer {
         flex-wrap:wrap;
         align-items: left;
         gap: 0.5rem;
+        margin-left: 5rem;
     }
 
     .filter-btn {
@@ -1375,18 +1484,78 @@ footer {
         padding: 1rem;
         text-align: justify;
         align-items:left;
+        width:100%;
     }
 
     .project-card img {
         height: 80px;
     }
-
-    .modal{
-        length:50vw;
+    .project-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
     }
+    .project-card p {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        text-align: justify;
+    }
+
+    .modal {
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.15),
+            rgba(200, 200, 200, 0.25)
+        );
+        backdrop-filter: blur(6px); /* Lighter blur for performance */
+        -webkit-backdrop-filter: blur(6px);
+        z-index: 1000; /* High z-index for mobile */
+    }
+
     .modal-content {
-        width: 95%;
-        padding: 1rem;
+        padding: 0.95rem;
+        width: calc(100% - 4rem); /* Fluid width */
+        max-width: 90%; /* Full width on small screens */
+        max-height: 90vh;
+        gap: 0-prefix="0.8rem;
+        border-radius: 8px;
+        margin: 1rem;
+        z-index: 1001;
+    }
+
+    .modal-content h3 {
+        font-size: clamp(1.2rem, 6vw, 1.4rem); /* Scalable font */
+        padding-bottom: 0.4rem;
+    }
+
+    .modal-close {
+        font-size: 1.2rem;
+        top: 8px;
+        right: 8px;
+        z-index: 1002;
+    }
+
+    .project-details {
+        gap: 0.8rem;
+    }
+
+    .project-details p {
+        font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+        text-align: justify;
+        line-height: 1.5;
+    }
+
+    .project-details ul {
+        font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+        padding-left: 1rem;
+        line-height: 1.5;
+    }
+
+    .project-details a.btn {
+        padding: 0.5rem 1rem;
+        font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+        width: 80%; /* Balanced width */
+        margin: 0.5rem auto; /* Center buttons */
     }
 
     .certifications {
@@ -1398,12 +1567,12 @@ footer {
     }
 
     .category-buttons {
-        gap: 8px;
+        gap: 0.5rem;
+        margin-left: 2rem;
     }
 
     .category-btn {
         padding: 8px 16px;
-        font-size: 0.9rem;
     }
 
     .certifications-list {
@@ -1416,10 +1585,16 @@ footer {
         width: 100%;
         max-width: 280px;
         padding: 1rem;
+        align-items: center;
+        margin-left:-2rem;
+        
     }
 
     .certification-card img {
         height: 120px;
+        align-self: center;
+        object-fit: fill;
+        
     }
 
     .card-content h3 {
@@ -1457,6 +1632,7 @@ footer {
 
     .contact form {
         padding: 0 1rem;
+        width:100%;
     }
 
     .contact input,
@@ -1505,3 +1681,4 @@ footer {
         max-width: 320px;
     }
 }
+
