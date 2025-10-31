@@ -1,3 +1,12 @@
+AOS.init({ duration: 1000, once: true });
+VanillaTilt.init(document.querySelectorAll('.tilt'), {
+    max: 25,
+    speed: 400,
+    glare: true,
+    'max-glare': 0.5
+});
+
+
 // Progress Bar for Scroll Position
 function updateProgressBar() {
   const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -133,39 +142,86 @@ document.querySelectorAll('.nav-link').forEach(link => {
 });
 
 // Project Filters
+
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
+
 filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    filterButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-    const filter = button.getAttribute('data-filter');
-    projectCards.forEach(card => {
-      card.style.display = filter === 'all' || card.getAttribute('data-category') === filter ? 'block' : 'none';
+    button.addEventListener('click', () => {
+        // Update active filter
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Filter projects
+        const filter = button.getAttribute('data-filter');
+        projectCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+                card.style.display = 'block';
+                card.classList.add('aos-animate');
+            } else {
+                card.style.display = 'none';
+                card.classList.remove('aos-animate');
+            }
+        });
     });
-  });
 });
 
-// Modals for Project Details
-const modalButtons = document.querySelectorAll('.open-modal');
-const modals = document.querySelectorAll('.modal');
-const modalCloses = document.querySelectorAll('.modal-close');
-modalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    document.getElementById(button.getAttribute('data-modal')).style.display = 'flex';
-  });
-});
-modalCloses.forEach(close => {
-  close.addEventListener('click', () => {
-    modals.forEach(modal => modal.style.display = 'none');
-  });
-});
-modals.forEach(modal => {
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) modal.style.display = 'none';
-  });
+// Project Modal Positioning
+// Project Modal
+document.querySelectorAll('.open-modal').forEach(button => {
+    button.addEventListener('click', () => {
+        const modalId = button.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        const modalContent = modal.querySelector('.modal-content');
+
+        // Show the modal
+        modal.style.display = 'flex';
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+
+        // Focus modal for accessibility
+        modalContent.setAttribute('tabindex', '-1');
+        modalContent.focus();
+    });
 });
 
+// Close modal when clicking the close button
+document.querySelectorAll('.modal-close').forEach(closeBtn => {
+    closeBtn.addEventListener('click', () => {
+        const modal = closeBtn.closest('.modal');
+        modal.style.display = 'none';
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    });
+});
+
+// Close modal when clicking outside
+document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    });
+});
+
+// Close modal with Escape key for accessibility
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal').forEach(modal => {
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+                modal.classList.remove('active');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+});
 // Visitor Counter
 let visitorCount = localStorage.getItem('visitorCount') || 0;
 visitorCount++;
@@ -469,3 +525,15 @@ document.querySelectorAll('.modal').forEach(modal => {
         }
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+

@@ -554,26 +554,87 @@ h2 {
 }
 
 /* Projects Section */
+.projects {
+    padding: 4rem 2rem;
+    background: var(--bg-primary);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin: 0.5rem auto;
+    border-radius: 2px;
+}
+
 .filters {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 2rem;
-    width:100%
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
 }
 
 .filter-btn {
     background: var(--card-bg);
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 1.6rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background 0.3s;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.4), transparent);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.filter-btn:hover::before {
+    left: 100%;
+}
+
+.filter-btn:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
 .filter-btn.active {
     background: var(--accent);
     color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
 .projects-grid {
@@ -585,18 +646,30 @@ h2 {
 }
 
 .project-card {
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid transparent;
     background: var(--card-bg);
     padding: 1.5rem;
     width:300px;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
     text-align: justify;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card p{
+    text-align: justify;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+    border-color: var(--accent);
 }
 .project-card h3 {
     text-align:center;
 }
-
 .project-card img {
     width: 100%;
     height: 200px;
@@ -606,107 +679,169 @@ h2 {
     margin-bottom: 1rem;
 }
 
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 1rem;
+    text-align: center;
+}
+
+.project-card p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin: 0 1rem 1rem;
+    text-align: center;
+}
+
+.project-card .btn {
+    display: block;
+    margin: 0 auto 1.5rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.project-card .btn:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Base Styles */
 .modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(200, 200, 200, 0.2)
-    ); /* Foggy, semi-transparent gradient */
-    backdrop-filter: blur(8px) opacity(0.9); /* Foggy, droplet-like effect */
-    -webkit-backdrop-filter: blur(8px) opacity(0.9); /* Safari compatibility */
-    display: flex;
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    z-index: 2000; /* High z-index to overlay all elements, including clicked project */
-    overflow: auto; /* Handle overflow */
+    
+    width: 2000vw;
+    height: 95vh;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(200, 200, 200, 0.3));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 2000;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
+
 .modal-content {
-    background: var(--bg-secondary, rgba(255, 255, 255, 0.95)); /* Slightly transparent white */
+    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 12px;
     max-width: 600px;
-    width: 90%;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; /* Space between elements */
-    max-height: 80vh;
-    overflow-y: auto; /* Scrollable content */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Soft shadow */
-    z-index: 2001; /* Slightly higher than .modal for layering */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    border: 2px solid var(--accent);
+    margin: auto;
+    scrollbar-width: none; /* Firefox: Hide scrollbar by default */
+    -ms-overflow-style: none; /* IE/Edge: Hide scrollbar by default */
 }
 
-.modal-content h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--text-primary, #222);
-    text-align: center; /* Centered heading */
-    margin: 0;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--accent, #007bff); /* Underline */
+.modal-content::-webkit-scrollbar {
+    width: 10px; /* Chrome/Safari: Set scrollbar width */
+    opacity: 0; /* Hide by default */
+    transition: opacity 0.3s ease;
+}
+
+.modal-content:hover::-webkit-scrollbar,
+.modal-content:focus-within::-webkit-scrollbar {
+    opacity: 0; /* Show scrollbar when scrolling */
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+.modal.active .modal-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .modal-close {
+    color:red;
     position: absolute;
     top: 12px;
-    right: 12px;
+    right: 20px;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--text-primary, #333);
-    transition: color 0.2s;
-    z-index: 2002; /* Above .modal-content */
+    color: var(--text-primary);
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .modal-close:hover {
-    color: var(--accent, #007bff);
+    color: var(--accent);
+    transform: rotate(90deg);
 }
 
 .project-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem; /* Space between sections */
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-primary);
+}
+
+.project-details h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
 }
 
 .project-details p {
-    margin: 0;
     font-size: 1rem;
-    color: var(--text-primary, #333);
-    text-align: justify; /* Justified text */
-    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: justify;
 }
 
 .project-details ul {
-    margin: 0;
-    padding-left: 1.5rem;
     font-size: 1rem;
-    color: var(--text-primary, #333);
-    line-height: 1.6;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    list-style: disc;
 }
 
 .project-details a.btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background: var(--accent, #007bff);
+    background: var(--accent);
     color: #fff;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1rem;
     text-align: center;
-    align-self: center; /* Center buttons */
-    min-width: 150px;
-    transition: background 0.3s;
+    margin: 0.5rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    
 }
 
 .project-details a.btn:hover {
-    background: var(--accent-dark, #0056b3);
+    background: #0056b3;
+    transform: scale(1.1);
 }
-
 /* Certifications Section */
 /* Certifications Section */
 .certifications {
@@ -869,7 +1004,7 @@ h2 {
 }
 
 .resume-content {
-    width: 80%;
+    width:80%;
     height:100%;
     margin: 0 auto;
     display: flex;
@@ -1109,6 +1244,7 @@ footer {
     }
 
     .modal-close {
+        color:red;
         font-size: 1.3rem;
         top: 10px;
         right: 10px;
@@ -1305,7 +1441,7 @@ footer {
     .btn, .touch {
         margin-top: 1rem;
         padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     h2 {
@@ -1326,7 +1462,7 @@ footer {
 
 
     .about-content p {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 /* timeline */
     .timeline {
@@ -1352,15 +1488,15 @@ footer {
     }
 
     .timeline-item.left {
-        left:-3.8rem ;
+        left:-3.5rem ;
         text-align: right;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 
     .timeline-item.right {
         left: 50%;
         text-align: left;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 
     .timeline-card {
@@ -1400,12 +1536,12 @@ footer {
     }
 
     .timeline-item.left .timeline-card::after {
-        right: -20px;
+        right: -21px;
         border-left-color: var(--card-bg);
     }
 
     .timeline-item.right .timeline-card::after {
-        left: -20px;
+        left: -21px;
         border-right-color: var(--card-bg);
     }
 
@@ -1445,11 +1581,11 @@ footer {
     }
     
     .coding-profiles-links a {
-        width: 25%;
+        width: 40%;
         
     }
     .coding-profile-card span{
-        font-size:0.6rem;
+        font-size:0.8rem;
     }
     .coding-profile-card img{
         height: 40px;
@@ -1463,12 +1599,12 @@ footer {
         flex-wrap:wrap;
         align-items: left;
         gap: 0.5rem;
-        margin-left: 5rem;
+        margin-left: 2rem;
     }
 
     .filter-btn {
         padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .projects-grid {
@@ -1514,13 +1650,13 @@ footer {
 
     .modal-content {
         padding: 0.95rem;
-        width: calc(100% - 4rem); /* Fluid width */
-        max-width: 90%; /* Full width on small screens */
-        max-height: 90vh;
-        gap: 0-prefix="0.8rem;
+        width: calc(100% - 2rem); /* Fluid width */
+        max-width: 100%; /* Full width on small screens */
+        max-height: 80vh;
+        /* gap: 0-prefix="0.8rem; */
         border-radius: 8px;
-        margin: 1rem;
-        z-index: 1001;
+        margin-left: 0rem;
+    
     }
 
     .modal-content h3 {
@@ -1529,10 +1665,13 @@ footer {
     }
 
     .modal-close {
-        font-size: 1.2rem;
+        font-size: 3rem;
+        color:red;
         top: 8px;
         right: 8px;
         z-index: 1002;
+        position:static;
+
     }
 
     .project-details {
