@@ -243,7 +243,7 @@ const closeBtn = document.getElementById('closeBtn');
 if (closeBtn) {
   closeBtn.addEventListener('click', () => {
     document.getElementById('confirmationBox').style.display = 'none';
-    window.location.assign("https://omprakas.me");
+    window.location.assign("https://121omprakash.github.io/Portfolio");
   });
 }
 
@@ -356,53 +356,50 @@ function lightenDarkenColor(color, percent) {
   return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
 }
 
-// Collect Visitor Information
-async function collectVisitorInfo() {
-  let userAgent = navigator.userAgent;
-  let visitTime = new Date().toISOString();
-  try {
-    let response = await fetch('https://ipinfo.io/json?token=04a19cf4f0772f');
-    if (response.ok) {
-      let data = await response.json();
-      document.getElementById('userIP').value = data.ip;
-      document.getElementById('location').value = `${data.city}, ${data.region}, ${data.country}`;
-      document.getElementById('userAgent').value = userAgent;
-      document.getElementById('visitTime').value = visitTime;
-      document.getElementById('latitude').value = data.loc.split(',')[0];
-      document.getElementById('longitude').value = data.loc.split(',')[1];
-      document.getElementById('timezone').value = data.timezone;
-    } else {
-      console.error('Error fetching geolocation:', response.statusText);
-      setFallbackValues();
+document.addEventListener("DOMContentLoaded", function () {
+    const ipInput        = document.getElementById("userIP");
+    const locationInput  = document.getElementById("location");
+    const uaInput        = document.getElementById("userAgent");
+    const visitTimeInput = document.getElementById("visitTime");
+    const latInput       = document.getElementById("latitude");
+    const lonInput       = document.getElementById("longitude");
+    const tzInput        = document.getElementById("timezone");
+
+    // User agent (no permission)
+    if (uaInput) {
+        uaInput.value = navigator.userAgent; // [web:16]
     }
-  } catch (error) {
-    console.error('Error fetching geolocation:', error);
-    setFallbackValues();
-  }
-}
 
-function setFallbackValues() {
-  let userAgent = navigator.userAgent;
-  let visitTime = new Date().toISOString();
-  document.getElementById('userIP').value = 'Unknown IP';
-  document.getElementById('location').value = 'Unknown Location';
-  document.getElementById('userAgent').value = userAgent;
-  document.getElementById('visitTime').value = visitTime;
-  document.getElementById('latitude').value = 'Unknown';
-  document.getElementById('longitude').value = 'Unknown';
-  document.getElementById('timezone').value = 'Unknown';
-}
+    // Visit time (no permission)
+    if (visitTimeInput) {
+        visitTimeInput.value = new Date().toISOString(); // [web:8]
+    }
 
-// Handle Form Submission with Visitor Info
-document.getElementById('contactForm').addEventListener('submit', function (event) {
-  event.preventDefault();
-  collectVisitorInfo().then(() => {
-    event.target.submit();
-  }).catch(error => {
-    console.error('Error collecting visitor data:', error);
-    event.target.submit();
-  });
-});
+    // Timezone (no permission)
+    if (tzInput) {
+        tzInput.value = Intl.DateTimeFormat().resolvedOptions().timeZone; // [web:11]
+    }
+
+    // IP + rough location via IP geolocation API (no browser permission, but uses third‑party service)
+    if (ipInput || locationInput) {
+        fetch("https://ipapi.co/json/")  // or ipinfo.io, geoapify, etc. [web:5][web:23][web:26][web:29]
+            .then(res => res.json())
+            .then(data => {
+                if (ipInput && data.ip) {
+                    ipInput.value = data.ip;
+                }
+                if (locationInput) {
+                    const parts = [data.city, data.region, data.country_name].filter(Boolean);
+                    locationInput.value = parts.join(", ");
+                }
+                // Optional: if you want *approx* lat/lon from IP (still no browser permission):
+                if (latInput && data.latitude)  latInput.value = data.latitude;
+                if (lonInput && data.longitude) lonInput.value = data.longitude;
+            })
+            .catch(err => {
+                console.warn("IP/location fetch error:", err);
+            });
+    }
 
 // Custom Cursor Effect
 const cursor = document.createElement("div");
