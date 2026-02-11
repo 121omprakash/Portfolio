@@ -356,51 +356,51 @@ function lightenDarkenColor(color, percent) {
   return `#${(1 << 24 | (r << 16) | (g << 8) | b).toString(16).slice(1).toUpperCase()}`;
 }
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const ipInput        = document.getElementById("userIP");
-//     const locationInput  = document.getElementById("location");
-//     const uaInput        = document.getElementById("userAgent");
-//     const visitTimeInput = document.getElementById("visitTime");
-//     const latInput       = document.getElementById("latitude");
-//     const lonInput       = document.getElementById("longitude");
-//     const tzInput        = document.getElementById("timezone");
+document.addEventListener("DOMContentLoaded", function () {
+    const ipInput        = document.getElementById("userIP");
+    const locationInput  = document.getElementById("location");
+    const uaInput        = document.getElementById("userAgent");
+    const visitTimeInput = document.getElementById("visitTime");
+    const latInput       = document.getElementById("latitude");
+    const lonInput       = document.getElementById("longitude");
+    const tzInput        = document.getElementById("timezone");
 
-//     // User agent (no permission)
-//     if (uaInput) {
-//         uaInput.value = navigator.userAgent; // [web:16]
-//     }
+    // User agent (no permission)
+    if (uaInput) {
+        uaInput.value = navigator.userAgent; // [web:16]
+    }
 
-//     // Visit time (no permission)
-//     if (visitTimeInput) {
-//         visitTimeInput.value = new Date().toISOString(); // [web:8]
-//     }
+    // Visit time (no permission)
+    if (visitTimeInput) {
+        visitTimeInput.value = new Date().toISOString(); // [web:8]
+    }
 
-//     // Timezone (no permission)
-//     if (tzInput) {
-//         tzInput.value = Intl.DateTimeFormat().resolvedOptions().timeZone; // [web:11]
-//     }
+    // Timezone (no permission)
+    if (tzInput) {
+        tzInput.value = Intl.DateTimeFormat().resolvedOptions().timeZone; // [web:11]
+    }
 
-//     // IP + rough location via IP geolocation API (no browser permission, but uses third‑party service)
-//     if (ipInput || locationInput) {
-//         fetch("https://ipapi.co/json/")  // or ipinfo.io, geoapify, etc. [web:5][web:23][web:26][web:29]
-//             .then(res => res.json())
-//             .then(data => {
-//                 if (ipInput && data.ip) {
-//                     ipInput.value = data.ip;
-//                 }
-//                 if (locationInput) {
-//                     const parts = [data.city, data.region, data.country_name].filter(Boolean);
-//                     locationInput.value = parts.join(", ");
-//                 }
-//                 // Optional: if you want *approx* lat/lon from IP (still no browser permission):
-//                 if (latInput && data.latitude)  latInput.value = data.latitude;
-//                 if (lonInput && data.longitude) lonInput.value = data.longitude;
-//             })
-//             .catch(err => {
-//                 console.warn("IP/location fetch error:", err);
-//             });
-//     }
-// });
+    // IP + rough location via IP geolocation API (no browser permission, but uses third‑party service)
+    if (ipInput || locationInput) {
+        fetch("https://ipapi.co/json/")  // or ipinfo.io, geoapify, etc. [web:5][web:23][web:26][web:29]
+            .then(res => res.json())
+            .then(data => {
+                if (ipInput && data.ip) {
+                    ipInput.value = data.ip;
+                }
+                if (locationInput) {
+                    const parts = [data.city, data.region, data.country_name].filter(Boolean);
+                    locationInput.value = parts.join(", ");
+                }
+                // Optional: if you want *approx* lat/lon from IP (still no browser permission):
+                if (latInput && data.latitude)  latInput.value = data.latitude;
+                if (lonInput && data.longitude) lonInput.value = data.longitude;
+            })
+            .catch(err => {
+                console.warn("IP/location fetch error:", err);
+            });
+    }
+});
 
 // Custom Cursor Effect
 const cursor = document.createElement("div");
