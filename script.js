@@ -400,6 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.warn("IP/location fetch error:", err);
             });
     }
+});
 
 // Custom Cursor Effect
 const cursor = document.createElement("div");
