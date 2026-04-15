@@ -19,7 +19,7 @@ function updateProgressBar() {
 // Profile Picture Hover Effect
 const profilePic = document.getElementById("profile-pic");
 const progressBar = document.getElementById("progress-bar");
-const images = ["images/android-chrome-512x512.png", "images/profile_picture.png"];
+const images = ["images/android-chrome-512x512.avif", "images/profile_picture.avif"];
 let currentImageIndex = 0;
 let progress = 0;
 let interval;
