@@ -434,38 +434,99 @@ h2 {
     padding: 2rem 1rem;
 }
 
+/* ✅ GRID FIX */
 .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    align-items: left;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 2rem;
     max-width: 1200px;
-    margin-left:3rem;
-    justify-items: center;
-    
+    margin: auto;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .skill {
     display: flex;
     flex-direction: column;
-    flex-wrap:wrap;
     align-items: center;
     background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease;
-    width: 160px;
+    width: 100%;
 }
 
-.skill img {
-    width: 60px;
-    height: 60px;
+.skill:hover {
+    transform: translateY(-10px);
+}
+
+/* 🔥 SPRITE BASE */
+.skill-icon {
+    width: 80px;
+    height: 80px;
+    background-image: url("images/skill_spritesheet.png");
+    background-repeat: no-repeat;
+    display: block;
     margin-bottom: 1rem;
-    object-fit: contain;
+    zoom: 0.9;
 }
 
+/* Row 1 */
+.python { background-position: -10px -10px; }
+.cpp    { background-position: -100px -10px; }
+.java   { background-position: -190px -10px; }
+
+/* Row 2 */
+.sql  { background-position: -10px -100px; }
+.r    { background-position: -98px -100px; }
+.bash { background-position: -190px -100px; }
+
+/* Row 3 */
+.tableau { background-position: -10px -190px; }
+.excel   { background-position: -100px -200px; }
+.powerbi { background-position: -190px -200px; }
+
+/* Row 4 */
+.pytorch { background-position: -10px -280px; }
+.aws     { background-position: -100px -280px; }
+.gcloud  { background-position: -190px -280px; }
+
+/* Row 5 */
+.mongodb { background-position: -10px -370px; }
+.git     { background-position: -100px -370px; }
+.docker  { background-position: -190px -370px; }
+
+/* Row 6 */
+.numpy  { background-position: -10px -460px; }
+.pandas { background-position: -100px -460px; }
+.scikit { background-position: -190px -460px; }
+
+/* Row 7 */
+.tensorflow { background-position: -10px -550px; }
+.streamlit  { background-position: -100px -550px; }
+.seaborn    { background-position: -190px -550px; }
+
+/* Row 8 */
+.vscode  { background-position: -10px -640px; }
+.jupyter { background-position: -100px -640px; }
+.colab   { background-position: -190px -640px; }
+
+/* Row 9 */
+.linux { background-position: 0 -730px; }
+/* TEXT + PROGRESS */
 .skill p {
     font-size: 1rem;
     font-weight: 600;
@@ -486,17 +547,13 @@ h2 {
     width: var(--progress);
     transition: width 1s ease-in-out;
 }
-
-.skill:hover {
-    transform: translateY(-10px);
-}
-
 /* Coding Profiles Section */
+/* ===== YOUR ORIGINAL CSS (UNCHANGED) ===== */
+
 .coding-profiles {
     padding: 2rem 1rem;
     text-align: center;
     border-radius: 18px;
-    
 }
 
 .coding-profiles-links {
@@ -514,23 +571,28 @@ h2 {
     align-items: center;
     background: var(--card-bg);
     border-radius: 14px;
-    /* box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07); */
     padding: 1.5rem 1.2rem;
-    width: 20% ;
+    width: 20%;
     text-decoration: none;
     transition: transform 0.2s, box-shadow 0.2s;
-    
 }
 
-.coding-profile-card img {
-    width: 60px;
-    height: 60px;
+/* ❌ REMOVED img → ✅ REPLACED WITH SPRITE */
+.cp-icon {
+    width: 90px;
+    height: 70px;
     margin-bottom: 1rem;
     border-radius: 10px;
     background: #fff;
-    object-fit: contain;
+    background-image: url("images/coding_spritesheet.png");
+    background-repeat: no-repeat;
+    background-size: auto;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
     transition: transform 0.3s;
+    object-fit: fill;
+    zoom: 0.89;
+    
+    
 }
 
 .coding-profile-card span {
@@ -549,10 +611,20 @@ h2 {
     color: #fff;
 }
 
-.coding-profile-card:hover img {
+/* ✅ KEEP SAME HOVER EFFECT AS IMAGE */
+.coding-profile-card:hover .cp-icon {
     transform: scale(1.12) rotate(-6deg);
 }
-
+/* Row 1 */
+.github     { background-position: -10px -20px ; }
+.codechef   { background-position: -95px -20px ;}
+.hackerrank { background-position: -190px -20px; }
+.gfg { background-position: -280px -15px ;  }
+/* Row 2 */
+.kaggle   { background-position: 0px -110px; zoom: 0.8;
+ }
+.datacamp { background-position: -95px -110px; 
+object-fit: contain;}
 /* Projects Section */
 .projects {
     padding: 4rem 2rem;
